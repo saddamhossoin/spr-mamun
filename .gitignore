@@ -1,3 +1,12 @@
 # User specific & automatically generated files #
 #################################################
 /lib
+/plugins
+/vendors
+/app/Console
+/app/Config
+/app/Lib
+/app/Test
+/app/tmp
+/app/Vendor
+
