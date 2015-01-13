@@ -1,0 +1,116 @@
+.serviceDeviceInfos {
+		width:99%;
+}
+.serviceDeviceInfos label{
+	float:left !important;
+}
+.serviceDeviceInfos fieldset{
+ }
+ 
+.reciveDevice{
+	width:100% !important;
+	margin:3px auto;
+ 	padding:10px;
+	box-shadow:0px 0px 3px 0px;
+}
+.rdcontent_left{
+		float:left;
+		width:48%;
+}
+.rdcontent_right{
+		float:left;
+		width:48%;
+}
+#showDeviceDetails{
+	border: 1px dotted #f2f2f2;
+	display:none;
+}
+
+#showDeviceDetails ul li{
+	display:inline-block;
+	padding-left:35px;
+	font-weight:bold;
+ }
+ #showDeviceDetails ul li span{
+	 float:none !important;
+	 font-weight:normal !important;
+}
+.btn_popup_sAFSP{
+    width: 193px !important;
+}
+.addServiceInPopUp{
+		width:400px !important;
+}
+#addNewDeviceButton{
+		width:123px;
+		float:right;
+		margin-top:-3px;
+}
+#addNewDevice , #showSerialInfo{
+	width:90px;
+	padding:2px !important;
+}
+#btn_ServiceDeviceInfo_add , #btn_ServiceDeviceInfo_add_InstantInvoice{
+	width:auto;
+}
+ 
+#addNewDefect,#addDefect{
+	width: 	auto;
+ }
+#addNewDeviceDefectsButton{
+	float: right;
+    margin-right: 26px;	
+}
+#deviceDefectsAddingList ,#deviceAccessoriAddingList{
+	width:70%;
+	float:left;
+	border:1px solid #CCC;
+	min-height:35px;
+}
+.view_table{
+	border:0px !important;
+}
+#addNewDeviceAccessoryButton{
+	float: right;
+    padding-left: 113px;
+    width: 388px;
+}
+#addNewDeviceAcessories ,#addAcessories{
+	width:135px;
+}
+#WrapperServiceDeviceInfoIsDataBackup label , #WrapperServiceDeviceInfois_phone_block label , #WrapperServiceDeviceInfoIsSimPcLock label{
+	float:none !important;
+}
+#WrapperServiceDeviceInfoIsDataBackup label[for = "ServiceDeviceInfoDescription"] , label[for = "ServiceDeviceInfoIsPhoneBlock"], label[for = "ServiceDeviceInfoIsSimPcLock"]{
+	float:left;
+}
+#ServiceDeviceInfoIsPhoneBlockDiv  ,#ServiceDeviceInfoIsSimPcLockDiv{
+	margin-left:10px;
+	width:157px;
+	display:inline;
+ }
+ #ServiceDeviceInfoIsSimPcLock , #ServiceDeviceInfoIsPhoneBlock{
+ 	width:152px;
+ }
+#showSerialInfo{
+	display:none;
+	color:red;
+}
+#ServiceDeviceName{
+	float:left !important;
+}
+#WrapperServiceDeviceName{
+	width:400px !important;
+}
+#addNewDeviceButtona{
+ float: left !important;
+    margin-top: -5px !important;
+    width: 112px !important;
+}
+#addNewDeviceAsProduct{
+ 	height: 27px;
+    width: 94px;
+}
+#ServiceDeviceInfoSerialNo{
+	float:left !important;
+}

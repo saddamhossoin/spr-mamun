@@ -1,0 +1,15 @@
+.button_area{
+	margin-left:80px;
+}
+ 
+ #addNewDeviceButton {
+    float: right;
+    width: 123px;
+}
+#addNewDeviceButton {
+    margin-top: 0 !important;
+}
+#addNewDevice{
+	width:80px;}
+#ServiceServiceAddForm{
+	width:565px;}

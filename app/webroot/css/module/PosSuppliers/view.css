@@ -1,0 +1,21 @@
+/* CSS Document */
+.flexigrid div.hDiv {
+	/*width:1059px !important;
+	*/}
+.hDiv hDivBox{
+	width:800px !important;
+	}
+.supplier_view_div{
+	display:inline-block;
+	height:auto;
+	width:100%;
+	}
+.possupplier_history{
+	width:50%;
+	float:left;
+	}
+.posSuppliers{
+	width:50%;
+	float:left;
+	}
+	

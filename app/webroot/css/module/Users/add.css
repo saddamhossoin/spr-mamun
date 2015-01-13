@@ -1,0 +1,87 @@
+@charset "utf-8";
+/* CSS Document */
+.users {
+    margin: 0 auto;
+    width: 610px;
+}
+#GroupGroupId
+{
+	width:238px;
+}
+#emailvalidinfo
+{
+	border:1px solid #000066;
+ 	width:169px;
+	height:69px;
+ 	float:right;
+	padding:13px;
+ 	display:none;
+ 	margin-right: 114px;
+    margin-top: -24px;
+		
+	
+}
+ .microcontroll input[type="checkbox"] {
+ 	float:none !important;
+ }
+.microcontroll label {
+    float: left;
+    width: 135px;
+}
+
+.password_strength_1 {
+    color: #FCB6B1;
+}
+.password_strength_2 {
+    color: #FF3366;
+	font-weight:bold;
+}
+.password_strength_3 {
+    color: #993333;
+}
+.password_strength_4 {
+        color: #BCFCB1;
+
+}
+.password_strength_5 {
+color: green;
+}
+ .password_strength {
+    display: inline-block;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    margin-left: 7px;
+    padding: 5px;
+}
+.currectUserName
+{
+	background:url(../../../img/tik.png) no-repeat;
+	margin-right:100px;
+}
+#username_feedback
+{
+	float:right;
+	margin-right:100px;
+}
+#WrapperConfirmUserPassword .error{
+background:none !important;
+}
+#WrapperConfirmUserPassword label.error{
+display:inline-block !important;
+}
+ 
+.instruction{
+	display:block;
+	margin-left:140px;
+}
+#username_feedback span{
+	margin-top:6px;
+ }
+#userpa{
+	display:none !important;
+}
+.password_strength_11 {
+    color: #FF3366;
+    font-weight: bold;
+}

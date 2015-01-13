@@ -1,0 +1,25 @@
+	#PosBrandName{
+		width:210px;
+	} 
+ 	#PosBrandAddForm{
+		 width:560px;
+		 margin:0 auto;
+	}
+	#PosBrandAddress{
+		width:200px;
+	}
+	.button_area{
+		 margin-top:20px !important;
+ 	}
+	#duplicateMessage{
+		display:none;
+		color:#FF0000;
+		 padding-left: 10px;
+	}
+#invoice #WrapperPosBrandName label ,#invoice #WrapperPosProductImage label , #invoice #WrapperPosBrandAddress label{
+	float:left !important;
+	width:85px !important;
+}	
+#invoice  #PosBrandName{
+	width:204px !important;
+}

@@ -1,0 +1,150 @@
+.out_of_stock{
+	background:none repeat scroll 0 0 #FF0000;
+	}
+.available_btn{
+	background:none repeat scroll 0 0 #093;
+	}
+
+#tabs{
+	width:500px;
+	float:left;
+	margin-top:25px;
+	font-size:11px;
+	}
+#img_parent{
+	float:left;
+	width:470px;
+	background-color:#FFF;
+    border: 1px solid #888888;
+    border-radius: 5px;
+    box-shadow: -1px -1px 1px #777777;
+    color:	#000;
+    padding: 15px !important;
+    text-align: justify;
+	}
+.img_leftItem{
+	width:152px;
+	float:left;
+	}
+.description_RightItem{
+	width:230px;
+	float:left;
+	color:#01589B;
+	}
+.img_leftItem img {
+    box-shadow: 2px 2px 2px 2px #888888 !important;
+    height: 70px;
+    padding: 10px;
+    width: 100px !important;
+	background:white;
+	}
+.product_name{
+	_padding-top:1px;
+    margin-left: -12px;
+    padding: 1px 12px 11px;
+    text-align: left;
+  	}
+.product_name_main{
+	background-color: #F2F2F2;
+    border: 1px solid #EFEFEF;
+    line-height: 18px;
+    padding: 5px 5px 8px;
+    text-align: left;
+    vertical-align: top;
+  	}
+.leftItem img {
+    box-shadow: 2px 2px 2px 2px #888888 !important;
+    height: 55px;
+    padding: 7px;
+    width: 66px !important;
+}
+
+.item{
+	border: 1px solid #000000;
+    margin-left: -13px;
+    margin-top: 10px;
+    padding: 15px;
+    width: 460px;
+	height:160px;
+	background-color:#FFF;
+    border: 1px solid #888888;
+    border-radius: 5px;
+    box-shadow: -1px -1px 1px #777777;
+    color:	#000;
+    padding: 15px !important;
+    text-align: justify;
+ 	 }
+.description_grid{
+    height: 100px;
+    width: 160px;
+	float:left;
+	margin-top:9px;
+	font:11px/1.231 Verdana,Helvetica,Arial,sans-serif;
+	color:#01589B;
+	 }
+.img_name_full_div{
+    height: 75px;
+    width: 95px;
+	float:left;
+	margin-top:10px;
+	 }
+.des_btn_span{
+	float:left;
+	margin-left:8px;
+	}
+.action_link{
+  background: #FFFFFF;
+    border: 1px solid #D7D7D7;
+    border-radius: 5px;
+    color: #036FAD;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 3px 7px;
+    position: relative;
+	}
+.price_qty_div{
+	height: 100px;
+    width: 200px;
+	float:left;
+	margin-top:9px;
+	}
+.price_span input{
+	width:43px;
+	}
+.price_span{
+	float:none;
+	width:70px;
+	padding:8px;
+	}
+.hole_btn{
+	float:left;
+	margin-left:-8px;
+	}
+
+#myform {
+    text-align: center;
+    padding: 5px;
+    border: 1px dotted #ccc;
+    margin: 2%;
+	width:105px;
+	}
+.qty {
+    width: 40px;
+    height: 25px;
+    text-align: center;
+	}
+input.qtyplus { 
+	width:25px; height:29px;
+	}
+input.qtyminus { 
+	width:25px; height:29px;
+	}
+.main_item{
+	margin-top:8px;
+	}
+.price_qty_div span{
+	margin-top:5px;
+	}
+
+

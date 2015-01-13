@@ -1,0 +1,28 @@
+#navcontainer{
+	float: right;
+    width: 288px;
+	}
+#navcontainer ul
+{
+margin: 0;
+padding: 0;
+list-style-type: none;
+}
+li#ServiceComplete{
+	border:1.5px solid #3CF !important;
+	}
+
+#navcontainer li { margin: 0 0 .2em 0; float:left;}
+#navcontainer a
+{
+display: block;
+color: black;
+padding: .2em .8em;
+text-decoration: none;
+}
+.Service{
+	border:1.5px solid #3CF !important;
+	}
+.testing_view{
+	width:115px !important;
+}

@@ -1,0 +1,53 @@
+
+#invoice
+{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+ }
+ 
+.heading , #Test_total_amount
+{
+	font-weight:bold;
+ }
+ .invoicetop tr td span ,.heading span{
+ 	font-weight:normal;
+  }
+ .invoicetop tr td , #Test_description tr td ,#Test_total_amount tr td{
+ 	height:21px;
+	font-size:10px;
+  }
+ .left_part
+ {
+ 	width:44%;
+ }
+.center_part
+{
+	width:22%;
+}
+.right_part
+{
+	width:%;
+}
+.topbold
+{
+	font-size:11px;
+	font-weight:bold;
+	text-align:center !important;
+ }
+ .testlist_report {
+ 	border-bottom:1px dotted #999999;
+ }
+#Test_total_amount ,#labreport
+{
+	margin-top:12px;
+ }
+#labreport
+{
+  	border-top:1px dotted #999999;
+	margin-top:19px;
+}
+.lablistseparator{
+	border-top:1px dotted #999999;
+}
+
+ 

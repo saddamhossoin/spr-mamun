@@ -1,0 +1,261 @@
+ /* CSS Document */
+ #WrapperPosSaleReturnQuantity{
+	margin-left: 30px;
+    padding-top: 25px;}
+ #PosSaleReturnIndexForm{
+ 	width:400px;
+	margin-left:430px;}
+.button_area_filter{
+	margin-left:35px !important;}
+ #PosSaleReturnPosCustomerId{
+ 	width:150px;
+	} 
+#productdetails{
+	margin:0px auto;
+	width:340px;
+	}
+ 
+ #columns{
+	width:1326px;
+	height:452px;
+	}
+#PosSaleAmountItemCode{
+	width:200px;
+	}
+#PosSaleAmountQuantity{
+		width:200px;
+	}
+#PatientTestbox{
+	margin-top:50px !important;
+	float:left !important;
+	}
+
+     
+	#supplier{margin-left:25px; }
+	#supplier td{float:right;}
+	#supplier tr{padding:3px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;	}
+	#productinfo tr{padding:3px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	}
+	#productinfo{
+	margin-left:25px;
+ }
+	#productinfo td{
+	float:right;
+ 	}
+	#first label{
+	width: 115px; !important }
+	
+	
+ 	.pdetail th {height:25px;
+	text-align:center;
+	padding-bottom:2px;
+	padding-top:5px;
+    background: url("../../../img/grid/bg.gif") repeat-x scroll center top #FAFAFA;
+    border-color: #CCCCCC #CCCCCC -moz-use-text-color;
+    border-style: solid solid none;
+    border-width: 1px 1px 0;
+    position: relative;	}	
+
+.ProductSalesprices{
+    float: none;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-size: 11px;
+    padding-right: 4px;
+    text-align: right;
+    width: 300px;
+}
+td{
+text-align:center;
+}
+.accounts{
+
+width:100px;}
+
+.button_area {
+    border: 2px solid #B5CAD0;
+    margin-top: 4px;
+    padding: 3px;
+    text-align: center;
+    width: 170px;
+	margin:0px auto;
+}
+	.ui-button { margin-left: -1px; }
+	.ui-button-icon-only .ui-button-text { padding: 0.35em; } 
+	.ui-autocomplete-input { margin: 0; padding: 0.48em 0 0.47em 0.45em; width:200px;}
+	 
+#columns .widget {
+    -moz-border-radius: 4px 4px 4px 4px;
+    margin: 10px 10px 0;
+    padding: 2px;
+	float:left;
+	width:1000px;
+}
+ .color-blue {
+    background: none repeat scroll 0 0 #abc;
+}
+#columns .widget .widget-head {
+    color: #000000;
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+    width: 100%;
+}
+.widget-head a.collapse {
+    background: url(../pos_product/img/buttons.gif) no-repeat scroll -52px 0 transparent;
+    display: inline;
+    float: right;
+    height: 14px;
+    margin: 8px 0 8px 4px;
+    outline: medium none;
+    text-indent: -9999em;
+    width: 14px;
+}
+.widget-head a.remove {
+    background: url(../pos_product/img/buttons.gif) no-repeat scroll -24px 0 transparent;
+    display: inline;
+    float: right;
+    height: 14px;
+    margin: 8px 4px 8px 0;
+    outline: medium none;
+    text-indent: -9999em;
+    width: 14px;
+}
+ 
+#columns .widget .widget-content {
+    -moz-border-radius-bottomleft: 2px;
+    -moz-border-radius-bottomright: 2px;
+    background: #fff;
+    color: #000;
+    line-height: 1.2em;
+     padding: 10px 0;
+	 height:300px;
+}
+#columns .widget .widget-content tr {
+    list-style: disc outside none;
+    padding: 5px 0 5px 5px;
+}
+#columns .widget .widget-content tr td {
+    padding: 3px 0;
+}
+#columns .widget .widget-head h3 {
+    float: left;
+    padding: 0 5px;
+}
+ .color-red h3, .color-blue h3, .color-orange h3 {
+    color: #FFFFFF;
+}
+#PatientDetailsbox , #patientTestbox
+{
+	width:365px;
+}
+
+/* ========================= OverWrite common css ===============*/
+ 
+#PatientDetailAddForm .microcontroll label {
+    float: left;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-size: 11px;
+    padding-right: 4px;
+    text-align: right;
+    width: 116px;
+}
+/* ========================= OverWrite common css ===============*/
+ 
+.textheading
+{
+	text-align:right;
+	font-weight:bold;
+	width:114px;
+	padding-right:5px;
+	padding-bottom:7px;
+}
+#PatientDetailPSex
+{
+	width:180px;
+}
+.microcontroll select 
+{
+	width:146px;
+}
+ 
+ 
+.productlist td span {
+      float:left;
+}
+.productlist td .testvalli
+{
+	width:292px;
+}
+.deleverytime {
+	font-size:10px;
+	width:60px;
+} 
+#button1{
+margin-left:120px;
+}
+.productlist td .testamountli
+{
+	width:35px;
+}
+ 
+.deletelink
+{
+	background:url(../../../img/icons/delete1.png) no-repeat;
+	 height: 15px;
+    width: 17px;
+	margin-left:13px;
+}
+#WrapperPatientDoctorID div
+{
+	float:right;
+	margin-right:25px;
+}
+#PatientDetailDoctorId{
+	width:180px;
+}
+ 
+ 
+#btn_PatientDetails_edit_link {
+    float: right;
+	margin-top: -6px  ;
+
+}
+.button_area_noline {
+	width:90%;
+	padding:0px;
+ }
+#patienteditcontent{
+	width:800px;
+}
+ 
+#supllier{
+ }
+ #PosPurchasePosSupplierId{
+	width:145px;
+}
+#first{
+	float:left;
+	width:300px;
+	}
+#second{
+	width:450px;
+	float:left;
+  }
+ 
+ #info{
+border:1px solid #006666;} 
+#PosPurchasePurchaseDate{
+width:145px;
+}
+#WrapperPosPurchasemobile{
+float:left;
+}
+.accounts{
+float:right;
+width:310px;
+text-align:center;
+}

@@ -1,0 +1,14 @@
+@charset "utf-8";
+/* CSS Document */
+#GroupGroupId
+{
+	background:#000000;
+}
+#WrapperUserDescription label{
+	width:45px !important}
+#UserShowPerPage{
+	width:60px !important;}
+.button_area_filter{
+	margin:0 auto;}
+
+

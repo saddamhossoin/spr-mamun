@@ -1,0 +1,172 @@
+/* CSS Document */
+body{padding:0px; margin:0px; background:#f0f0f0; color:#869496; font:10px/14px Tahoma, sans-serif;}
+div, p, ul, h2, h3, h4, img{padding:0px; margin:0px;}
+ul{list-style-type:none;}
+
+.clear {clear: both; margin: 0px; height:0}
+
+p a{font:10px/14px Tahoma, sans-serif; color:#f5be49; text-decoration:underline;}
+p a:hover{ color:#f5be49; text-decoration:none;}
+
+p span.headline{font:12px/14px Arial, sans-serif; color:#319ec9; font-weight:bold}
+
+#container{width:715px; margin:0 auto; background:#fff; padding:0 20px; position:relative}
+
+/* TOP */
+
+#top{width:715px; height:98px; position:relative;}
+#logo{position:absolute; top:4px; left:0}
+
+#top ul.ico{position:absolute; top:35px; left:505px; width:200px}
+#top ul.ico li{float:left; height:30px; margin-right:12px; padding-left:14px;}
+#top ul.ico li a{display:block; font:10px/14px Trebuchet MS, sans-serif; color:#454b55; text-decoration:none; padding-top:10px;}
+#top ul.ico li a:hover{text-decoration:underline;}
+
+#top ul.ico li.home{background:	url(../../../img/wpage/spr/ico_1.gif) 0 14px no-repeat}
+#top ul.ico li.help{background:url(../../../img/wpage/spr/ico_2.gif) 0 14px no-repeat}
+#top ul.ico li.contact{background:url(../../../img/wpage/spr/ico_3.gif) 0 14px no-repeat; margin-right:0}
+
+#top ul.ico li.icoline{float:left; height:30px; width:1px; background: url(../../../img/wpage/spr/b_lineico.gif) 0 0 repeat-y; padding-left:0}
+
+/* MENU */
+
+#menuPan{width:715px; height:40px; position:relative; background:url(../../../img/wpage/spr/b_menu.gif) 0 0 no-repeat;}
+
+#menuPan ul.menu{position:absolute; top:6px; left:26px; }
+#menuPan ul.menu li{float:left; height:21px; margin-right:20px;}
+#menuPan ul.menu li a{height:21px; display:block; _text-indent:-20000px; }
+#menuPan ul.menu li a:hover{height:21px;}
+
+#menuPan ul.menu li.home a{width:66px;_background:url(../../../img/wpage/spr/btn_1.gif) 0 8px no-repeat; padding-top:8px }
+#menuPan ul.menu li.home a:hover{width:52px; _background:url(../../../img/wpage/spr/btn_1_over.gif) 0 8px no-repeat;}
+
+#menuPan ul.menu li.about a{width:59px; _background:url(../../../img/wpage/spr/btn_2.gif) 0 8px no-repeat; }
+#menuPan ul.menu li.about a:hover{width:50px; _background:url(../../../img/wpage/spr/btn_2_over.gif) 0 8px no-repeat;}
+
+#menuPan ul.menu li.products a{width:61px; _background:url(../../../img/wpage/spr/btn_3.gif) 0 8px no-repeat; }
+#menuPan ul.menu li.products a:hover{width:61px; _background:url(../../../img/wpage/spr/btn_3_over.gif) 0 8px no-repeat;}
+
+#menuPan ul.menu li.services a{width:56px; _background:url(../../../img/wpage/spr/btn_4.gif) 0 8px no-repeat; }
+#menuPan ul.menu li.services a:hover{width:56px; _background:url(../../../img/wpage/spr/btn_4_over.gif) 0 8px no-repeat;}
+
+#menuPan ul.menu li.support a{width:56px; _background:url(../../../img/wpage/spr/btn_5.gif) 0 8px no-repeat; }
+#menuPan ul.menu li.support a:hover{width:56px; _background:url(../../../img/wpage/spr/btn_5_over.gif) 0 8px no-repeat;}
+
+#menuPan ul.menu li.reviews {margin-right:0}
+#menuPan ul.menu li.reviews a{width:70px; _background:url(../../../img/wpage/spr/btn_6.gif) 0 8px no-repeat; }
+#menuPan ul.menu li.reviews a:hover{width:52px; _background:url(../../../img/wpage/spr/btn_6_over.gif) 0 8px no-repeat;}
+
+#menuPan ul.menu li.line {width:2px; background:url(../../../img/wpage/spr/line_m.gif) 0 0 no-repeat}
+
+/* HEADER */
+
+#header{width:715px; height:215px; position:relative; background:url(../../../img/wpage/spr/b_header.jpg) 0 0 no-repeat; margin-bottom:8px}
+#slogan{position:absolute; top:49px; left:313px}
+#btn_buy{position:absolute; top:26px; left:211px}
+
+ul.topics{position:absolute; top:134px; left:348px; width:263px}
+ul.topics li{height:18px; margin-bottom:2px;}
+ul.topics li {height:18px; display:block; text-indent:-20000px; }
+
+ul.topics li.t01 {background:url(../../../img/wpage/spr/topic_1.gif) 0 0 no-repeat; }
+ul.topics li.t02 {background:url(../../../img/wpage/spr/topic_2.gif) 0 0 no-repeat; }
+ul.topics li.t03 {background:url(../../../img/wpage/spr/topic_3.gif) 0 0 no-repeat; }
+
+/* CONTENT */
+
+#leftPan{width:195px; margin:0 19px 0 0; float:left; display:inline}
+#rightPan{width:475px; float:left; position:relative}
+
+#news{height:auto;width:193px; padding:0px 0px 15px 0px; border:#e7edf2 1px solid; margin-bottom:10px}
+#news h2{padding:3px;font-size:18px;height:25px;font-weight:bold;position:relative; background:	#f4f9f6; margin-bottom:14px;color:#869496}
+#news p{ border-bottom:#e7edf2 1px dashed;}
+#news p span a{height:14px; _background:url(../../../img/wpage/spr/icon_news.gif) 0 2px no-repeat; padding-left:22px; display:block; margin-bottom:8px; font:12px/14px Arial, sans-serif; color:black; font-weight:bold;}
+#news p a{font:10px/14px Tahoma, sans-serif; color:#869496; text-decoration:none;}
+#news p a:hover{ color:#869496; text-decoration:none;}
+#news #btn_news{margin-left:70px}
+
+#featured{height:auto;_width:193px; border:#e7edf2 1px solid; background:#fff url(../../../img/wpage/spr/b_featured.gif) 0 0 repeat-x; padding:0px 16px 15px 0px;}
+#featured h2{height:25px; position:relative; _background:url(../../../img/wpage/spr/h_featured.gif) 15px 4px no-repeat; _margin-bottom:5px;	padding:3px;font-weight:bold;font-size:18px;}
+#featured #feat_img{margin-left:15px;}
+#featured #description{width:193px; _text-align:center; }
+#featured #description p span.name{font:12px/14px Arial, sans-serif; color:#319ec9; font-weight:normal; display:block; margin-bottom:4px}
+#featured #description p span{color: #F5BE49;
+    display: block;
+    font: bold 12px/14px Arial,sans-serif;
+    height: 14px;
+    margin-bottom: 8px;
+    padding-left: 22px;}
+
+#welcome{width:465px; background:url(../../../img/wpage/spr/b_welcome.jpg) left bottom repeat-x; position:relative; margin-bottom:21px}
+#welcome h2{height:58px; position:relative; background:url(../../../img/wpage/spr/h_welcome.gif) 12px 21px no-repeat; margin-bottom:11px}
+#welcome #leftWel{margin:0 14px; float:left; display:inline}
+#welcome #rightWel{width:350px; float:left;}
+#welcome #rightWel p{ margin-bottom:10px; padding-top:3px}
+#welcome #rightWel p span{display:block; margin-bottom:5px}
+#welcome #rightWel .btn_more{float:left; margin-left:270px; margin-bottom:16px}
+
+#reviews{width:100%; position:relative;margin-right:17px; margin-left:11px;  float:left; display:inline }
+#reviews h2{height:30px; position:relative; background:#F4F9F6; margin-bottom:18px;font-size:18px;	font-weight:bold}
+#reviews .item{width:100%;margin-left:3px}
+#reviews .item .leftItem{float:left; margin-right:12px; margin-bottom:15px; text-align:center;	width:20%; min-height:140px; font-size:9px;}
+#reviews .item .rightItem{float:left;  margin-bottom:15px; width:143px}
+#reviews .item .rightItem p{margin-bottom:8px; line-height:12px}
+#reviews .item .rightItem img{margin-right:8px}
+
+#services{width:205px; position:relative; float:left; }
+#services h2{height:30px; position:relative; background:url(../../../img/wpage/spr/h_services.gif) 6px 0 no-repeat; margin-bottom:18px}
+.services_topic{margin-bottom:15px}
+#services img{float:left; margin-right:5px}
+#services p{float:left; width:145px; line-height:12px;}
+#services p span{display:block; margin-bottom:3px}
+
+/* FOOTER */
+
+#footer{height:85px; width:715px; margin-top:18px; background:url(../../../img/wpage/spr/b_footer.gif) 0 0 repeat-x}
+#footer p{padding: 25px 0 0 0; font:11px/16px Trebuchet MS, sans-serif; font-weight:normal; text-align:center; color:#869496;}
+#footer p span{font:10px/16px Trebuchet MS, sans-serif;}
+#footer p a{font:11px/16px Trebuchet MS, sans-serif; font-weight:normal; color:#869496; text-decoration:none; padding: 0 5px }
+#footer p a:hover{text-decoration:none; background:#869496; color:#fff}
+.sponsor {
+	margin: auto;
+	width: 728px;
+	padding-top: 5px;
+	padding-bottom: 15px;
+	text-align: center;
+}
+.sponsor img {
+	margin-top: 5px;
+}
+/*-----------------------------------*/
+.block-auth a{
+	color:#FF776E !important;
+}
+
+#featured #description p span a{
+	color: black;
+    display: block;
+    font: bold 12px/14px Arial,sans-serif;
+    height: 14px;
+    margin-bottom: 8px;
+    _padding-left: 22px;
+	text-decoration:none;
+	padding:8px;
+	}
+input, textarea, select {
+    border: 1px solid #C5C5C5;
+    color: #000000;
+    font-size: 11px;
+}
+.testoLog {
+    color: #999999;
+    font-size: 11px;
+}
+input.login {
+    border: 1px solid #FFFFFF;
+}
+
+button{
+	border: 1px solid #C5C5C5;
+    color: #000000;
+    font-size: 11px;
+	}

@@ -1,0 +1,192 @@
+@charset "utf-8";
+/* CSS Document */
+.ACCESSORI{
+	width:405px;
+	font-size:13px;
+	}
+.DIFETTO{
+	width:405px;
+	font-size:13px;
+	}
+.full_data_below{
+    font-family: times new roman;
+    font-size: 15px;
+     padding: 10px;
+    width: 500px;
+}
+ .full_table_div{
+	font-size:9px;
+	text-align:center;
+	margin-top:7px;
+	}
+.full_table_below div{
+	
+    float: left;
+    padding: 4px;
+    width: 88px !important;
+	}
+.full_table_below{
+    float: left;
+    margin-left: -23px;
+    width: 210px !important;
+	background:none repeat scroll 0 0 #ddd;
+}
+.orari{
+   border: 1px solid #000000;
+    float: left;
+    height: 6px !important;
+    margin-left: 15px;
+    margin-right: 7px;
+    margin-top: 14px;
+    padding: 13px;
+    transform: rotate(270deg);
+    width: 36px !important;
+	background:none repeat scroll 0 0 #ddd;
+}
+
+
+h2.customer_heading{
+	font-weight:bold;
+	font-size:20px;
+	}
+h2.company_heading_right{
+	width:243px;
+	float:right;
+	font-weight: normal;
+	font-size:16px;
+	font-family:"Times New Roman", Times, serif;
+	}
+.customer_left_div{
+	float:left;
+ 	padding:12px;
+	width:237px !important;
+	margin-left:5px !important;
+	
+	}
+.title_div_logo{
+	width:237px !important;
+	padding:10px;
+	width:161px !important;
+	border:0.5px solid #000000;
+	margin-left:11px !important;
+	background:#ddd;
+	}
+.title_logo_right{
+	margin-left: -53px;
+    width: 231px !important;
+	}
+.print_img{
+	   padding-right:10px;
+  }
+.Print_Button{
+   font-weight:bold;
+  }
+ 
+.sec_div_wrapper {
+	 border: 1px solid;
+    height: 680px;
+    margin: auto;
+    width: 420px;
+}
+.logo_div {
+	float: right;
+	height: 60px;
+	width: 80px;
+}
+.company_title_div {
+	height: 150px;
+	width: 707px;
+}
+.company_title {
+	_height: 50px;
+	_width: 230px;
+	_float:right;
+    float: left;
+    height: 83px;
+}
+.company_title p {
+	font-size: 15px;
+	text-align:center;
+}
+.company_title h1 {
+	height:18px;
+	text-align:center;
+	font-family:LilyUPC;
+	font-size:35px;
+	
+}
+.customer_info_div {
+	_float: left;
+	height: 224px;
+	width: 420px;
+}
+.customer_info_div div {
+	_float: left;
+	height: auto;
+	width:395px;
+}
+.customer_left_div p {
+	background-color: #FFFFFF;
+	color: #000000;
+	font-family: "Times New Roman", Times, serif;
+	text-align: left;
+	font-size:12pt;
+	line-height:7px;
+}
+.customer_info_p {
+	height: 73px;
+	width: 265px !important;
+	margin-top:18px;
+}
+.customer_info_p p {
+	padding: 0 0 1px 6px;
+	line-height:20px;
+}
+.customer_right_div {
+	background-color: #FFFFFF;
+	color: #000000;
+	font-family: Arial;
+	text-align: left;
+	font-size:8pt;
+	float:left;
+	width:150px !important;
+}
+.customer_right_div p {
+	padding: 0 0 1px 6px;
+	background-color: #FFFFFF;
+	color: #000000;
+	font-family: Arial;
+	text-align: left;
+	font-size:10pt;
+	line-height:20px;
+	font-weight:bold;
+}
+.customer_info_right {
+	width:270px !important;
+	float:none !important;
+}
+.customer_info_table {
+	float: right !important;
+	width: 300px !important;
+}
+
+
+
+.product_table_div {
+	width:300px !important;
+	height:75px;
+	float:left;
+	margin:5px -103px;
+	border:0px solid #000000 !important;
+	
+}
+.full_data_div {
+	width:700px;
+	height:auto;
+	float:left;
+}
+
+
+
+
+

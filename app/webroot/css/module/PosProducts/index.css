@@ -1,0 +1,25 @@
+.group_row
+{
+	font-weight:bold !important;
+	padding-left:25px !important;
+}
+.colorbox{
+	padding:2px 6px !important;
+}
+ 
+#PosProductModifyedby{
+	width:150px;}
+#PosProductPosBrandId,#PosProductPosPcategoryId{
+	width:180px;
+	}
+	
+#WrapperPosProductDescription label{
+	width:45px !important}
+#WrapperEmail label{
+	width:45px !important	
+}
+#PosProductShowPerPage{
+	width:60px !important;}
+.button_area_filter{
+	margin:0 auto;}
+ 

@@ -1,0 +1,16 @@
+.posCustomers{
+	width:50%;
+	float:left;
+}
+.posCustomers_history{
+	width:50%;
+	float:left;
+}
+.customer_view_div{
+	display:inline-block;
+	height:auto;
+	width:100%;
+}
+.history{
+	margin-top:15px;
+}

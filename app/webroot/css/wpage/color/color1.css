@@ -1,0 +1,8 @@
+.portfolio-item .folio-body, .promo-info a, #promotion .flex-control-paging li a.flex-active, #nl-go, .input-404 button, .input-wrapper button, .contact-form button, .add-response button, .contact-form button:hover, .custom-pagination a:hover, .sidebar .input-append button.add-on, .service:hover .wrapper-icon, #services-wrapper-dark .service:hover .wrapper-icon , .project-nav a:hover   {background-color:#D74142}
+.custom-pagination ul .active, .custom-pagination li:hover, .newsletter-form h4, .theme-color, .face h5, .head-404, #page-overview h3, .post-info li span, .blog-unit a, .date-stamp, a.prev:hover span, a.next:hover span, #tweets li .timestamp, .tweets-widget li .timestamp, #tweets a, .tweets-widget a, #tweets li:hover .tweet-ico, .tweets-widget li:hover .tweet-ico, .blog-note h4, .comment-detail a:hover, .service:hover .service-detail, #filter-out li.active a, #home-tag h3{color:#D74142}
+.navbar-default .navbar-nav > li.active {
+  border-bottom: 1px solid #D74142;
+}
+.input-wrapper, ul.dropdown-menu {
+  border-top: 2px solid #D74142;
+}

@@ -1,0 +1,19 @@
+/* CSS Document */
+ #s2id_PosSupplierPosSupplierTypeId{
+	width:212px;
+	}
+ 
+#left,#right{
+	float:left;
+	}
+#PosSupplierAddForm{
+	width:70%;
+	margin-left:120px;
+	}
+#right{
+	padding-left:45px;
+	}
+#PosSupplierNote{
+	height: 76px;
+    width: 225px;
+	}

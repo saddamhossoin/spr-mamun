@@ -1,0 +1,44 @@
+.reportWapper {
+	width:298px;
+	font:Arial, Helvetica, sans-serif;
+	font-size:10px;
+	height:420px;
+	padding-top:60px;
+}
+.reviewer_div  {
+	width:100%;
+	font:Arial, Helvetica, sans-serif;
+	font-size:10px;
+	font-weight:bold;
+	float:left;
+ 	}
+.customer_info_div  , .product_table_div , .full_data_div{
+ 	height: auto;
+	width: 100%;
+  }
+ .product_table_div{
+ 	border:1px solid #999999;
+	margin:5px 15px;
+	width:90%;
+ }
+.date_month{
+    float: left;
+    margin-left: -50px;
+    margin-top: 10px;
+    width: 100px;
+}
+.product_table{
+	width:100%;
+}
+.product_table td ,  .full_data_div table td{
+	font:Arial, Helvetica, sans-serif;
+	font-size:10px;
+ }
+ .captionLeft{
+ 	vertical-align:text-top;
+	text-align:left;
+	font:Arial, Helvetica, sans-serif;
+	font-size:10px;
+	font-weight:bold;
+ }
+ 

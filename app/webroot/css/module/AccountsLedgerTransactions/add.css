@@ -1,0 +1,47 @@
+#AccountsLedgerTransactionAddForm{
+	width:425px;
+	margin:auto;
+	}
+.button_area{
+	margin-top:9px !important;
+	}
+.remove_btn_account{
+    background:  #FFFFFF;
+    border: 1px solid #D7D7D7;
+    border-radius: 5px;
+    color: #036FAD;
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 3px 7px;
+    position: relative;
+}
+
+#AccountsLedgerTransactioncheck_number,#AccountsLedgerTransactioncheck_date,
+#AccountsLedgerTransactionManualvoucherNumber,#AccountsLedgerTransactionAmount
+{
+    background: url("../../img/common/input_bg_tal.gif") repeat-x scroll left top #F2F4F6 !important;
+    border: 1px solid #D6DADE !important;
+    height: 19px !important;
+    padding-bottom: 2px !important;
+    padding-top: 2px !important;
+    vertical-align: baseline !important;
+    width: 232px !important;
+}
+
+#AccountsLedgerTransactionDebitCredit,#AccountsLedgerTransactionAccountHeadId{
+	width: 232px !important;
+    height: 25px !important;
+    padding-bottom: 2px !important;
+    padding-top: 2px !important;
+	}
+.debit_credit {
+    float: right;
+    margin: auto;
+    width: 430px;
+	}
+#WrapperAccountsLedgerTransactionDebit,#WrapperAccountsLedgerTransactionCredit{
+	margin-left:140px;
+	}

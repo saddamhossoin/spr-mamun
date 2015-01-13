@@ -1,0 +1,25 @@
+
+
+
+
+.lt-ie9 #newsletter #nl-email ,.lt-ie9 #newsletter #nl-name,.lt-ie9 .btn,.lt-ie9 .pricing.last .foot,.lt-ie9 .pricing.last .head ,.lt-ie9 .pricing.first .head,.lt-ie9 .pricing.first .foot,.lt-ie9 .pricing.first .foot,.lt-ie9 .pricing.first .head,.lt-ie9 .large .foot,.lt-ie9 .large .head,.lt-ie9 .face img ,.lt-ie9 .project-visual img,.lt-ie9 .project-visual,.lt-ie9 .carousel-pagination a,.lt-ie9 .portfolio-item img,.lt-ie9 .wrapper-icon,.lt-ie9  .promo-info a{
+	behavior: url(assets/css/PIE.htc);
+	z-index:10;
+	position:relative;
+}
+.lt-ie9 .blog-hover a,.lt-ie9  .portfolio-item .folio-body{
+	behavior: url(assets/css/PIE.htc);
+	z-index:10;
+}
+.lt-ie9 .portfolio-item .folio-body{
+	display:none;
+}
+
+.lt-ie9 .portfolio-item:hover .folio-body{
+	display:block;
+	background:#fff;
+}
+.ie9 .service,.ie9 .e-letter,.ie9 .promo-visual,
+.ie9 .right-service,.ie9 .left-service,.ie9 .center-service,.ie9 .showcase{
+	opacity:1;
+}

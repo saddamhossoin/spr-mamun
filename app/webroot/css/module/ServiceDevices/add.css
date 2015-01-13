@@ -1,0 +1,20 @@
+.button_area{
+	margin-left:80px;}
+	
+	#addNewBrand, #addNewCategory {
+    padding: 2px !important;
+    width: 90px;
+}
+#addNewDeviceButton {
+    margin-top: 0 !important;
+}
+#addNewDeviceButton {
+    float: right;
+    width: 123px;
+}
+.button_area {
+    margin-top: 27px !important;
+}
+#ServiceDeviceAddForm {
+    float: left;
+}

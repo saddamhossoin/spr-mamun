@@ -1,0 +1,35 @@
+
+#AccountsLedgerTransactioncheck_number,#AccountsLedgerTransactioncheck_date
+{
+    background: url("../../img/common/input_bg_tal.gif") repeat-x scroll left top #F2F4F6 !important;
+    border: 1px solid #D6DADE !important;
+    height: 19px !important;
+    padding-bottom: 2px !important;
+    padding-top: 2px !important;
+    vertical-align: baseline !important;
+    width: 262px !important;
+}
+.button_area{
+	    margin: 35px auto 0 98px;
+	}
+
+.microcontroll label {
+    float: left !important;
+    font-size: 11px !important;
+    font-weight: bold;
+    padding: 0 10px;
+	width:208px !important;
+}
+#AccountsLedgerTransactionAccountHeadId{
+	width:266px;
+	}
+#AccountsLedgerTransactionAmount{
+	width:260px;
+	}
+#AccountsLedgerTransactionCounterAccountHeadId{
+	width:266px;
+	}
+
+#AccountsLedgerTransactionManualvoucherNumber,#AccountsLedgerTransactioncheck_date_cash{
+	width:260px;
+	}

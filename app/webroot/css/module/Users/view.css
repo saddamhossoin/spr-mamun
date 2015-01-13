@@ -1,0 +1,12 @@
+@charset "utf-8";
+/* CSS Document */
+#GroupGroupId
+{
+	background:#000000;
+}
+
+.groupnametitle{
+font-size:12;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-weight:bold;
+}

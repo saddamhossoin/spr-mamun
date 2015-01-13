@@ -1,0 +1,34 @@
+.button_area_filter {
+    margin: auto;
+    padding: 3px;
+    width: 170px;
+}
+#check_complete{
+	color:#6600cc ;
+	}
+#check_list{
+	color:#90C;
+	}
+#reassessment{
+	color:#C3F;
+	}
+#Receive{
+	color:#33F;
+	}
+#wait_approve{
+	color:#FF0000;
+	}
+#Approved{
+	color:#063;
+	}
+.link_view {
+    background: url("../../img/grid/title.gif") repeat-x scroll left bottom #ffffff;
+    border: 1px solid #d7d7d7;
+    border-radius: 5px;
+    color: #036fad;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 3px 7px;
+    position: relative;
+}

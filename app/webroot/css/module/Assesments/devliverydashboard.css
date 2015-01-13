@@ -1,0 +1,31 @@
+#navcontainer{
+	float: right;
+    width: 288px;
+	}
+#navcontainer ul
+{
+margin: 0;
+padding: 0;
+list-style-type: none;
+}
+li#Tested{
+	background-color: #06F !important;
+	}
+li#Delivery{
+	background-color: #9C9 !important;
+	}
+
+#navcontainer li { margin: 0 0 .2em 0; float:left;}
+#navcontainer a
+{
+	display: block;
+	color: #FFF;
+	padding: .2em .8em;
+	text-decoration: none;
+}
+.Tested{
+		background-color: #06F !important;
+	}
+.Waiting{
+		background-color: #9C9 !important;
+	}

@@ -1,0 +1,47 @@
+@charset "utf-8";
+/* CSS Document */
+#UserAddinfoForm
+{
+	width:710px;
+  }
+.ajax_status {
+	display: none;
+}
+.ajax_success {
+	color: #036A0D;
+}
+
+.ajax_error {
+	color: #FF0000;
+}
+
+#emailvalidinfo
+{
+	border:1px solid #000066;
+ 	background:url("../../img/black_arrow.png");
+	width:169px;
+	height:69px;
+ 	float:right;
+	padding:13px;
+	color:#FFFFFF;
+	display:none;
+ 	margin-right: 114px;
+    margin-top: -24px;
+		
+	
+}
+#WrapperUserEmail .example
+{
+	display:none;
+}
+#UserCountry , #UserGender 
+{
+	width:235px;
+}
+#UserStreetaddress
+{
+	width:232px;
+}
+
+
+

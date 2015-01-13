@@ -1,0 +1,18 @@
+#footer{
+	background:url("../../img/wpage/spr/b_footer.gif") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
+	height:85px;
+	margin-top:90px;
+	}
+
+#footer p{
+	color:#869496;
+	font:11px/16px Trebuchet MS,sans-serif;
+	padding:25px 0 0;
+	text-align:center;
+	}
+#footer p a{
+	color:#869496;
+	font:11px/16px Trebuchet MS,sans-serif;
+	padding:0 5px;
+	text-decoration:none;
+	}

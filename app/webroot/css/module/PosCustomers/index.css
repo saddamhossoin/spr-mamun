@@ -1,0 +1,12 @@
+ 
+#WrapperPosCustomerDescription label{
+	width:50px;}
+#PosCustomerShowPerPage{
+	width:60px !important;}
+.button_area_filter{
+	margin:0 auto;
+	}
+#PosCustomerName,#PosCustomerEmail {
+	width:250px !important;
+	}
+

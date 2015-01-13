@@ -1,0 +1,32 @@
+.serviceDeviceInfos {
+		width:1024px;
+}
+.serviceDeviceInfos fieldset{
+ }
+legend{
+	  box-shadow: 0 0 3px 0;
+      padding: 3px;
+ }
+.reciveDeviceCalender{
+	width:98% !important;
+	margin:3px auto;
+ 	padding:10px;
+	box-shadow:0px 0px 3px 0px;
+}
+.rdcontent_left{
+		float:left;
+		width:48%;
+}
+.rdcontent_right{
+		float:left;
+		width:48%;
+}
+.custom,
+.custom div,
+.custom span {
+    background-color: #F0f0; /* background color */
+    border-color: green;     /* border color */
+    color: #FFF;
+	padding:0px 2px;           /* text color */
+}
+ 

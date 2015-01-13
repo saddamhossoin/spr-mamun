@@ -1,0 +1,22 @@
+/* CSS Document */
+
+#WrapperServiceDeviceInfoDescription label{
+	width:45px !important}
+#WrapperEmail label{
+	width:45px !important	
+}
+#ServiceDeviceInfoShowPerPage{
+	width:60px !important;}
+.button_area_filter{
+	margin:0 auto;}
+	.link_view {
+    background: #ffffff;
+    border: 1px solid #d7d7d7;
+    border-radius: 5px;
+    color: #036fad;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 3px 7px;
+    position: relative;
+}

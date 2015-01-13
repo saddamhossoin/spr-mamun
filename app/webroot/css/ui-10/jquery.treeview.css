@@ -1,0 +1,101 @@
+.menutree	{
+	width:342px;
+	min-height:175px;
+ 	padding:10px 5px 10px 5px;
+ 	}
+
+/* Menu styles */
+.menutree ul
+	{
+	margin:0px;
+	padding:0px;
+	text-decoration:none;
+	}
+.menutree li
+	{
+	margin:0px 0px 0px 5px;
+	padding:0px 0px 5px 0px;
+	list-style-type:none;
+	text-align:left;
+	font-family:Arial,Helvetica,sans-serif;
+	font-size:13px;
+	font-weight:normal;
+	}
+
+/* Submenu styles */
+
+
+	.menutree ul ul 
+	{
+	background-color:#F6F6F6;
+	
+	}
+.menutree li li
+	{
+	margin:0px 0px 0px 16px;
+	
+	}
+
+/* Symbol styles */
+.menutree .symbol-item,
+.menutree .symbol-open,
+.menutree .symbol-close
+	{
+	float:left;
+	width:16px;
+	height:1em;
+	background-position:left center;
+	background-repeat:no-repeat;
+	}
+.menutree .symbol-item  { background-image:url(../../img/icons/page.png); }
+.menutree .symbol-close { background-image:url(../../img/icons/plus.png);}
+.menutree .symbol-open  { background-image:url(../../img/icons/minus.png); }
+.menutree .symbol-item.last  { }
+.menutree .symbol-close.last { }
+.menutree .symbol-open.last  { }
+
+/* Menu line styles */
+.menutree li.item  { font-weight:normal; }
+.menutree li.close { font-weight:normal; }
+.menutree li.open  { font-weight:bold; }
+.menutree li.item.last  { }
+.menutree li.close.last { }
+.menutree li.open.last  { }
+
+a.go:link, a.go:visited, a.go:active
+        {
+        display:block;
+        height:26px;
+        width:100px;
+        background-color:#FFFFFF;
+        color:#333333;
+        font-family:Arial,Helvetica,sans-serif;
+        font-size:12px;
+        font-weight:bold;
+        text-align:right;
+        text-decoration:none;
+        line-height:26px;
+        padding-right:30px;
+        background-image:url(go.gif);
+        background-position:right;
+        background-repeat:no-repeat;
+        }
+a.go:hover
+        {
+        text-decoration:none;
+        color:#ccc;
+        }
+/*#browser { width:40%; background-color:#000; padding:0px; margin-left:24px; }
+#browser li { list-style:none; margin:1px 0px; }
+#browser li a { display:block; height:16px; padding:0px 4px; background-color:#000; color:#000; }
+#browser li ul { margin:0px; padding:0px; }
+#browser li ul li a { background-color:#000; border-bottom: solid #000 1px; padding-left:20px; }
+*/
+#browser {  }
+#browser li {list-style:none; margin-bottom:0px; }
+#browser li a { 
+		color:#000;
+		font-size:16px;
+}
+#browser li ul { }
+#browser li ul li a { }

@@ -1,0 +1,22 @@
+@charset "utf-8";
+/* CSS Document */
+
+#PosStockIndexForm {
+	text-align:center;
+	width:950px;
+ }
+ #PosStockShowPerPage{
+	 width:50px !important;
+ }
+ #PosStockModified , #PosStockModified1{
+ 	 width:80px !important;
+ }
+ #WrapperPosStockDescription{
+ float:left;
+ }
+#PosProductPosProductId {
+	width:136px;
+}
+#WrapperTestName {
+	float:left;
+}

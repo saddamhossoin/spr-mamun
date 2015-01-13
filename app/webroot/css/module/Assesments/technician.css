@@ -1,0 +1,196 @@
+.serviceDeviceInfos {
+		width:1024px;
+}
+.serviceDeviceInfos fieldset{
+ }
+legend{
+	  box-shadow: 0 0 3px 0;
+      padding: 3px;
+ }
+.reciveDevice{
+	width:1024px !important;
+	margin:3px auto;
+ 	padding:10px;
+	box-shadow:0px 0px 3px 0px;
+}
+.rdcontent_left{
+		float:left;
+		width:98%;
+}
+.assesmentSDIGrid{
+		width:100%;
+		border:1px dotted #CCC;
+}
+.assesmentSDIGrid tr td{
+	padding:5px;
+}
+.headingtag{
+		color:#006;
+		font-family:Verdana, Geneva, sans-serif;
+		font-weight:bold;
+}
+.assesmentSDIGrid tr td:nth-child(2) , .assesmentSDIGrid tr td:nth-child(4)
+{
+	border-right:1px solid #999 !important;
+	
+}
+.assesmentSDIGrid tr td:nth-child(1) , .assesmentSDIGrid tr td:nth-child(3), .assesmentSDIGrid tr td:nth-child(5){
+	font-weight:bold;
+	width:99px;
+	
+}
+.AssesmentInventorylist td .testamountli
+{
+	width:35px;
+}
+
+
+#btn_Assesment_edit,#add_inventory , .add_assesment_inventory , .reciveDeviceAssementInventory .action_link , #add_Service , .add_assesment_Service ,.AssesmentServiceRemove{
+	float:right;
+	 background: #FFFFFF;
+    border: 1px solid #D7D7D7;
+    border-radius: 5px;
+    color: #036FAD;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 3px 7px;
+    position: relative;
+	cursor:pointer;
+}
+ 
+ #add_inventory{
+	cursor:pointer;
+}
+
+ .view_table tr td{
+	border: 1px dotted #CCCCCC;
+    padding: 5px;
+	font-size:10px !important;
+}
+ 
+label[for = AssesmentInventorycheckQuantity]{
+	color:red;
+	float:right !important;
+}
+.inventory_invoice_info{
+	float: right;
+    width: 200px;}
+	
+.inventory_invoice_info_left{
+	float: left;
+    font-weight: bold;
+    width: 50%;
+	 }
+.inventory_invoice_info_right{
+	float: left;
+    font-weight: bold;
+    width: 50%;
+	 }
+	.deletelink
+	{
+		background:url(../../img/icons/delete1.png) no-repeat;
+		height: 15px;
+		width: 17px;
+		margin-left:13px;
+		display: block;
+	}
+	.AssesmentInventorylist tr,.AssesmentServicelist tr{
+		height:25px;
+	}
+	.AssesmentInventorylist tr td,.AssesmentServicelist tr td {
+		text-align:center;
+		border:1px solid #CCCCCC;
+		vertical-align:middle;
+	}
+	.pdetail th,.pdetail1 th {
+		height:25px;
+		text-align:center;
+		padding-bottom:2px;
+		padding-top:5px;
+		background: url("../../img/grid/bg.gif") repeat-x scroll center top #FAFAFA;
+		border-color: #CCCCCC #CCCCCC -moz-use-text-color;
+		border-style: solid solid none;
+		border-width: 1px 1px 0;
+		position: relative;
+		}	
+ 	.assmentadd {
+		background: none repeat scroll 0 0 #F8F8F8;
+		padding-top: 15px;
+		width: 900px !important;
+	}
+	.assmentadd .reciveDevice{
+		width:824px !important;
+		margin:3px auto;
+		padding:10px;
+		box-shadow:0px 0px 3px 0px;
+	}
+	.assmentadd .rdcontent_left{
+			float:left;
+			width:100%;
+	}
+	.rdcontent_left1{
+			float:left;
+			width:49%;
+	}
+	.rdcontent_right{
+		float:left;
+		width:49%;
+	}
+	.assesmentSDIGrid{
+			width:100%;
+			border:1px solid #CCC;
+	}
+	.assesmentSDIGrid tr td{
+		padding:5px;
+		border:1px dotted #CCC;
+ 	}
+	.headingtag{
+			color:#006;
+			font-family:Verdana, Geneva, sans-serif;
+			font-weight:bold;
+	}
+	.assesmentSDIGrid thead tr td:nth-child(1)
+	{
+		border-right:1px solid #999 !important;
+		
+	}
+	.assesmentSDIGrid tr td:nth-child(2) , .assesmentSDIGrid tr td:nth-child(4)
+	{
+		border-right:1px solid #999 !important;
+		font-size:11px;
+		
+	}
+	.assesmentSDIGrid tr td:nth-child(1) , .assesmentSDIGrid tr td:nth-child(3), .assesmentSDIGrid tr td:nth-child(5){
+		font-weight:bold;
+		width:79px;
+		font-size:11px !important;
+		
+	}
+	 
+	.reciveDeviceInvoice .rdcontent_left1{
+	
+	  border-right: 1px solid #ccc;
+	  width: 47% !important;
+	  margin-right: 22px;
+	}
+	.pdetail{
+	  margin-left: -10px;
+	}
+	.pdetail1{
+	  margin-left: -22px;
+	  margin-right: -20px;
+	}
+	.ba_assmentsave{
+		width:100px !important;
+		margin-left:-9px;
+	
+	}
+	#AssesmentNote{
+		min-height:74px;
+	}
+	.assesmentInventoryPrice , .assesmentInventoryQuantity  {
+		width:87px !important;
+		text-align:center;
+		font-weight:bold;
+ 	}

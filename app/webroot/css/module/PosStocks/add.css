@@ -1,0 +1,15 @@
+/* CSS Document */
+.posStocks{
+	width:450px;
+	margin:auto;
+	}
+#PosStockPosProductId{
+	width:200px;
+	}
+#PosStockQuantity{
+	width:198px;
+	}
+.button_area{
+	width:200px;
+	margin-top:50px !important;
+	}

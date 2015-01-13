@@ -1,0 +1,100 @@
+/* CSS Document */
+ 
+#exist{
+	display:none;
+	}
+
+#PosProductPosBrandId,#PosProductPosPcategoryId,#PosProductName,#PosProductPurchaseprice,#PosProductSalesprice,#PosProductInStock,#PosProductReorder{
+	width:227px !important;
+	}
+	
+#PosProductDescription{
+	width:217px;
+	}
+	
+ .productimage{
+	width:100px;
+	height:85px;
+	 
+}
+
+#PosProductPurchaseprice,#PosProductSalesprice,#PosProductInStock,#PosProductReorder{
+	width:235px !important;}
+#PosProductAddForm{
+	float:left;}
+ #addNewDeviceButton {
+    float: right;
+    width: 123px;
+	}
+#addNewDeviceButton{
+	margin-top: 0px !important;
+	}
+#addNewBrand,#addNewCategory {
+    padding: 2px !important;
+    width: 90px;
+}
+
+.posProducts{
+	width:95%;
+	margin:0 auto}
+#left,#right{
+	float:left;}
+#PosProductImage{
+	float:left;
+	margin-left:80px;}
+	
+	.add_pos_compatability , .PosCompatibilityRemoveA ,.compatability_title{
+  background: #FFFFFF;
+    border: 1px solid #D7D7D7;
+    border-radius: 5px;
+    color: #036FAD;
+    cursor: pointer;
+    display: inline-block;
+     font-size: 11px;
+    font-weight: bold;
+    padding: 3px 7px;
+    position: relative;
+}
+.view_table tr td:first-child , 
+.view_table tr td:nth-child(2) {
+    font-weight: normal !important;
+ }
+ 
+.view_table tr th, .view_table tr td  {
+    border-bottom: 1px solid #CCCCCC;
+    border-left: 1px solid #CCCCCC;
+ }
+ #CompitablityArea
+{
+		border:1px solid #f2f2f2;
+		width:100%;
+}
+#CompitablityArea .microcontroll label {
+    float: none !important;
+}
+ 
+#btn_PosCompatability_search , #btn_PosCompatability_reset{
+	border-width: 2px;
+    color: #565656;
+    cursor: pointer;
+    font-family: "Lucida Grande",Tahoma,Arial,Verdana,sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 130%;
+    margin: 0 7px 0 0;
+    padding: 5px 10px 6px 7px;
+    text-decoration: none;
+    width: 75px;
+}
+
+#ProductArea .microcontroll label {
+    float: left !important;
+}
+#CompitablityArea .microcontroll label {
+    float: none !important;
+}
+
+#PosProductColorColorId{
+	height: 80px;
+    width: 235px;
+}

@@ -1,0 +1,27 @@
+/* CSS Document */
+
+#UserResetForm{
+	width:500px;
+	margin:0 auto;
+	padding:10px;
+	text-align:left;
+	}
+#WrapperUserPassword label,#WrapperConfirmUserPassword label{
+  	float:left;
+	 }
+#UserResetForm input{
+	float:left;
+	}
+.clr{
+	clear:both;}
+#WrapperUserPassword,#WrapperConfirmUserPassword{
+		height:65px;
+	 }
+.instruction{
+	margin-left:175px;}
+.button_area{
+	margin-left:125px;}
+.error{	
+	width:250px;
+	margin-left:120px;}
+#UserPassword{	margin-left:50px;}

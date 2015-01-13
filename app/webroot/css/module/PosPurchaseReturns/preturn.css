@@ -1,0 +1,18 @@
+@charset "utf-8";
+/* CSS Document */
+#WrapperPosSaleReturnQuantity{
+ 	margin-left: 30px;
+    padding-top: 25px;
+	}
+#PosSaleReturnQuantity{
+	
+	width:250px;}
+.info_tables_rd {
+    background: none repeat scroll 0 0 #CCCCCC;
+    border: 1px solid #666666;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-size: 11px;
+	height: 55px;
+	font-weight:bold;
+}
+	

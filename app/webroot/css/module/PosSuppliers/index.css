@@ -1,0 +1,19 @@
+/* CSS Document */
+ #WrapperPosSupplierDescription label{
+	width:45px !important}
+#WrapperEmail label{
+	width:45px !important	
+}
+#PosSupplierShowPerPage{
+	width:60px !important;}
+.button_area_filter{
+	margin:0 auto;
+	}
+.flexigrid div.hDiv th, div.colCopy {
+    cursor: default;
+    font-weight: normal;
+    height: 0px !important;
+    overflow: hidden;
+    padding: 0px 0 0 0px !important;
+    white-space: nowrap;
+}

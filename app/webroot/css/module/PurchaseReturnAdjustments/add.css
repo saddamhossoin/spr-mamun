@@ -1,0 +1,18 @@
+.reciveDevice {
+    box-shadow: 0 0 3px 0;
+    margin: 3px auto;
+    padding: 10px;
+    width: 98% !important;
+}
+
+.button_area{
+    margin: auto;
+    margin-left: 166px;
+    margin-top: 20px;
+    text-align: center;
+    width: 195px;
+}
+.PurchaseReturnAdjustments label{
+	width:180px !important;
+}
+

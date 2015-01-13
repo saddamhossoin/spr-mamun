@@ -1,0 +1,15 @@
+.dashboard table tr td{
+	text-align:center !important;
+	padding-bottom:12px;
+	
+}
+.dashboard table tr td img{
+	border-radius:6px;
+	border:1px solid #f2f2f2;
+	padding:25px;
+}
+.dashboard table tr td a{
+	color:#999;
+	display:block;
+
+}

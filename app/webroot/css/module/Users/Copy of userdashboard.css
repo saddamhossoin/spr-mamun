@@ -1,0 +1,170 @@
+/* CSS Document */
+.dashboardContent{
+		margin:25px auto;
+		width:850px;
+}
+#client_BuyCard{
+ 	text-align:right;
+	padding:15px 0px 15px 0px;
+	}
+.balance_show , .Payemnt_show ,.button_show{
+	border: 1px solid #999999;
+    border-radius: 10px;
+    box-shadow: 1px 1px 8px 1px;
+    float: left;
+    width: 280px;
+	min-height:267px;
+	padding:39px 20px;
+}
+.button_show{
+		width:191px !important;
+}
+.balance_show input , .Payemnt_show input{
+	
+	 margin: 6px 10px;	
+	float:left;	
+}
+.balance_show label {
+     float: left;
+    min-height: 29px;
+    min-width: 81px;
+    padding: 5px;
+    text-align: center;
+	margin-bottom:20px;
+	
+	 background: -moz-linear-gradient(center top , red, black) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border-radius: 8px;
+    border-top: 1px solid #96D1F8;
+    box-shadow: 0 1px 0 #000000;
+    color: #FFFFFF;
+    font-family: Georgia,serif;
+    font-size: 14px;
+    padding: 5px 10px;
+    text-decoration: none;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+    vertical-align: middle;
+}
+.Payemnt_show label {
+     float: left;
+    min-height: 29px;
+    min-width: 81px;
+    padding: 5px;
+    text-align: center;
+	margin-bottom:20px;
+	 
+}
+label[for=BuyCardPaymentMethod1], .BuyCardPaymentMethod1 {
+		background:url(../../../img/wpage/paypal.png) no-repeat;
+}
+label[for=BuyCardPaymentMethod2] , .BuyCardPaymentMethod2{
+		background:url(../../../img/wpage/visa.png) no-repeat;
+}
+label[for=BuyCardPaymentMethod3] , .BuyCardPaymentMethod3{
+		background:url(../../../img/wpage/master_card.png) no-repeat;
+}
+label[for=BuyCardPaymentMethod4] , .BuyCardPaymentMethod4{
+		background:url(../../../img/wpage/discover.png) no-repeat;
+}
+label[for=BuyCardPaymentMethod5] , .BuyCardPaymentMethod5{
+	background:url(../../../img/wpage/american_express_card.png) no-repeat;
+}
+
+.show_title{
+		
+		font-family:Verdana, Geneva, sans-serif;
+		font-size:14px;
+		font-weight:bold;
+		padding-left:10px;
+		margin-bottom:28px;
+}
+.lefttabs-11{
+	width:45%;
+	float:left;
+	margin-right:15px;
+}
+.righttabs-11{
+	width:45%;
+	float:left;
+	margin-left:15px;
+}
+.lefttabs-11 div , .righttabs-11 div {
+	min-height:35px;
+}
+.lefttabs-11 label , .righttabs-11 label {
+	margin-bottom:7px;
+}
+.button_area button {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #F5F5F5;
+    border-color: #EEEEEE #DEDEDE #DEDEDE #EEEEEE;
+    border-image: none;
+    border-style: solid;
+    border-width: 2px;
+    color: #565656;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 130%;
+    margin: 0 7px 0 0;
+    padding: 5px 10px 6px 7px;
+    text-decoration: none;
+    width: 75px;
+}
+.button_area{	
+	margin-left:280px;
+	padding-top: 40px;
+ 	}
+.microcontroll{
+	width:350px;
+	float:left;
+	}
+.clr{
+	clear:both;}
+.microcontroll label{
+	font-weight:bold;
+	height: 22px;
+    padding: 4px;
+	}
+.purchaselist tr td, .purchaselist tr th{
+	border: 1px dotted #CCCCCC;
+    font-size: 11px;
+    padding: 5px;
+    text-align: center;
+	font-weight:bold;
+}
+.flexme3 tr td{
+	font-size:11px;
+	padding:5px;
+	border:1px dotted #f8f8f8;
+	text-align:center;
+}	
+label.error {
+   color: #FF0000;
+    font-size: 11px;
+    font-weight: normal !important;
+    padding-left: 0;
+    width: 440px !important;
+}
+/*
+.balance_show .error{
+	background:none !important;
+	border-radius: none !important;
+    border-top:none !important;
+    box-shadow:none !important;
+    color: none !important;
+    float: none !important;
+    font-family:none !important;
+	width: auto !important;
+	   
+    margin-bottom: 0 !important;
+    min-height: auto !important;
+    min-width:auto !important;
+    padding: auto !important;
+    text-align: center;
+    text-decoration: none;
+    text-shadow:none !important;
+    vertical-align: 
+	}*/

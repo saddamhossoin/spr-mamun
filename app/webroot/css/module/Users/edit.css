@@ -1,0 +1,14 @@
+@charset "utf-8";
+/* CSS Document */
+#GroupGroupId
+{
+}
+
+.instruction{
+	display:block;
+	margin-left:140px;
+}
+.microcontroll label {
+    float: left;
+    width: 135px;
+}

@@ -1,0 +1,489 @@
+/* CSS Document */
+.reciveDevice{
+	width:98% !important;
+	}
+	.microcontroll label {
+	width:130px;
+	font-weight: none !important;
+}
+.form {
+	width:420px !important;
+}
+#supplier {
+	margin-left:25px;
+}
+#supplier tr {
+	padding:3px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+}
+#productinfo tr {
+	padding:3px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+}
+#productinfo {
+	margin-left:25px;
+}
+.pdetail th {
+	height:25px;
+	text-align:center;
+	padding-bottom:2px;
+	padding-top:5px;
+	background: url("../../../img/grid/bg.gif") repeat-x scroll center top #FAFAFA;
+	border-color: #CCCCCC #CCCCCC -moz-use-text-color;
+	border-style: solid solid none;
+	border-width: 1px 1px 0;
+	position: relative;
+}
+.accounts {
+	width:100px;
+}
+.button_area {
+ 	margin: 0px auto;
+	margin-top: 4px;
+	padding: 3px;
+	text-align: center;
+	width: 170px;
+}
+.ui-button {
+	margin-left: -1px;
+}
+.ui-button-icon-only .ui-button-text {
+	padding: 0.35em;
+}
+.ui-autocomplete-input {
+	margin: 0;
+	padding: 0.48em 0 0.47em 0.45em;
+	width:200px;
+}
+#columns .widget {
+	-moz-border-radius: 4px 4px 4px 4px;
+	margin: 10px 10px 0;
+	padding: 2px;
+	float:left;
+	width:441px;
+}
+.color-blue {
+	background: none repeat scroll 0 0 #abc;
+}
+#columns .widget .widget-head {
+	color: #000000;
+	height: 30px;
+	line-height: 30px;
+	overflow: hidden;
+	width: 100%;
+}
+.widget-head a.collapse {
+	background: url("img/buttons.gif") no-repeat scroll -52px 0 transparent;
+	display: inline;
+	float: right;
+	height: 14px;
+	margin: 8px 0 8px 4px;
+	outline: medium none;
+	text-indent: -9999em;
+	width: 14px;
+}
+.widget-head a.remove {
+	background: url("img/buttons.gif") no-repeat scroll -24px 0 transparent;
+	display: inline;
+	float: right;
+	height: 14px;
+	margin: 8px 4px 8px 0;
+	outline: medium none;
+	text-indent: -9999em;
+	width: 14px;
+}
+#columns .widget .widget-content {
+	-moz-border-radius-bottomleft: 2px;
+	-moz-border-radius-bottomright: 2px;
+	background: #fff;
+	color: #000;
+	line-height: 1.2em;
+	padding: 7px 0;
+}
+#columns .widget .widget-content tr {
+	list-style: disc outside none;
+	padding: 5px 0 5px 5px;
+}
+#columns .widget .widget-content tr td {
+	padding: 3px 0;
+	border:1px dotted #f8f8f8;
+	vertical-align:top;
+}
+#columns .widget .widget-head h3 {
+	float: left;
+	padding: 0 5px;
+}
+.color-red h3, .color-blue h3, .color-orange h3 {
+	color: #FFFFFF;
+}
+#PatientDetailsbox, #patientTestbox {
+	width:365px;
+}
+/* ========================= OverWrite common css ===============*/
+ 
+#PatientDetailAddForm .microcontroll label {
+	float: left;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	padding-right: 4px;
+	text-align: right;
+	width: 116px;
+}
+/* ========================= OverWrite common css ===============*/
+ 
+.textheading {
+	text-align:right;
+	font-weight:bold;
+	width:114px;
+	padding-right:5px;
+	padding-bottom:7px;
+}
+#PatientDetailPSex {
+	width:180px;
+}
+.microcontroll select {
+	width:180px;
+}
+.productlist td span {
+	float:left;
+	text-align:center !important;
+	width:100%;
+}
+.productlist td .testvalli {
+	width:292px;
+}
+.deleverytime {
+	font-size:10px;
+	width:60px;
+}
+#button1 {
+	margin-left:120px;
+}
+.productlist td .testamountli {
+	width:35px;
+}
+.deletelink {
+	background:url(../../../img/icons/delete1.png) no-repeat !important;
+	height: 15px !important;
+	width: 17px !important;
+	margin-left:13px !important;
+}
+#WrapperPatientDoctorID div {
+	float:right;
+	margin-right:25px;
+}
+#PatientDetailDoctorId {
+	width:180px;
+}
+#btn_PatientDetails_edit_link {
+	float: right;
+	margin-top: -6px;
+}
+.button_area_noline {
+	width:90%;
+	padding:0px;
+}
+#patienteditcontent {
+	width:800px;
+}
+#supllier {
+}
+#PosPurchasePosSupplierId {
+	width:145px;
+}
+#first {
+	float:left;
+	width:375px;
+}
+#second {
+	width: 437px;
+	float:left;
+}
+#info {
+	border:1px solid #006666;
+}
+#PosPurchasePurchaseDate {
+	width:145px;
+}
+#WrapperPosPurchasemobile {
+	float:left;
+}
+.accounts {
+	float:right;
+	width:310px;
+	text-align:center;
+}
+#PosPurchasePosSupplierId, #PosPurchasePurchaseDate {
+	width:230px;
+}
+tr.altrow td.sorted {
+	background: none repeat scroll 0 0 #E3E3E3;
+	border-bottom: 1px solid #E3E3E3;
+}
+#tax_hidden {
+	display:none;
+}
+#PosPurchaseManualInvoiceId {
+	width:230px;
+}
+.pop_up_add_product #image {
+	background-image:url(../../../img/toolbar/Add.png);
+	display: block;
+	height: 24px;
+	width: 24px;
+}
+.pop_up_add_product {
+	float:left;
+	margin-left: 25px;
+	cursor:pointer;
+}
+#s2id_PosProductName {
+	float:left;
+}
+#WrapperPosProductName {
+	margin-bottom:38px !important;
+}
+.pop_up_add_product #text:hover {
+	color: green;
+}
+#PosPurchaseAmountTax, #PosPurchaseAmountDiscount, #PosPurchaseAmountPayableAmount, #PosPurchaseAmountPayamount, #PosProductAccountHead, #s2id_PosPurchaseAmountAccountHead {
+	float: left;
+	margin-bottom: 4px;
+	width: 140px;
+}
+#s2id_OrderAccountHead{
+	margin-left: 150px;
+    margin-top: 5px;
+    width: 137px;
+	}
+
+#PosPurchaseAmountIsTax {
+	margin-left:20px;
+}
+#OrdereQuantity_6 {
+}
+form span {
+	position: absolute !important;
+}
+#Wrappereurotax {
+	height:20px;
+}
+#OrderIsTax {
+	width:137px;
+}
+#s2id_OrderIsTax{
+	width:138px;
+	}
+
+
+
+
+
+
+.button_area{
+	width:341px !important;
+	}
+.tec_view{
+	width:110px !important;
+	}
+.serviceDeviceInfos {
+		width:1024px;
+}
+.serviceDeviceInfos fieldset{
+ }
+legend{
+	  box-shadow: 0 0 3px 0;
+      padding: 3px;
+ }
+.reciveDevice{
+	width:96% !important;
+	margin:3px auto;
+ 	padding:10px;
+	box-shadow:0px 0px 3px 0px;
+}
+.rdcontent_left{
+		float:left;
+		width:98%;
+}
+.assesmentSDIGrid{
+		width:100%;
+		border:1px dotted #CCC;
+}
+.assesmentSDIGrid tr td{
+	padding:5px;
+}
+.headingtag{
+		color:#006;
+		font-family:Verdana, Geneva, sans-serif;
+		font-weight:bold;
+}
+.assesmentSDIGrid tr td:nth-child(2) , .assesmentSDIGrid tr td:nth-child(4)
+{
+	border-right:1px solid #999 !important;
+	
+}
+.assesmentSDIGrid tr td:nth-child(1) , .assesmentSDIGrid tr td:nth-child(3), .assesmentSDIGrid tr td:nth-child(5){
+	font-weight:bold;
+	width:99px;
+	
+}
+.AssesmentInventorylist td .testamountli
+{
+	width:35px;
+}
+
+
+#btn_Assesment_edit,#add_inventory , .add_assesment_inventory , .reciveDeviceAssementInventory .action_link , #add_Service , .add_assesment_Service ,.AssesmentServiceRemove{
+	float:right;
+	 background: #FFFFFF;
+    border: 1px solid #D7D7D7;
+    border-radius: 5px;
+    color: #036FAD;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 3px 7px;
+    position: relative;
+	cursor:pointer;
+}
+ 
+ #add_inventory{
+	cursor:pointer;
+}
+
+ .view_table tr td{
+	border: 1px dotted #CCCCCC;
+    padding: 5px;
+	font-size:10px !important;
+}
+ 
+label[for = AssesmentInventorycheckQuantity]{
+	color:red;
+	float:right !important;
+}
+.inventory_invoice_info{
+	float: right;
+    width: 200px;}
+	
+.inventory_invoice_info_left{
+	float: left;
+    font-weight: bold;
+    width: 50%;
+	 }
+.inventory_invoice_info_right{
+	float: left;
+    font-weight: bold;
+    width: 50%;
+	 }
+	.deletelink
+	{
+		background:url(../../img/icons/delete1.png) no-repeat;
+		height: 15px;
+		width: 17px;
+		margin-left:13px;
+		display: block;
+	}
+	.AssesmentInventorylist tr,.AssesmentServicelist tr{
+		height:25px;
+	}
+	.AssesmentInventorylist tr td,.AssesmentServicelist tr td {
+		text-align:center;
+		border:1px solid #CCCCCC;
+		vertical-align:middle;
+	}
+	.pdetail th,.pdetail1 th {
+		height:25px;
+		text-align:center;
+		padding-bottom:2px;
+		padding-top:5px;
+		background: url("../../img/grid/bg.gif") repeat-x scroll center top #FAFAFA;
+		border-color: #CCCCCC #CCCCCC -moz-use-text-color;
+		border-style: solid solid none;
+		border-width: 1px 1px 0;
+		position: relative;
+		}	
+ 	.assmentadd {
+		background: none repeat scroll 0 0 #F8F8F8;
+		padding-top: 15px;
+		width: 900px !important;
+	}
+	.assmentadd .reciveDevice{
+		width:824px !important;
+		margin:3px auto;
+		padding:10px;
+		box-shadow:0px 0px 3px 0px;
+	}
+	.assmentadd .rdcontent_left{
+			float:left;
+			width:100%;
+	}
+	.rdcontent_left1{
+			float:left;
+			width:49%;
+	}
+	.rdcontent_right{
+		float:left;
+		width:49%;
+	}
+	.assesmentSDIGrid{
+			width:100%;
+			border:1px solid #CCC;
+	}
+	.assesmentSDIGrid tr td{
+		padding:5px;
+		border:1px dotted #CCC;
+ 	}
+	.headingtag{
+			color:#006;
+			font-family:Verdana, Geneva, sans-serif;
+			font-weight:bold;
+	}
+	.assesmentSDIGrid thead tr td:nth-child(1)
+	{
+		border-right:1px solid #999 !important;
+		
+	}
+	.assesmentSDIGrid tr td:nth-child(2) , .assesmentSDIGrid tr td:nth-child(4)
+	{
+		border-right:1px solid #999 !important;
+		font-size:11px;
+		
+	}
+	.assesmentSDIGrid tr td:nth-child(1) , .assesmentSDIGrid tr td:nth-child(3), .assesmentSDIGrid tr td:nth-child(5){
+		font-weight:bold;
+		width:79px;
+		font-size:11px !important;
+		
+	}
+	 
+	.reciveDeviceInvoice .rdcontent_left1{
+	
+	  border-right: 1px solid #ccc;
+	  width: 47% !important;
+	  margin-right: 22px;
+	}
+	.pdetail{
+	  margin-left: -10px;
+	}
+	.pdetail1{
+	  margin-left: -22px;
+	  margin-right: -20px;
+	}
+	.ba_assmentsave{
+		width:100px !important;
+		margin-left:-9px;
+	
+	}
+	#AssesmentNote{
+		min-height:74px;
+	}
+	.assesmentInventoryPrice , .assesmentInventoryQuantity  {
+		width:87px !important;
+		text-align:center;
+		font-weight:bold;
+ 	}
+#ServiceDeviceInfoFinalNote{
+	width:950px !important;
+}

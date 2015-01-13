@@ -1,0 +1,23 @@
+
+#AccountsLedgerTransactioncheck_number,#AccountsLedgerTransactioncheck_date
+{
+    background: url("../../img/common/input_bg_tal.gif") repeat-x scroll left top #F2F4F6 !important;
+    border: 1px solid #D6DADE !important;
+    height: 19px !important;
+    padding-bottom: 2px !important;
+    padding-top: 2px !important;
+    vertical-align: baseline !important;
+    width: 232px !important;
+}
+
+.button_area{
+	    margin: 35px auto 0 98px;
+	}
+.microcontroll label {
+    float: left !important;
+    font-size: 11px !important;
+    font-weight: bold;
+    padding: 0 10px;
+	width:228px !important;
+}
+

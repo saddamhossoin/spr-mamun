@@ -1,0 +1,290 @@
+@charset "UTF-8";
+/* CSS Document */
+.flexigrid {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	position: relative;
+	border: 0px solid #eee;
+	overflow: hidden;
+	color: #000;
+}
+.flexigrid div.mDiv {
+	background: url(../../img/grid/wbg.gif) repeat-x top;
+	border: 1px solid #ccc;
+	border-bottom: 0px;
+	border-top: 0px;
+	font-weight: bold;
+	display: block;
+	overflow: hidden;
+	white-space: nowrap;
+	position: relative;
+}
+.flexigrid div.mDiv div {
+    padding: 6px;
+    white-space: nowrap;
+	float:left;
+}
+.flexigrid div.tDiv /*toolbar*/ {
+	background: #fafafa url(../../img/grid/bg.gif) repeat-x top;
+	position: relative;
+	border: 1px solid #ccc;
+	border-bottom: 0px;
+ }
+
+.flexigrid div.tDiv2 {
+	float: left;
+	clear: both;
+	padding: 1px;
+	width:100%;
+}
+.flexigrid div.hDiv {
+	background: #fafafa url(../../img/grid/fhbg.gif) repeat-x bottom;
+	position: relative;
+	border: 1px solid #ccc;
+	border-bottom: 0px;
+ 	height:32px;
+}
+.flexigrid div.hDivBox {
+	float: left;
+	width:100%;
+ }
+ 
+.flexigrid div.hDiv th.sorted {
+    background: url(../../img/grid/wbg.gif) repeat-x scroll 0 -1px transparent;
+    border-bottom: 0 solid #CCCCCC;
+}
+ .flexigrid div.hDiv th, div.colCopy {
+    cursor: default;
+    font-weight: normal;
+    height: 22px;
+    overflow: hidden;
+    white-space: nowrap;
+	padding:10px 0px 0px 5px !important;
+	
+}
+
+ .flexigrid div.hDiv th, .flexigrid div.bDiv td {
+    border-left: 1px solid #FFFFFF;
+    border-right: 1px solid #DDDDDD;
+    overflow: hidden;
+    padding-left: 0;
+    padding-right: 0;
+    text-align: left;
+    vertical-align: top !important;
+	font-weight:bold;
+}
+ .flexigrid div.bDiv td {
+   	font-weight:normal;
+
+ }
+.flexigrid div.hDiv th div, .flexigrid div.bDiv td div, div.colCopy div {
+    border-left: 0 solid #FFFFFF;
+    padding: 5px;
+}
+.flexigrid div.bDiv {
+    border-style: none solid solid;
+}
+.flexigrid div.bDiv {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-color: -moz-use-text-color #CCCCCC #CCCCCC;
+    border-right: 1px solid #CCCCCC;
+    border-style: none solid solid;
+    border-width: 0 1px 1px;
+    overflow: auto;
+    position: relative;
+}
+
+.flexigrid div.bDiv table {
+    border-bottom: 1px solid #CCCCCC;
+    margin-bottom: 1px;
+	width:100%;
+}
+.flexigrid div.bDiv table tr:hover td {
+    background-color: #FFFFCF;
+}
+.flexigrid tr td.sorted {
+    background: none repeat scroll 0 0 #F3F3F3;
+    border-bottom: 1px solid #F3F3F3;
+    border-right: 1px solid #DDDDDD;
+}
+ .flexigrid div.bDiv td {
+    border-bottom: 1px solid #FFFFFF;
+    vertical-align: middle !important;
+ }
+ 
+.flexigrid div.bDiv td div {
+    border-top: 0 solid #FFFFFF;
+    padding-bottom: 4px;
+}
+ .flexigrid tr.altrow td.sorted {
+    background: none repeat scroll 0 0 #E3E3E3;
+    border-bottom: 1px solid #E3E3E3;
+}
+ .flexigrid tr td {
+	 padding-left:3px !important;
+ }
+ .flexigrid tr.altrow td {
+    background: none repeat scroll 0 0 #F5F5F5;
+    border-bottom: 1px solid #F5F5F5;
+}
+ .flexigrid div.pDiv {
+    background: url(../../img/grid/wbg.gif) repeat-x scroll 0 -1px transparent;
+    border-color: -moz-use-text-color #CCCCCC #CCCCCC;
+    border-right: 1px solid #CCCCCC;
+    border-style: none solid solid;
+    border-width: 0 1px 1px;
+    overflow: hidden;
+    position: relative;
+    white-space: nowrap;
+	height:30px;
+	text-align:center;
+}
+.flexigrid div.pDiv div.pButton {
+    border: 0 none;
+    cursor: pointer;
+    float: left;
+    height: 22px;
+    overflow: hidden;
+    width: 22px;
+}
+div.pGroup {
+    background: none repeat scroll 0 0 transparent;
+    height: 24px;
+    margin: 5px 5px;
+	padding:3px;
+}
+ .flexigrid .pFirst {
+    background: url(../../img/grid/first.gif) no-repeat scroll center center transparent;
+}
+.flexigrid div.pDiv div.pButton span {
+    display: block;
+    float: left;
+    height: 20px;
+    width: 20px;
+}
+ 
+ .pGroup span{
+    background-color: #FFFFFF;
+    background-repeat: repeat-x;
+    border: 1px solid #E4E8F2;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 3px 3px 0 0;
+    padding: 4px 11px;
+    text-decoration: none;
+}
+.current, .pGroup span.current
+{
+	background-color: #19558D;
+    background-image: linear-gradient(to bottom, #103657 0%,#1f5e91 100%);
+    background-image: filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#103657', endColorstr='#1f5e91',GradientType=0 ); /* IE6-9 */
+    border-color: #071A29;
+	color:#FFFFFF;
+}
+
+  
+.flexigrid .pLast {
+    background: url(../../img/grid/last.gif) no-repeat scroll center center transparent;
+}
+.flexigrid .desc
+ {
+ 	 background: url(../../img/grid/descending.png) no-repeat;
+	 padding-left:22px;
+ 	 height:15px;
+	 display:block;
+ }
+ .flexigrid .asc
+ {
+ 	 background: url(../../img/grid/ascending.png) no-repeat;
+	 padding-left:22px;
+	 height:15px;
+	 display:block;
+ }
+.ftitle
+{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	color:#19558D;
+}
+#searchlink
+{
+	float:right;
+	 	 background: url(../../img/grid/search.png) no-repeat;
+		 width:20px;
+		 margin-top:7px;
+}
+.tDiv 
+{
+	padding:9px 0px;
+}
+ .paginate_link{
+	margin:0px  !important;
+	padding:0px !important;
+
+}
+.paginate_link span{
+	margin:0px  !important;
+		background:  #103657 !important;
+			color:#FFFFFF !important;
+}
+.paginate_link span a{
+	color:#FFFFFF !important;
+	}
+.microcontroll label
+{
+	float: none !important;
+    font-weight: bold;
+    padding:0px 10px;
+	font-size:11px !important;
+}
+.microcontroll select {
+     width: 92px;
+}
+.filtersortby
+{
+	width:60px !important;
+}
+
+.singledelete
+{
+	background:url(../../img/toolbar/delete.png) no-repeat;
+ }
+ .microcontroll input[type="text"] ,  .microcontroll input[type="number"] {
+    background: url("../../img/common/input_bg_tal.gif") repeat-x scroll left top #F2F4F6;
+    border: 1px solid #D6DADE;
+    height: 19px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+    vertical-align: baseline;
+    width: 132px !important;
+}
+.action_link
+{
+ 	background:  #FFFFFF;
+    border: 1px solid #D7D7D7;
+    border-radius: 5px 5px 5px 5px;
+    color: #036FAD;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 3px 7px 3px 7px;
+    position: relative;
+}
+.lineheaderbold{
+	background:#FFFFFF;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-weight:bold !important;
+	color:#000000;
+	border-bottom:1px solid #666666 !important;
+}
+.status_0{
+	font-weight:bold;
+	color:#0000FF;
+}
+.status_1{
+	font-weight:bold;
+	color:#FF0000;
+}
+.status_2{
+	font-weight:bold;
+	color:#000033;
+}

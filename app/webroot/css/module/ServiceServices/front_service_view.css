@@ -1,0 +1,31 @@
+/* CSS Document */
+
+.divTable
+    {
+        display:  table;
+        width:auto;
+        background-color:#eee;
+        border:1px solid  #666666;
+        border-spacing:5px;
+       
+    }
+
+.divRow
+    {
+       display:table-row;
+       width:auto;
+
+    }
+
+.divCell
+    {
+        float:left;
+        display:table-column;
+        width:150px;
+        background-color:#ccc;
+
+    }
+.head_row{
+	font-weight:bold;
+}
+
