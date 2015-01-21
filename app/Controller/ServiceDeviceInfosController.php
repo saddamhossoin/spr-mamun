@@ -215,6 +215,18 @@ class ServiceDeviceInfosController extends AppController {
 	}
 	
 	
+	function service_revenu_view( $id = null ){
+		
+		if (!$id) {
+			$this->Session->setFlash(__('Invalid service device info', true));
+			$this->redirect(array('action' => 'index'));
+		}
+		$this->set('serviceDeviceInfo', $this->ServiceDeviceInfo->read(null, $id));
+         $this->set('page_titles', 'Service Renenu View'); 
+		 
+		}
+	
+	
 	function receive_invoice( $id = null){
 	
 		 $this->ServiceDeviceInfo->User->unbindModelAll();
@@ -1166,9 +1178,57 @@ true), 'fail_message');
 		$this->set('is_repet',$this->ServiceDeviceInfo->find('first',array('field'=>array('id'),'conditions'=>array('ServiceDeviceInfo.serial_no'=>$deviceRecive['ServiceDeviceInfo']['serial_no'] ,'ServiceDeviceInfo.id !='=>$deviceRecive['ServiceDeviceInfo']['id']  ),'recursive'=>-1)));
 		 $this->layout = 'ajax';					
 	 }
+	 
+	 
+	function service_revenu( $yes = null ){
+		
+    
+    	if( ! empty( $this->data ) ){
+            $this->Session->delete('ServiceDeviceInfoSearch');
+            $this->Session->write( 'ServiceDeviceInfoSearch', $this->data );
+        }
+         if( $this->Session->check( 'ServiceDeviceInfoSearch' ) ){
+              $this->data = $this->Session->read( 'ServiceDeviceInfoSearch' );
+           }
+	  if($yes == 'yes')
+	   {
+			$this->Session->delete( 'ServiceDeviceInfoSearch' );
+			
+			$this->ServiceDeviceInfo->recursive = 1;
+			$this->paginate  = array(
+ 				'limit' => '20',
+				'order' =>array('ServiceDeviceInfo.modified'=>'desc'),
+ 		);
+			$this->data='';
+	   }
+	    $this->paginate  = array(
+    	        	'conditions' =>  array($this->filtercondition($this->request->data) ),
+		            'limit' => $this->Filter->searchlimit($this->data , 'ServiceDeviceInfo'),
+					'order' =>$this->Filter->sortoption($this->data,  'ServiceDeviceInfo'),
+        		);
+		  
+    
+		$this->ServiceDeviceInfo->recursive = 1;
+		
+		$this->ServiceDeviceInfo->unbindModel(array('belongsTo'=>array('User')));
+	
+	 	// pr($this->paginate());
+		$this->set('serviceDeviceInfos', $this->paginate());
+		
+		$this->loadModel('PosProduct');
+		$posBrands = $this->PosProduct->PosBrand->find('list',array('order'=>'name asc'));
+		$posPcategories = $this->PosProduct->PosPcategory->find('list',array('order'=>'name asc'));
+
+	 
+		$this->set(compact('posBrands', 'posPcategories' ));	
+		
+		$this->set('sortoption',array());
+        $this->set('page_titles', 'Delivery Service Revenu');
+	}
 	
 
 	function edit($id = null) {
+		
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid service device info', true));
 			$this->redirect(array('action' => 'index'));
