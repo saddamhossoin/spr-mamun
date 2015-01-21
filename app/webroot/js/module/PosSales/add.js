@@ -5,23 +5,23 @@ jQuery(function($){
 		if($(this).val() !=3){
 			$("#WrapperAccountsCheckNumber").html("<label for='PosSaleAmountCheckNumber'>Check Number:<span class='star'>*</span></label><input type='text' id='PosSaleAmountCheckNumber' class='required' name='data[PosSaleAmount][check_number]'><label for='PosSaleAmountCheckDate'>Check Date:<span class='star'>*</span></label><input type='text' id='PosSaleAmountCheckDate' class='required' name='data[PosSaleAmount][check_date]'>");	
 			
-			   $( "#PosSaleAmountCheckDate").datepicker({
-					changeMonth: true,
-					changeYear: true,
-					dateFormat:"yy-mm-dd",
-					onSelect: function(dateText, inst) {
-						
-						var date1 = $('#PosSaleAmountCheckDate').datepicker('getDate');
-						var date2 =  new Date();
-						date2 = new Date(date2.getFullYear(), date2.getMonth(), date2.getDate());
-						 
- 							if(new Date(date2).getTime() > new Date(date1).getTime() ){
-							$.alert.open('warning', 'Check date Must be ahead than today');
-							$(this).val("");
-					}
-							
-  				}
-         		});	 
+	$( "#PosSaleAmountCheckDate").datepicker({
+		changeMonth: true,
+		changeYear: true,
+		dateFormat:"yy-mm-dd",
+		onSelect: function(dateText, inst) {
+			
+			var date1 = $('#PosSaleAmountCheckDate').datepicker('getDate');
+			var date2 =  new Date();
+			date2 = new Date(date2.getFullYear(), date2.getMonth(), date2.getDate());
+			 
+			if(new Date(date2).getTime() > new Date(date1).getTime() ){
+				$.alert.open('warning', 'Check date Must be ahead than today');
+				$(this).val("");
+			}
+				
+		}
+	});	 
 		}
 		
 		else{
@@ -60,7 +60,7 @@ jQuery(function($){
 				title:'Add Barcode',
 				autoOpen: false,
 				height: 400,
-				width: 450,
+				width: 490,
 				modal: true,
 				draggable:true,
 				closeOnEscape: false,
@@ -108,6 +108,7 @@ jQuery(function($){
 			data:  data,
 			success: function(response){
  					//window.location.reload();
+					//alert(response);
  				  if(response)
 				    {
  						$.alert.open({
@@ -179,20 +180,28 @@ jQuery(function($){
  				
 	$("#PosProductName").on('change',function(){
 		var productid= $("#product_id").html();
+		var is_barcode= $("#is_barcode").html();
+		//var product_type= $("#product_type").html();
+		
+		if(!is_barcode){
+			//if(product_type !=1){
+				 
 		$('.productlist tr').each(function(index) {
 				 if($(this).attr('id') == productid)
 				 {
 					 $.alert.open('warning', 'This Product Already Taken');
 				 }
-			});														
+			});
+			//}
+		}
+		
 		});	
 	
 		var sl_no = 0;
 			
 //===================== Product Add Function Goes Here ================			
-	$("#btn_PosProduct_add").on('click',function(e){
-		//  alert('anwar');
- 		e.preventDefault();
+$("#btn_PosProduct_add").on('click',function(e){
+  		e.preventDefault();
 	 if($("#ProductEntryAddForm").valid()){
 	 	//addtogrid();
 	 	var productid= $("#product_id").html();
@@ -200,34 +209,77 @@ jQuery(function($){
 		var stock_Sales_Price = parseFloat($("#PosSalesSalesprice").val());
 		var entry_sales_price = parseFloat($("#PosProductPurchaseprice").val());
 		
+		
  		if( quantities >0  &&    stock_Sales_Price <= entry_sales_price){
 			$("#PosProductQuantity").val('');
-			 
-			
-		 	 $.ajax({
-					type: "GET",
-					url:siteurl+"PosProducts/checkbarcode/"+productid,
-					data: '',
-					success: function(response1){
-					 	var object=jQuery.parseJSON(response1);
-					 if(object.PosProduct.pos_type_id == 1){
-						 	var popup_barcode_url=siteurl+"PosBarcodes/sales_barcode/"+productid+"/"+quantities;
-							$("#invoice5").load(popup_barcode_url, [], function(){
-								$("#invoice5").dialog("open");
-							});
-							addtogrid(object,quantities );
-					  }
-			 		else{
-						 	addtogrid(object,quantities);
-						  	//$(".barcode_"+productid).append("<input type='hidden' value='"+object.PosBarcode.barcode+"' id='PosBarcodeBarcode_1' name='data[PosSaleDetail]["+productid+"][PosBarcode][1]'>");
+//======================== Check is barcode and already taken ============
+			var is_barcode= $("#is_barcode").html();
+			/*var product_type= $("#product_type").html();
+			alert(product_type);*/
+			var is_not_same = 0;
+				if(!is_barcode){
+					//if(product_type !=1){
+ 						$('.productlist tr').each(function(index) {
+							 if($(this).attr('id') == productid)
+							{
+								 $.alert.open('warning', 'This Product Already Taken');
+								is_not_same = 1;
+							}
+							});	
+					//}
+				}
+				 
+		
+			if(is_not_same ==0){
+					$.ajax({
+						type: "GET",
+						url:siteurl+"PosProducts/checkbarcode/"+productid,
+						data: '',
+						success: function(response1){
+						
+						var object=jQuery.parseJSON(response1);
+						
+						if(object.PosProduct.pos_type_id == 1){
+							 addtogrid(object,quantities );
+							 //============= Barcode Checking ==========
+							 var is_barcode_present = $("#is_barcode").html();
 							
-						}
-			  	 
-				 }
-			});
+							 if(!is_barcode_present){
+								var popup_barcode_url=siteurl+"PosBarcodes/sales_barcode/"+productid+"/"+quantities;
+								$("#invoice5").load(popup_barcode_url, [], function(){
+									$("#invoice5").dialog("open");
+								});
+								$("#is_barcode").html("");
+								$('#product_id').html("");
+								//$("#product_type").html("");
+							 }else{
+								
+								var prodcut_id_count =  0;
+								$('span input[id*="PosBarcodeBarcode_"]').each(function(index) {
+								 	prodcut_id_count = prodcut_id_count+1;
+ 								}); 
+ 								 $(".barcode_sin_"+productid).append("<input type='hidden' value='"+is_barcode+"' id='PosBarcodeBarcode_"+prodcut_id_count+"' name='data[PosSaleDetail]["+productid+"][PosBarcode]["+prodcut_id_count+"]'>");
+								 
+								$("#is_barcode").html("");
+								$('#product_id').html("");
+								//$("#product_type").html("");
+								 
+							 }
+						  }
+						else{
+								addtogrid(object,quantities);
+								 
+								
+							}
+					 
+					 }
+				});
+			}
 		}else{
 			 $.alert.open('warning', 'Please Check Quantity Or Price');
 		}
+		
+		
 	 		 
 	 }
   });
@@ -423,26 +475,60 @@ jQuery(function($){
 	 
 	
 	$("#PosProductName").on("keyup", function(e) {
+		 if($(this).val().length >6 && $(this).val().substring(0,3)== 'SPR'){
+			$.ajax({
+					type: "GET",
+					url:siteurl+"pos_barcodes/product_find_throw_barcode/"+ $(this).val() ,
+					success: function(response){
+ 					 var object=jQuery.parseJSON(response);
 
-		 if($(this).val().length >3){
-				alert($(this).val().substring(0, 3));
+ 						  if(Object.getOwnPropertyNames(object).length ===1){
+							  
+							  $.alert.open('warning', 'This barcode item either sold or not in stock');
+							  $("#PosSalesSalesprice,#PosSalesPurchaseprice,#PosSalesStock,#PosProductPurchaseprice").val("");
+						      $("#SalesPriceStatus,#StockStatuss,#PurchasePriceStatus #is_barcode #product_type").html("");
+							   $('.ajax_status').hide(); 
+						     }
+							else{  
+								$('#product_id').html(object.PosProduct.id);
+								$("#PosSalesSalesprice").val(object.PosProduct.PosStock.last_sales);
+								$("#PosSalesPurchaseprice").val(object.PosProduct.PosStock.last_purchase);
+								$("#PosSalesStock").val(object.PosProduct.PosStock.quantity);
+								$("#SalesPriceStatus").html(object.PosProduct.PosStock.last_sales);
+								$("#StockStatuss").html(object.PosProduct.PosStock.quantity);
+								$("#PurchasePriceStatus").html(object.PosProduct.PosStock.last_purchase);
+								$("#PosProductPurchaseprice").val(object.PosProduct.PosStock.last_sales);	
+								
+								 
+								if(object.PosProduct.pos_type_id == 1){
+
+									$("#is_barcode").html(object.PosBarcode.barcode);
+									$("#PosProductQuantity").val(1);
+									$("#PosProductQuantity").attr("readonly", "readonly");    
+								}
+							}
+						 $('.ajax_status').hide(); 
+						}
+					});	
 		 }
 		 else{
-			  
+ 			  
 		 }
-		 
-		 
 	});
+	
 	$( "#PosProductName" ).autocomplete(
 	{
-		
 		 minLength: 3,
 			search  : function(){$(".ajax_status").fadeIn();},
 			open    : function(){$(".ajax_status").fadeOut();},
 			source: data,
 			select: function( event, ui ) {
+				$("#PosProductQuantity").val("");
+				$("#PosProductQuantity").removeAttr("readonly");    
+				$("#is_barcode").html("");
 				$('#product_id').html("");
-				$( "#PosProductName" ).val( ui.item.label);
+				$("#product_type").html("");
+				$("#PosProductName" ).val( ui.item.label);
 				$('#product_id').html(ui.item.actor);
 				//================Product Status===========//
 					$.ajax({
@@ -451,7 +537,7 @@ jQuery(function($){
 					success: function(response){
 						//alert(response);
 					 var object=jQuery.parseJSON(response);
-						  //alert(object);
+						  
 						  if(object == ''){
 							  $("#PosSalesSalesprice,#PosSalesPurchaseprice,#PosSalesStock,#PosProductPurchaseprice").val("");
 						      $("#SalesPriceStatus,#StockStatuss,#PurchasePriceStatus").html("");
@@ -464,6 +550,7 @@ jQuery(function($){
 							$("#StockStatuss").html(object.PosStock.in_stock);
 							$("#PurchasePriceStatus").html(object.PosStock.purchaseprice);
 							$("#PosProductPurchaseprice").val(object.PosStock.salesprice);	
+							//$("#product_type").html(object.PosProduct.pos_type_id );
 							}
 						 $('.ajax_status').hide(); 
 						}
@@ -484,10 +571,9 @@ jQuery(function($){
 });		
 	//============from purchase==================//
 	function totalprice(){
-				
-				$("#PosSaleAmountTotalprice").val(
-				parseFloat($("#PosProductQuantity").val())* parseFloat($("#PosProductPurchaseprice").val()));
-			}
+		$("#PosSaleAmountTotalprice").val(
+		parseFloat($("#PosProductQuantity").val())* parseFloat($("#PosProductPurchaseprice").val()));
+	}
 	 		
 	function SubTotal(){
 		if($('.totalpriceli').length !=0){		 
@@ -554,18 +640,38 @@ jQuery(function($){
 		
 		var is_not_same = 0;
 		var productid= $("#product_id").html();
+		var is_barcode= $("#is_barcode").html();
+	//	var product_type = $("#product_type").html();
+		if(!is_barcode){
+	//	if(product_type !=1){	
 		$('.productlist tr').each(function(index) {
 				 if($(this).attr('id') == productid)
 				 {
+					
 					 $.alert.open('warning', 'This Product Already Taken');
 					 is_not_same = 1;
 				 }
-			});		
+			});	
+		//}
+		}
+		 else{
+				$('.productlist tr td span input').each(function(index) {
+				  if($(this).attr('value')== is_barcode)
+				  {
+					   $.alert.open('warning', 'This Barcode Item Already Taken');
+					    is_not_same = 1;
+				  }
+												   
+												   
+				});
+
+				//is_not_same = 1;
+		} 
 		
 	 	if(is_not_same ==0){
  	
 	var productid= $("#product_id").html();
- 	var productval= $("#PosProductName").val();
+ 	var productval= object.PosProduct.name;
  	//object.PosBrand.name;
 	
 	var brandid= object.PosBrand.id;
@@ -575,18 +681,23 @@ jQuery(function($){
 	var Quantity= Quantity;
 	var purchaseprise= $("#PosProductPurchaseprice").val();
 	
-	
-	
-	
 //=============================== For Serial and alterrow =====================	
 	var classalt = '';
 		if (sl_no++ % 2 == 0) {
 			 classalt = ' altrow';
 		}
 	var totalprice=Quantity*purchaseprise;
+	 if(is_barcode){
+		var barcode_class = "barcode_sin_"+productid; 
+ 	}else{
+		var barcode_class = "barcode_"+productid; 
+	}
 	
-	$(".productlist").append("<tr  class='productlistli_"+productid+" "+classalt+"' id='"+productid+"'><td>"+sl_no+"</td><td><input type='hidden' class=' productid' value="+productid+" name='data[PosSaleDetail]["+productid+"][pos_product_id]'><span class='productvalli'>"+productval+"</span><input type='hidden' class='brandid' value="+brandid+" name='data[PosSaleDetail]["+productid+"][pos_brand_id]'></td><td><span class='brandvalli'>"+brandval+"</span><input type='hidden' class='categoryid' value="+categoryid+" name='data[PosSaleDetail]["+productid+"][pos_pcategory_id]'></td><td><span class='categoryvalli'>"+categoryval+"</span></td><td><span class='Quantityli'>"+Quantity+"</span><input type='hidden' class='categoryid' value="+Quantity+" name='data[PosSaleDetail]["+productid+"][quantity]'></td><td><span class='purchasepriseli'>"+purchaseprise+"</span><input type='hidden' class='categoryid' value="+purchaseprise+" name='data[PosSaleDetail]["+productid+"][price]'></td><td><span class='totalpriceli'>"+totalprice+"</span><input type='hidden' class='categoryid' value="+totalprice+" name='data[PosSaleDetail]["+productid+"][totalprice]'><span id='all_barcode_sale' class='barcode_"+productid+"'></span></td><td><span class='deletelink' id='deletelink_"+productid+"'></span></td></tr>");
+	$(".productlist").append("<tr  class='productlistli_"+productid+" "+classalt+"' id='"+productid+"'><td>"+sl_no+"</td><td><input type='hidden' class=' productid' value="+productid+" name='data[PosSaleDetail]["+productid+"][pos_product_id]'><span class='productvalli'>"+productval+"</span><input type='hidden' class='brandid' value="+brandid+" name='data[PosSaleDetail]["+productid+"][pos_brand_id]'></td><td><span class='brandvalli'>"+brandval+"</span><input type='hidden' class='categoryid' value="+categoryid+" name='data[PosSaleDetail]["+productid+"][pos_pcategory_id]'></td><td><span class='categoryvalli'>"+categoryval+"</span></td><td><span class='Quantityli'>"+Quantity+"</span><input type='hidden' class='categoryid' value="+Quantity+" name='data[PosSaleDetail]["+productid+"][quantity]'></td><td><span class='purchasepriseli'>"+purchaseprise+"</span><input type='hidden' class='categoryid' value="+purchaseprise+" name='data[PosSaleDetail]["+productid+"][price]'></td><td><span class='totalpriceli'>"+totalprice+"</span><input type='hidden' class='categoryid' value="+totalprice+" name='data[PosSaleDetail]["+productid+"][totalprice]'><span id='all_barcode_sale' class='"+barcode_class+"'></span></td><td><span class='deletelink' id='deletelink_"+productid+"'></span></td></tr>");
 		$('#PosProductName').find('option:first').attr('selected', 'selected').parent('select');
+		
+		
+
 					 //================ Call Total Amoutn =====================
 						 SubTotal();
  					 //================ End Call Total Amoutn Calculation =====
@@ -596,6 +707,8 @@ jQuery(function($){
 					 $("#PosProductName").val('');
 					 $("#PosPurchasePayamount").val('0');
 	 	}
+		
+		
 	}
 		
 	function validator(){ 

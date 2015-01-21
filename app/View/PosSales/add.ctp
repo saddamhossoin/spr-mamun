@@ -8,7 +8,6 @@
             changeMonth: true,
             changeYear: true,
 			dateFormat:"yy-mm-dd",
-			
         });
 		
 		 $( "#PosSaleManualInvoiceDate").datepicker({
@@ -43,6 +42,8 @@
 	   var data =  <?php echo json_encode($return_arr); ?>;
  	  </script>
  	     <div id="product_id" style="display:none"></div>
+         <div id="is_barcode" style="display:none"></div>
+         <div id="product_type" style="display:none"></div>
 		  	<div id="WrapperPosProductName" class="microcontroll ui-widget"> 
 		 <?php echo $this->Form->label('PosProduct.pname', __('Product '.': <span class="star">*</span>', true) ); ?>
          <?php echo $this->Form->input('PosProduct.name',array('type'=>'text','div'=>false,'label'=>false, 'size'=>35, 'class'=>'required'  ));?>
@@ -226,11 +227,11 @@
 		</div>
             
 		
-       <div id="WrapperServiceInvoicePayableAmount" class="microcontroll">
+       <div id="WrapperServiceInvoiceTransport" class="microcontroll">
 		<?php	echo $this->Form->label('PosSaleAmount.transport', __('Transport'.':<span class=star>*</span>', true) );?>
 		<?php	echo $this->Form->input('PosSaleAmount.transport',array( 'div'=>false,'label'=>false,'class'=>'number required two_digit', 'value'=>'0.00'));?>
 		</div>
-        	<div id="WrapperServiceInvoicePayableAmount" class="microcontroll">
+        	<div id="WrapperServiceInvoicePayableOther" class="microcontroll">
 		<?php	echo $this->Form->label('PosSaleAmount.others_fee', __('Other'.':<span class=star>*</span>', true) );?>
 		<?php	echo $this->Form->input('PosSaleAmount.others_fee',array('value'=>'0.00','div'=>false,'label'=>false,'class'=>'number required two_digit'));?>
 		</div>

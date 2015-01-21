@@ -275,7 +275,7 @@ class PosPurchasesController extends AppController {
 									
 									$barcode_value['pos_purchase_detail_id'] =$Last_save_purchase_detail_id;
 									$barcode_value['status'] = 2;
-									$barcode_value['barcode']=$barcode_val;
+									$barcode_value['barcode']=preg_replace('/[^A-Za-z0-9\-]/', '',$barcode_val);
 									$this->PosBarcode->create();
 									$this->PosBarcode->save($barcode_value);
 							}
@@ -648,7 +648,7 @@ class PosPurchasesController extends AppController {
 	
 	function productstatus($id=null){
  		$this->loadModel('PosStock');
-		$productstatus=$this->PosStock->find('first',array('fields'=>array('last_sales  as salesprice' ,'last_purchase as purchaseprice','quantity as in_stock'),'conditions'=>array('PosStock.pos_product_id'=>$id)));
+		$productstatus=$this->PosStock->find('first',array('fields'=>array('PosProduct.pos_type_id','last_sales  as salesprice' ,'last_purchase as purchaseprice','quantity as in_stock'),'conditions'=>array('PosStock.pos_product_id'=>$id)));
 		 echo json_encode($productstatus); 
 		Configure::write('debug', 0); 
 		$this->autoRender = false;

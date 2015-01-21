@@ -409,7 +409,95 @@ public function customerlist(  $search_data = null , $val=null) {
 	  
 
 	function add() {
-    if ($this->RequestHandler->isAjax()) {	
+     if ($this->RequestHandler->isAjax()) {	
+	 /* $this->request->data =array('PosSale' => array(
+            'pos_customer_id' => 58,
+            'user_id' => 201,
+            'email_address' => "saddamhossoin1@gmail.com",
+            'name' => "jowel Test",
+            'phone' => "01554319208",
+            'companyname' => "",
+            'purchase_date' => "2015-01-19 01:01:47",
+            'piva' => "4037",
+            'address' => "Address",
+        ),
+
+    'PosSaleAmount' => array
+        (
+            'totalprice' => 2302.50,
+            'tax' => 0.00,
+            'is_tax' => 1,
+            'discount' => 324.00,
+            'transport' => 0.00,
+            'others_fee' => 0.00,
+            'payable_amount' => 1978.50,
+            'payamount' => 1900.00,
+            'accountHead' => 3,
+        ),
+
+    'PosSaleDetail' => array
+        (
+            '3240' => array
+                (
+                    'pos_product_id' => 3240,
+                    'pos_brand_id' => 18,
+                    'pos_pcategory_id' => 27,
+                    'quantity' => 1,
+                    'price' => 199,
+                    'totalprice' => 199,
+                    'PosBarcode' => array
+                        (
+                            '0' => "SPRSMA-3240-0004",
+                            '1' => "SPRSMA-3240-0005",
+                            '2' => "SPRSMA-3240-0006"
+                        )
+
+                ),
+
+            '3254' => array
+                (
+                    'pos_product_id' => 3254,
+                    'pos_brand_id' => 18,
+                    'pos_pcategory_id' => 27,
+                    'quantity' => 1,
+                    'price' => 105,
+                    'totalprice' => 105,
+                    'PosBarcode' => array
+                        (
+                            '0' => "SPRSMA-3254-0006"
+                        )
+
+                ),
+
+            '3157' => array
+                (
+                    'pos_product_id' => 3157,
+                    'pos_brand_id' => 18,
+                    'pos_pcategory_id' => 27,
+                    'quantity' => 1,
+                    'price' => 399,
+                    'totalprice' => 399,
+                    'PosBarcode' => array
+                        (
+                            '0' => "SPRSMA-3157-0001",
+                            '1' => "SPRSMA-3157-0002",
+                            '2' => "SPRSMA-3157-0003",
+                            '7' => "SPRSMA-3157-0005",
+                        )
+
+                ),
+
+            '1974' => array
+                (
+                    'pos_product_id' => 1974,
+                    'pos_brand_id' => 19,
+                    'pos_pcategory_id' => 21,
+                    'quantity' => 5,
+                    'price' => 0.9,
+                    'totalprice' => 4.5,
+                )
+         )
+         );*/
 		$this->loadModel("PosSaleDetail");
 		 if (!empty($this->request->data)) {
 		 			
@@ -657,6 +745,7 @@ true), 'fail_message');
  				$this->PosSale->create();
 			if ($this->PosSale->save($this->request->data)) {
 			
+			
 				//---------------------------------------------///
 						$lastid=$this->PosSale->getLastInsertId(); 
 		  	 	/////////-----------------------------------/////////////////
@@ -665,13 +754,22 @@ true), 'fail_message');
 					$cost_products = 0;
 				 		
 			 foreach($this->request->data['PosSaleDetail'] as $pddatas){
+			 
 					$this->loadModel('PosBarcode');
 					$this->loadModel('PosProduct');
 				 	$this->loadModel("PosPurchaseDetail");
 				 	$this->loadModel("PosSalePurchaseDetail");
-					
 					$this->loadModel('PosStock');
+
 					$pddatas ['pos_sale_id'] = $lid;
+					
+					//============= for barcode Sales ==============
+					
+					//pr($pddatas);die();
+					if(array_key_exists("PosBarcode",$pddatas)){
+						$pddatas ['quantity'] = count($pddatas['PosBarcode']);
+					}
+
 				 	$this->PosSaleDetail->create();
 					if($this->PosSaleDetail->save($pddatas)){
 					 	$last_sales_detail_id = $this->PosSaleDetail->getLastInsertId();
@@ -884,13 +982,15 @@ true), 'fail_message');
 			       //============Email================//
 				          	//$this->set('ms', $ms);
 							
-						$this->PosSale->send_invoice( $lastid );
+				
+				echo $lastid;
+				$this->PosSale->send_invoice( $lastid );
 								
 			
 			   	    //============EndEmail=============//
 					
 			
-			     echo $lastid;
+			    
 			} 
 			
 			
@@ -901,7 +1001,9 @@ true), 'fail_message');
             Configure::write('debug', 0); 
 				$this->autoRender = false;
 				exit(); 
-		}
+		
+		
+		 }
      
 	 	  
 		 

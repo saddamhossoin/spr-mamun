@@ -214,7 +214,7 @@ class BarcodesController extends AppController {
  			
 			$barcode->setProductName($brand_name. ' ' .$product_name); 
  			$barcode->setCode($data_to_encode);
-			$this->request->data['Barcode']['barcode'] = $data_to_encode;
+			$this->request->data['Barcode']['barcode'] = preg_replace('/[^A-Za-z0-9\-]/', '',  $data_to_encode);
  		 
 			$this->request->data['Barcode']['filename'] = $file;
 		
@@ -259,7 +259,7 @@ class BarcodesController extends AppController {
 			$barcode->setProductName($brand_name. ' ' .$product_name); 
 
 			$barcode->setCode($data_to_encode);
-			 $this->request->data['Barcode']['barcode'] = $data_to_encode;
+			$this->request->data['Barcode']['barcode'] = preg_replace('/[^A-Za-z0-9\-]/', '', $data_to_encode); 
 			// Generate filename    
 			$maxNumberIt = sprintf('%04d', $maxNumber['0']['maxid']+1); 
 			   
@@ -315,7 +315,7 @@ class BarcodesController extends AppController {
  	   
 	   // Generates image file on server           
 		  $barcode->writeBarcodeFile($file);
-		 $this->request->data['Barcode']['barcode'] = $data_to_encode;
+		 $this->request->data['Barcode']['barcode'] = preg_replace('/[^A-Za-z0-9\-]/', '', $data_to_encode);
 		$this->request->data['Barcode']['filename'] = $file;
 		$this->request->data['Barcode']['pos_pcategory_id'] = $posProducts['PosProduct']['pos_pcategory_id'];
 		$this->request->data['Barcode']['pos_product_id'] = $posProducts['PosProduct']['id'];

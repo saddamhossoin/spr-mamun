@@ -191,7 +191,18 @@ class PosBarcodesController extends AppController {
   	
 	}
 	
-	 
+	//============== Product find throw Barcode =========== 
+	function product_find_throw_barcode( $barcode = null ){
+		$this->PosBarcode->recursive = 2;
+		$this->PosBarcode->PosProduct->unbindModel(array('belongsTo'=>array('PosType'),'hasMany'=>array('PosCompatibility','PosProductColor','PosBarcode','Productmod')));
+		$barcode_info = $this->PosBarcode->find('first',array('conditions'=>array('PosBarcode.barcode'=>$barcode , 'PosBarcode.is_sold'=>0)));
+		//pr($barcode_info);die();
+		 echo json_encode($barcode_info);
+		
+		 Configure::write('debug', 0); 
+		 $this->autoRender = false;
+		 exit();
+	}
     
 	function sales_barcode($id=null,$quantity= null,$order=null){
  			

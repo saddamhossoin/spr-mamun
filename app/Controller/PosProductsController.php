@@ -697,6 +697,8 @@ class PosProductsController extends AppController {
 						
 						//pr($this->request->data['PosProductColor']); die('anwar');
 						
+			$this->request->data['PosBarcode']['barcode'] = preg_replace('/[^A-Za-z0-9\-]/', '',$this->request->data['PosBarcode']['barcode']);
+						
 	  		$this->PosProduct->create();
 			if ($this->PosProduct->save($this->request->data)) {
 					$productid=$this->PosProduct->getLastInsertId();
@@ -792,7 +794,7 @@ class PosProductsController extends AppController {
 					$this->request->data['PosProduct']['slug'] = $this->PosProduct->createSlug($this->request->data['PosProduct']['name']);
 				}
 				//========================= End Create Slug =================//
-							
+				$this->request->data['PosBarcode']['barcode'] = preg_replace('/[^A-Za-z0-9\-]/', '',$this->request->data['PosBarcode']['barcode']);			
 				$this->PosProduct->create();
 				if ($this->PosProduct->save($this->request->data)) {
 					$productid=$this->PosProduct->getLastInsertId();
@@ -923,6 +925,7 @@ class PosProductsController extends AppController {
 			if(empty($this->request->data['PosProduct']['slug'])){
 				$this->request->data['PosProduct']['slug'] = $this->PosProduct->createSlug($this->request->data['PosProduct']['name']);
 			}
+			$this->request->data['PosBarcode']['barcode'] = preg_replace('/[^A-Za-z0-9\-]/', '',$this->request->data['PosBarcode']['barcode']);
 			//========================= End Create Slug =================//
 		 	if ($this->PosProduct->save($this->request->data)) {
 			

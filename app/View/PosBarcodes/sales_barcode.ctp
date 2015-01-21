@@ -116,36 +116,32 @@
 }
 #PosBarcodeBarcode{
 	width:145px !important;
-	}
-	
-
-
+}
 #s2id_PosSaleAmountAccountHead{
     margin-left: 130px;
     margin-top: 7px;
     width: 160px;
-	}
+}
 #s2id_PosSaleAmountIsTax{
 	 margin-left: 70px;
     width: 160px;
-	}
+}
 #PosSaleAmountPayamount{
 	width:130px;
-	}
+}
 #final_payment_submit{
 	width:300px;
 	margin-left:95px;
-	}
+}
 #PosSaleAmountTotalprice,#PosSaleAmountTax,#PosSaleAmountDiscount,#PosSaleAmountPayableAmount,#PosSaleAmountPayamount{
 	width:155px !important;
-	}
+}
 #PosSaleAmountCheckNumber,#PosSaleAmountCheckDate{
 	width:155px !important;
-	}
-	.microcontroll label{
+}
+.microcontroll label{
 	padding:0px !important;
-     font-weight: none !important;
+    font-weight: none !important;
 	float:left !important;
 }
-
- </style>
+</style>
