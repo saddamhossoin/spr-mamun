@@ -1,6 +1,5 @@
-<?php  //pr($serviceDeviceInfoLists);?>
-
 <div id="navcontainer">
+<?php  //pr($serviceDeviceInfoLists);?>
 <ul>
 <li id="Receive"><a href="#">Receive</a></li>
 <li id="Re-Assessmen"><a href="#">Re-Assessment</a></li>
@@ -64,15 +63,12 @@
 
 	
      id:<?php echo $sllist['ServiceDeviceInfo']['id']; ?>,
-	 
-     title:'<?php echo "Device:". $sllist['ServiceDevice']['name']; ?>',
-     cname:'<?php echo "Client:". $sllist['PosCustomer']['name']; ?>',
-     serial:'<?php echo "<b>Serial:</b>". $sllist['ServiceDeviceInfo']['serial_no']; ?>',
+     title:'<?php echo $sllist['ServiceDevice']['name']; ?>',
+     serial:'<?php echo " <b>&nbsp; ". $sllist['ServiceDeviceInfo']['serial_no']."</b>"; ?>',
      start:'<?php echo $sllist['ServiceDeviceInfo']['recive_date']; ?>',
      end:'<?php echo $sllist['ServiceDeviceInfo']['estimated_date']; ?>',
-	 status:'<?php echo "<b>Status:</b>"; switch($sllist['ServiceDeviceInfo']['status'] ){ case 1: echo "DeviceRecive"; break; case 3: echo "Re-Assesment";break;case 11: echo "checklistComplete";break; case 7: echo "Tested"; break; case 8: echo "Waiting for delivery";break;}?>',
-	  statusid:'<?php  echo $sllist['ServiceDeviceInfo']['status']; ?>',
-      className : '<?php switch($sllist['ServiceDeviceInfo']['status'] ){ case 1: echo "DeviceRecive"; break; case 3: echo "Re-Assesment";break;case 11: echo "checklistComplete";break; case 7: echo "Tested"; break; case 8: echo "Waitingfordelivery";break;} if($sllist['ServiceDeviceInfo']['is_urgent'] == 1){echo ' is_urgent';}?>',
+ 	 statusid:'<?php  echo $sllist['ServiceDeviceInfo']['status']; ?>',
+     className : '<?php switch($sllist['ServiceDeviceInfo']['status'] ){ case 1: echo "DeviceRecive"; break; case 3: echo "Re-Assesment";break;case 11: echo "checklistComplete";break; case 7: echo "Tested"; break; case 8: echo "Waitingfordelivery";break;} if($sllist['ServiceDeviceInfo']['is_urgent'] == 1){echo ' is_urgent';}?>',
       allDay : false
     },
    <?php }?>
@@ -81,13 +77,8 @@
     ],
    
    eventRender: function(event, element) { 
-   		element.find('.fc-event-title').append("<br/>" + event.status); 
-		element.find('.fc-event-title').append("<br/>" + event.cname); 
-		element.find('.fc-event-title').append("<br/>" + event.serial); 
-		
-		element.find('.fc-event-time').append("<br/>"); 
-		 
-        },
+  		element.find('.fc-event-title').append("<br/>" + event.serial); 
+         },
   eventClick: function(calEvent, jsEvent, view) {
     $("#popupdiv").dialog(reciveDeviceInfo);
 		  

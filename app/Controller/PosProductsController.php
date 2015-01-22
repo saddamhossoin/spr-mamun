@@ -892,7 +892,10 @@ class PosProductsController extends AppController {
  	  }
 		
 		 }
-
+	
+	 
+	
+	
 	 function edit($id = null) {
  		if (!$id && empty($this->request->data)) {
 			$this->Session->setFlash(__('Invalid pos product', true));

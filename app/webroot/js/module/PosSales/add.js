@@ -168,7 +168,7 @@ jQuery(function($){
 							  width: 400
 					});
  					 }  
-  		 			 $("#ajax_status").fadeOut();
+  		 			 $(".ajax_status").fadeOut();
 					 $('.overlaydiv').fadeOut();
 				}
 			});
@@ -182,17 +182,20 @@ jQuery(function($){
 		var productid= $("#product_id").html();
 		var is_barcode= $("#is_barcode").html();
 		//var product_type= $("#product_type").html();
-		
+		 
 		if(!is_barcode){
 			//if(product_type !=1){
-				 
+		if( productid ){		 
 		$('.productlist tr').each(function(index) {
 				 if($(this).attr('id') == productid)
 				 {
 					 $.alert.open('warning', 'This Product Already Taken');
 				 }
 			});
-			//}
+			}
+			else{
+				$.alert.open('warning', 'This is not a product');
+			}
 		}
 		
 		});	
@@ -475,7 +478,7 @@ $("#btn_PosProduct_add").on('click',function(e){
 	 
 	
 	$("#PosProductName").on("keyup", function(e) {
-		 if($(this).val().length >6 && $(this).val().substring(0,3)== 'SPR'){
+		 if($(this).val().length >9 && $(this).val().substring(0,3)== 'SPR'){
 			$.ajax({
 					type: "GET",
 					url:siteurl+"pos_barcodes/product_find_throw_barcode/"+ $(this).val() ,
@@ -486,8 +489,8 @@ $("#btn_PosProduct_add").on('click',function(e){
 							  
 							  $.alert.open('warning', 'This barcode item either sold or not in stock');
 							  $("#PosSalesSalesprice,#PosSalesPurchaseprice,#PosSalesStock,#PosProductPurchaseprice").val("");
-						      $("#SalesPriceStatus,#StockStatuss,#PurchasePriceStatus #is_barcode #product_type").html("");
-							   $('.ajax_status').hide(); 
+						      $("#SalesPriceStatus,#StockStatuss,#PurchasePriceStatus, #is_barcode, #product_type").html("");
+							   $('.ajax_status').fadeOut(); 
 						     }
 							else{  
 								$('#product_id').html(object.PosProduct.id);
@@ -506,12 +509,20 @@ $("#btn_PosProduct_add").on('click',function(e){
 									$("#PosProductQuantity").val(1);
 									$("#PosProductQuantity").attr("readonly", "readonly");    
 								}
+						$('.ajax_status').fadeOut(); 		
 							}
-						 $('.ajax_status').hide(); 
+						 $('.ajax_status').fadeOut(); 
 						}
 					});	
 		 }
-		 else{
+		 else if($(this).val().length >9 ){
+			  
+			  $(".ajax_status").fadeOut();
+ 		      $("#PosSalesSalesprice,#PosSalesPurchaseprice,#PosSalesStock,#PosProductPurchaseprice").val("");
+		      $("#SalesPriceStatus,#StockStatuss,#PurchasePriceStatus, #is_barcode, #product_type").html("");
+			  $('#PosProductName').focus();
+			 // $.alert.open('warning', 'This barcode is not valid');
+			
  			  
 		 }
 	});
@@ -706,9 +717,11 @@ $("#btn_PosProduct_add").on('click',function(e){
 					 $("#PosProductPurchaseprice").val('');
 					 $("#PosProductName").val('');
 					 $("#PosPurchasePayamount").val('0');
+					 $("#PosSalesSalesprice,#PosSalesPurchaseprice,#PosSalesStock,#PosProductPurchaseprice").val("");
+					$("#SalesPriceStatus,#StockStatuss,#PurchasePriceStatus, #is_barcode, #product_type, #product_id").html("");	
 	 	}
 		
-		
+	
 	}
 		
 	function validator(){ 

@@ -544,37 +544,21 @@ class UsersController extends AppController {
 	
 	$id = $this->Auth->user('id');
 	$this->loadModel('ServiceDeviceInfo');
-	$this->loadModel('PosCustomer');
-	$this->loadModel('DeviceCheckList');
-	
-	$this->ServiceDeviceInfo->bindModel(array('belongsTo' => array(
-			   'PosCustomer' => array(
-					'className' => 'PosCustomer',
-					'foreignKey' => 'pos_customer_id',
-					'type' => 'INNER'
-					)
-				)
-          ) );
+ 	$this->loadModel('DeviceCheckList');
+ 
 		  
 	
     $this->ServiceDeviceInfo->recursive =0;
 	
 	$response = $this->ServiceDeviceInfo->find('all',
-	array(	'fields'=>array('ServiceDeviceInfo.id','ServiceDeviceInfo.status','ServiceDeviceInfo.is_urgent','ServiceDeviceInfo.pos_customer_id','PosCustomer.name','ServiceDeviceInfo.serial_no','ServiceDeviceInfo.recive_date','ServiceDeviceInfo.estimated_date','ServiceDevice.name','User.name'),
+	array(	'fields'=>array('ServiceDeviceInfo.id','ServiceDeviceInfo.status','ServiceDeviceInfo.is_urgent','ServiceDeviceInfo.serial_no','ServiceDeviceInfo.recive_date','ServiceDeviceInfo.estimated_date','ServiceDevice.name','User.name'),
 			'conditions'=> array('ServiceDeviceInfo.status'=>array(1,3,11,7,8))));
 	//pr($response);
 	 
 	$this->set('serviceDeviceInfoLists', $response);
-	
-	
-/*	$device_check_lists = $this->DeviceCheckList->find('all',array( 'conditions'=>array('DeviceCheckList.active'=>1)));
-	$this->set('device_check_lists',$device_check_lists);*/
-	
-	
+ 
 	$this->set('page_titles', 'Chief Dashboard'); 
-	
-	
-	}
+ 	}
 	
 	function techdashboard(){
 	$id = $this->Auth->user('id');

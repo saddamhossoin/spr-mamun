@@ -13,9 +13,9 @@ class PosCompatibilitiesController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator');
-	
-	function parentProductListCondition( $data = null)
+ public $components = array('Paginator');
+ 
+ 	function parentProductListCondition( $data = null)
 		 {
  			 $conditionarray = '';
 			   if(!empty($this->request->data['PosCompatibility']['name']))
@@ -38,8 +38,8 @@ class PosCompatibilitiesController extends AppController {
  		return $conditionarray;	
 	}
 	
-
-	function parentProductList( $yes = null  ){
+ function parentProductList( $yes = null  ){
+ 		$this->loadModel('PosProduct');
  	
 		if( !empty($this->request->data) ){
             $this->Session->delete('PosCompitibilityProductSearch');
@@ -49,22 +49,31 @@ class PosCompatibilitiesController extends AppController {
               $this->request->data = $this->Session->read( 'PosCompitibilityProductSearch' );
            }
  		    $this->paginate  = array(
-    	        	'conditions' =>  array($this->parentProductListCondition($this->request->data),' PosProduct.pos_type_id = 1' ),);
+    	        	'conditions' =>  array($this->parentProductListCondition($this->request->data),' PosProduct.pos_type_id '=> 1 ),
+					'fields'=>array('PosProduct.id','PosProduct.pos_type_id','PosProduct.name','PosProduct.pos_pcategory_id','PosProduct.pos_brand_id','PosPcategory.name','PosBrand.name'),
+					'limit' => '950');
 				
 	  if($yes == 'yes')
 	   {
 			$this->Session->delete( 'PosCompitibilityProductSearch' );
-			$this->PosCompatibility->PosProduct->recursive = 0;
+			$this->PosProduct->recursive = 0;
 			$this->paginate  = array(
- 				'limit' => '200',
+ 				'conditions'=>array( "PosProduct.pos_type_id" => 1),
+				'limit' => '20',
 				'order' =>array('PosProduct.name'=>'asc'),
- 				'conditions'=>array("PosProduct.pos_type_id = 1"),
+				'fields'=>array('PosProduct.id','PosProduct.pos_type_id','PosProduct.name','PosProduct.pos_pcategory_id','PosProduct.pos_brand_id','PosPcategory.name','PosBrand.name')
+ 				
  			);
  			$this->request->data='';
-	   }
-  		$this->loadModel('PosProduct');
- 		$this->set('posProducts', $this->paginate('PosProduct'));
+	   }  
+	   
+		
+		$this->PosProduct->unbindModel(array('hasOne' => array('PosStock'),'belongsTo'=>array('PosType')),false);
+		
+  		$this->set('posProducts', $this->paginate('PosProduct'));
   	}
+	
+
 
  function filtercondition($data=null)
 		 {

@@ -21,14 +21,14 @@
     <table cellspacing="0" cellpadding="0">
       <thead>
         <tr>
- 			<th align="left" ><div style=" width: 200px;"><?php echo 'Name';?></div></th>
-          <th align="left" ><div style=" width: 50px;" class="link_text"><?php echo 'Link';?></div></th>
+ 			<th align="left" width="394"><?php echo 'Name';?></th>
+          <th align="left"><?php echo 'Link';?></th>
         </tr>
       </thead>
     </table>
   </div>
 </div>
- <table cellspacing="0" cellpadding="0" border="0" style="" class="flexme3">
+ <table cellspacing="0" cellpadding="0" border="0" style="" class="flexme3" width="100%">
       <tbody id="ServiceDefectGrid">
    <?php	  echo  $this->requestAction("ServiceDefects/parentServiceDefectList/yes/", array("return")); ?>
     </table>

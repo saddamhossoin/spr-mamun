@@ -909,9 +909,7 @@ class ServiceDeviceInfosController extends AppController {
 	function add() {
      if ($this->RequestHandler->isAjax()) {	
 		if (!empty($this->request->data)) {
-		
-		
- 		// pr($this->request->data);die();
+  		// pr($this->request->data);die();
 	//================== New user and current user save ===============
 		$this->loadModel('User');
 		$this->loadModel('PosCustomer');
@@ -992,18 +990,16 @@ class ServiceDeviceInfosController extends AppController {
 						->viewVars(array('Your Reset Password link  ' =>$ms))
 						->send("Hey, we heard you lost your SPR password.Say it ain't so!<br>Use the following link reset your password:<br><br>".$ms."<br><br>Thanks,<br>
 				The Bravelets Team");
-										   if ($email->send()) {
-         				$this->Session->setFlash(__('Your new password has been sent, please check your inbox', true),'success_message');
+				if ($email->send()) {
+         			$this->Session->setFlash(__('Your new password has been sent, please check your inbox', true),'success_message');
                } else {
-                     $this->Session->setFlash(__('Failed to send the confirmation email. Please contact the administrator at support@xxx',
-true), 'fail_message');
+                    $this->Session->setFlash(__('Failed to send the confirmation email. Please contact the administrator at support@xxx',true), 'fail_message');
                } 
            //============EndEmail=============//
                         }
                         else{
      					 $this->Session->setFlash(__('Error Generating Reset link', true),'warnning_message');
-                  //$this->Session->setFlash("Error Generating Reset link");
-                        }
+                         }
                     }
                     else
                     {
@@ -1012,12 +1008,8 @@ true), 'fail_message');
                   }
           //==== mail notification for password Entry End =====================//
   		}
- 	
-		
-		if($customerSave){
-		
-	
-			//===================== Save customer Table =================
+ 		if($customerSave){
+		//===================== Save customer Table =================
 				$this->request->data['ServiceDeviceInfo']['pos_customer_id'] =  $PosCustomerSaveId;
 		
  				$this->request->data['ServiceDeviceInfo']['user_id'] =  $userSave['User']['id'];

@@ -162,7 +162,7 @@
   <div class="clr"></div>
         <div class="posCompatabilityProductGrid">
         <?php
-		   echo  $this->requestAction("PosCompatibilities/parentProductList/yes/", array("return")); ?>
+		   echo  $this->requestAction("PosProducts/parentProductList/yes/", array("return")); ?>
         </div>
    </div>
 </div>

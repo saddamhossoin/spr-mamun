@@ -7,12 +7,8 @@
 		}
 	?>
 	<tr id='<?php echo 'rowDefect_'.$serviceDefect['ServiceDefect']['id'];?>'  <?php echo $class;?>>
- 		<td align='left'><div style='width: 200px;' class='alistname' id="DefenctName_<?php echo $serviceDefect['ServiceDefect']['id'];?>"><?php echo $serviceDefect['ServiceDefect']['name']; ?>&nbsp;</div></td>
-  		<td class="actions">
-			<div style='width: 50px;' class='alistname link_link'>
-            <span id="ServiceDefectItem_<?php echo $serviceDefect['ServiceDefect']['id'];?>" class="popup_add_link">Add</span>
-            			 
-		</div></td>
+ 		<td align='left' class='alistname' id="DefenctName_<?php echo $serviceDefect['ServiceDefect']['id'];?>"><?php echo $serviceDefect['ServiceDefect']['name']; ?>&nbsp;</td>
+  		<td class="actions" class='alistname link_link'><span id="ServiceDefectItem_<?php echo $serviceDefect['ServiceDefect']['id'];?>" class="popup_add_link">Add</span></td>
 	</tr>
     <?php endforeach; ?>
 	<script type="text/javascript">
