@@ -23,7 +23,7 @@
 										
 									     	<td class="headerContent1">
                                             
-                                     <div style="font-size:30px; margin-left:6px; color:black; padding:15px;">_______N&deg;_______</div>
+                                     <div style="font-size:30px; margin-left:6px; color:black; padding:15px;">N&deg;_______</div>
 									
 											
 									<div style=" width:240px; padding:12px; border:1px solid #000000; margin-left:22px;">

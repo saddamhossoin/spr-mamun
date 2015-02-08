@@ -253,8 +253,8 @@
         <?php	echo $this->Form->input('ServiceInvoice.total',array('type'=>'text','readonly'=>'readonly','div'=>false,'label'=>false,'class'=>'required', 'value'=> $serviceDeviceInfo['ServiceInvoice']['total']));?>
       </div>
       <div id="WrapperServiceInvoiceTotala" class="microcontroll">
-        <?php	echo $this->Form->label('ServiceInvoice.discount', __('Discount'.':<span class=star>*</span>', true) );?>
-        <?php	echo $this->Form->input('ServiceInvoice.discount',array('type'=>'text','div'=>false,'label'=>false,'class'=>''));?>
+        <?php	echo $this->Form->label('ServiceInvoice.discount', __('Discount'.':<span class=star></span>', true) );?>
+        <?php	echo $this->Form->input('ServiceInvoice.discount',array('type'=>'text','div'=>false,'label'=>false,'class'=>'','value'=>0));?>
       </div>
       <div id="WrapperServiceInvoiceTotala" class="microcontroll">
         <?php	echo $this->Form->label('ServiceInvoice.payable_amount', __('Payable '.':<span class=star>*</span>', true) );?>

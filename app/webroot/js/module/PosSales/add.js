@@ -230,6 +230,8 @@ $("#btn_PosProduct_add").on('click',function(e){
 							}
 							});	
 					//}
+				}else{
+						$("#PosProductQuantity").removeAttr("readonly");    
 				}
 				 
 		
@@ -243,9 +245,10 @@ $("#btn_PosProduct_add").on('click',function(e){
 						var object=jQuery.parseJSON(response1);
 						
 						if(object.PosProduct.pos_type_id == 1){
-							 addtogrid(object,quantities );
-							 //============= Barcode Checking ==========
 							 var is_barcode_present = $("#is_barcode").html();
+								addtogrid(object,quantities );
+							 //============= Barcode Checking ==========
+							
 							
 							 if(!is_barcode_present){
 								var popup_barcode_url=siteurl+"PosBarcodes/sales_barcode/"+productid+"/"+quantities;
@@ -270,6 +273,7 @@ $("#btn_PosProduct_add").on('click',function(e){
 							 }
 						  }
 						else{
+							
 								addtogrid(object,quantities);
 								 
 								

@@ -18,7 +18,7 @@
         <?php echo $this->Form->label('ServiceDeviceInfo.serial_no', __('Serial'.': <span class="star"></span>', true) ); ?>
         <?php echo $this->Form->input('ServiceDeviceInfo.serial_no',array('type'=>'text','div'=>false,'label'=>false, 'size'=>25 ));?>
          <?php echo $this->Form->label('User.email_address', __('Email Address'.': <span class="star"></span>', true) ); ?>
-        <?php echo $this->Form->input('User.email_address',array('type'=>'text','div'=>false,'label'=>false, 'size'=>25 ));?>
+        <?php echo $this->Form->input('User.email_address',array('type'=>'text','div'=>false,'label'=>false, 'size'=>25,'required'=>false ));?>
       
  		<?php echo $this->Form->label('ServiceDevice.name', __('Brand'.': <span class="star"></span>', true),array('id'=>'filtermodifyedby')  ); ?>
         <?php  echo $this->Form->input('ServiceDevice.pos_brand_id',array('type'=>'select','options'=>$posBrands,'div'=>false,'label'=>false,'class'=>'required select2as','empty'=>'----Please select Brand----'));    ?>

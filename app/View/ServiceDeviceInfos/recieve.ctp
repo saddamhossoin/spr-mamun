@@ -32,14 +32,14 @@
 			<span class='Print_Button'>
             <span class='print_img'>&nbsp;&nbsp;</span> &nbsp;Print</span>
         	<div class="title_div_logo"> <?php echo $deviceRecive['ServiceDeviceInfo']['id']?></div>
-             <div style="margin-left:49px;"> &nbsp;<?php echo $deviceRecive['User']['firstname'];?></div>
-            <div style="margin-left:73px;"> &nbsp;<?php echo $deviceRecive['User']['phone']; ?></div>
-            <div style="margin-left:53px;"> &nbsp;<?php echo $deviceRecive['User']['email_address']; ?></div>
-            <div style="margin-left:110px; font-size: 9px;"> &nbsp; <?php echo $deviceRecive['ServiceDevice']['PosBrand']['name'];?></div>
-            <div style="margin-left:44px; font-size: 9px;"> &nbsp; <?php echo $deviceRecive['ServiceDevice']['name'];?></div>
-            <div style="margin-left:36px; font-size: 9px;"> &nbsp; <?php	echo $deviceRecive['ServiceDeviceInfo']['serial_no']; ?></div>
+            <div><span class="title_s">NOME/ COGNOME</span>&nbsp;<?php echo $deviceRecive['User']['firstname'] ." ".$deviceRecive['User']['lastname'] ;?></div>
+            <div> <span class="title_s">Telefono </span>&nbsp;<?php echo $deviceRecive['User']['phone']; ?></div>
+            <div> <span class="title_s">Email</span>&nbsp;<?php echo $deviceRecive['User']['email_address']; ?></div>
+            <div> <span class="title_s">Marca</span>&nbsp; <?php echo $deviceRecive['ServiceDevice']['PosBrand']['name'];?></div>
+            <div><span class="title_s">Prodotto</span> &nbsp; <?php echo $deviceRecive['ServiceDevice']['name'];?></div>
+            <div><span class="title_s">IMEI</span> &nbsp; <?php	echo $deviceRecive['ServiceDeviceInfo']['serial_no']; ?></div>
              <div style="clear:both;"></div>
-            <div style="margin-left: 71px; font-size: 10px; height: 31px; width:267px;"> &nbsp;<?php
+            <div style="width:267px;"><span class="title_s">Accessori </span> &nbsp;<?php
                 if(!empty($deviceRecive['ServiceDeviceAcessory'])){
                     foreach($deviceRecive['ServiceDeviceAcessory'] as $accesorylist){
                         echo  $accesorylist['ServiceAcessory']['name']  ." , ";
@@ -48,7 +48,7 @@
                         echo 'Acessory not mention!!!';
             	}?>
         </div>
-            <div style="height: 44px; margin-bottom: 10px; font-size: 10px; margin-left: 53px; line-height: 13px; width:267px;"> &nbsp;
+            <div style="line-height: 13px; width:267px;"><span class="title_s">Difetto </span> &nbsp;
 			<?php
 				if(!empty($deviceRecive['ServiceDeviceDefect'])){
 					foreach($deviceRecive['ServiceDeviceDefect'] as $defectlist){
@@ -73,39 +73,72 @@
     	<div>DATI IMPORTANTI :&nbsp;<?php 
 	   
     	echo $data_important[$deviceRecive['ServiceDeviceInfo']['is_data_backup']]; ?></div>
-    	<div>URGENT :&nbsp; <?php	echo $data_important[$deviceRecive['ServiceDeviceInfo']['is_urgent']]; ?></div>
+    	<div>URGENT :&nbsp; <?php	 
+		if($deviceRecive['ServiceDeviceInfo']['is_urgent'] == 121){
+			echo 'Express Service';
+		}else{
+			echo $data_important[$deviceRecive['ServiceDeviceInfo']['is_urgent']];
+		} ?></div>
     </div>
     <div style="clear:both">&nbsp;</div>
         
-    <div style="height: 100px; margin-left: 9px; margin-top: 1px; display: block; font-size: 10px;">NOTE :&nbsp;  <?php	echo $deviceRecive['ServiceDeviceInfo']['description']; ?> </div>
+    <div style="height: 100px; margin-left: 9px; margin-top: 1px; display: block; font-size: 10px;">NOTE :&nbsp;  <?php	echo $deviceRecive['ServiceDeviceInfo']['description']; 
+	//pr();
+	
+	?> </div>
+    <div class="inovice_fotter">
+    <span>Counter:<?php echo $deviceRecive['User']['counter_name'];?></span>
+    <span>Printed:<?php echo date('d/m/y');?></span>
+    </div>
        <style type="text/css">
-	   .recive_fotter div {
+		.inovice_fotter{
+ 			bottom: 0;
+			height: 14px;
+			margin-top: -22px;
+			position: unset;
+			width: 309px;
+			
+		}
+		.inovice_fotter span{
+			float:left;
+			display:inline-block;
+			width:49%;
+			text-align:center;
+		}
+		.recive_fotter div {
 			float: left;
 			margin-left: 15px;
 			width: 44%;
 			font-size:11px;
 		}
-	   .recive_fotter{
-	    clear:both;
- 		width:326px;
-	   }
-	   
-       .sec_div_wrapper {
+		.recive_fotter{
+			clear:both;
+			width:326px;
+		}
+		.sec_div_wrapper {
 			border: 1px solid;
 			height: 466px;
 			margin: auto;
 			width: 326px;
 			font-size:8px;
-			background-image:url(../../img/recive_background.jpg) ;
+			font-size:11px !important;
 		}
 		.sec_div_wrapper div{
-			line-height:0px !important;
+			font-size:11px !important;
+			margin-left:15px;
 		}
 		.title_div_logo{
 			margin-left:44px;
-			margin-bottom:146px;
+			margin-bottom:155px;
 			margin-top:17px;
 		}
+		.title_s{
+			width:110px;
+			display:inline-block;
+			text-transform:uppercase;
+			font-size:11px !important;
+		}
+
 		</style>
         </div>
 	</div>

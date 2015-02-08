@@ -1,3 +1,6 @@
+<?php echo $this->Html->css('common/grid'); 
+ echo $this->Html->script(array('common/commonindex'));
+?>
 <div class="flexigrid users index" style="width: 100%;">
     <div class="mDiv">
         <div class="ftitle">
@@ -8,15 +11,15 @@
     
     <div class="tDiv">
       <div class="tDiv2">
-       <?php echo $this->Form->create('User',array('action'=>'index' ));?>
+       <?php echo $this->Form->create('User',array('action'=>'customer_user' ));?>
        <div id="WrapperBrandName" class="microcontroll">
 	 <?php echo $this->Form->label('Group.name', __('Group Name'.': <span class="star"></span>', true) ); ?>
 	  <?php  
 	   echo $this->Form->input('Group.id',array('type'=>'select','options'=>$groups,'div'=>false,'label'=>false,'class'=>' select2as','empty'=>'----Please select Groups----'));   
 	  
 	  ?>  
-      </div>
-       <div id="WrapperTestName" class="microcontroll">
+ 		</div>
+         <div id="WrapperTestName" class="microcontroll">
 		<?php echo $this->Form->label('User.name', __('Name'.': <span class="star"></span>', true) ); ?>
         <?php echo $this->Form->input('User.name',array('type'=>'text','div'=>false,'label'=>false, 'size'=>25 ));?>
         <?php echo $this->Form->label('User.email_address', __('Email'.': <span class="star"></span>', true) ); ?>
@@ -26,7 +29,7 @@
        <?php echo $this->element('filter/commonfilter',array('cache' => array('time'=> '-7 days','key'=>'header')));?>
         <div class="button_area_filter">
          
-          <?php echo $this->Form->button('Search',array( 'class'=>'submit', 'id'=>'btn_brand_search'));?>      <?php echo $this->Form->button('Reset',array('type'=>'reset','name'=>'reset','id'=>'Cancel', 'onClick'=>"parent.location='".$this->webroot."users/index/yes'"));?>     
+          <?php echo $this->Form->button('Search',array( 'class'=>'submit', 'id'=>'btn_brand_search'));?>      <?php echo $this->Form->button('Reset',array('type'=>'reset','name'=>'reset','id'=>'Cancel', 'onClick'=>"parent.location='".$this->webroot."users/customer_user/yes'"));?>     
         </div>
         </form>
       </div>
@@ -56,48 +59,48 @@
  
         <table cellspacing="0" cellpadding="0" border="0" style="" class="flexme3">
             <tbody>
+             <tr>
+                     <td align='left'><div style='width: 100%; font-weight:bold;' class='alistname'><?php echo 'Customer User'; ?>&nbsp;</div></td>
+                 </tr>
             <?php
              	$i = 0;
-				 
-             	foreach ($users as $key=>$user){
+				// pr($users );die();
+             	foreach ($users as $key=>$use){
             		$class = null;
             		if ($i++ % 2 == 0) {
             			$class = ' class="altrow"';
             	    }
-				//	pr($user);
 					 
+				 	
  					?>
-                    <tr <?php echo $class;?>>
-                     <td align='left'><div style='width: 100%; font-weight:bold;' class='alistname'><?php echo $groups[$key]; ?>&nbsp;</div></td>
-                 </tr>
-                    <?php	foreach($user['User'] as $use){?>
- 	            <tr id="row_<?php echo $use['id'];?>"  <?php echo $class;?>>
+                 
+ 	            <tr id="row_<?php echo $use['User']['id'];?>"  <?php echo $class;?>>
                    	
-                    <td align='left'><div style='width: 72px;' class='alistname'><?php echo h($use['id']); ?>&nbsp;</div></td>
-					 <td align='left'><div style='width: 200px;' class='alistname'><?php  echo $use['firstname']." ".$use['lastname']; ?></div>
- 		           <td align='left'><div style='width: 200px;' class='alistname'><?php  echo h($use['email_address']); ?></div>
+                    <td align='left'><div style='width: 72px;' class='alistname'><?php echo h($use['User']['id']); ?>&nbsp;</div></td>
+					 <td align='left'><div style='width: 200px;' class='alistname'><?php  echo $use['User']['firstname']." ".$use['User']['lastname']; ?></div>
+ 		           <td align='left'><div style='width: 200px;' class='alistname'><?php  echo h($use['User']['email_address']); ?></div>
 			        </td>
                     
                     <td  align="left"><div style='width: 60px;' class='alistname'><?php  
 					
-					if($use['active'] == 1){echo "Active";}else{ echo "Inactive";} ?></div></td>
+					if($use['User']['active'] == 1){echo "Active";}else{ echo "Inactive";} ?></div></td>
                        
-                    <td align='left'><div style='width: 100px;' class='alistname'><?php echo h($use['modified']); ?>&nbsp;</div></td>
+                    <td align='left'><div style='width: 100px;' class='alistname'><?php echo h($use['User']['modified']); ?>&nbsp;</div></td>
             		<td class="actions">
                         <div style='width: 180px;' class='alistname link_link'>			
                             <?php
 							 if((in_array($generalpermit,$permissions) || in_array($this->params['controller'].":edit",$permissions) )&& $this->params['action']!='edit') {
-							 echo $this->Html->link(__('View'), array('action' => 'view', $use['id']),array('class'=>'link_view action_link'));} ?>
+							 echo $this->Html->link(__('View'), array('action' => 'view', $use['User']['id']),array('class'=>'link_view action_link'));} ?>
 			                <?php 
 							 if((in_array($generalpermit,$permissions) || in_array($this->params['controller'].":view",$permissions) )&& $this->params['action']!='view') { 
-							echo $this->Html->link(__('Edit'), array('action' => 'edit', $use['id']),array('class'=>'link_edit action_link')); }?>
+							echo $this->Html->link(__('Edit'), array('action' => 'edit', $use['User']['id']),array('class'=>'link_edit action_link')); }?>
 			                <?php 
 							 if((in_array($generalpermit,$permissions) || in_array($this->params['controller'].":delete",$permissions) )&& $this->params['action']!='delete') { 
-							echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $use['id']), array('class'=>'link_delete action_link'), __(' Are you sure you want to delete this User?')); }?>
+							echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $use['User']['id']), array('class'=>'link_delete action_link'), __(' Are you sure you want to delete this User?')); }?>
 		                </div>
 		            </td>
                 </tr>
-            <?php }
+            <?php  
 			} ?>
             </tbody>
         </table>
@@ -116,8 +119,4 @@
         </div>
     </div>     
 </div>
-    
-          
 </div>
-
-

@@ -410,6 +410,7 @@ public function customerlist(  $search_data = null , $val=null) {
 
 	function add() {
      if ($this->RequestHandler->isAjax()) {	
+	// pr($this->request->data);die();
 	 /* $this->request->data =array('PosSale' => array(
             'pos_customer_id' => 58,
             'user_id' => 201,
