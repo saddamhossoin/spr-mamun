@@ -1,0 +1,2 @@
+msgid "USER_LOGIN_REMEMBER"
+msgstr "Ricordati di me (Resta collegato per 1 settimane, a meno che accedo out)?"

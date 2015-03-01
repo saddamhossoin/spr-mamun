@@ -1,0 +1,2 @@
+msgid "USER_LOGIN_REMEMBER"
+msgstr "Remember me(Keep me logged in for 1 weeks unless I log out)? "

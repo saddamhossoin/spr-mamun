@@ -1,4 +1,6 @@
 <script type="text/javascript">var siteurl = "<?php echo $this->request->webroot;?>"</script>
+<?php echo $this->Html->link('English', array('language'=>'eng')); 
+echo $this->Html->link('Italy', array('language'=>'ita')); ?>
  <div id="tabs">
   <ul>
     <li><a href="#login">Login</a></li>
@@ -17,7 +19,7 @@
       <li> <?php echo $this->Form->label('User.password', __('Password'.': <span class="desc star"></span>') ); ?>
         <div> <?php echo $this->Form->input('User.password',array('type'=>'password','div'=>false,'label'=>false, 'size'=>35, 'class'=>'required' ));?> </div>
 		<br />
-        <?php echo  $this->Form->input('auto_login', array('type' => 'checkbox', 'label' => false,'div'=>false));?> <?php echo $this->Form->label('auto_login', __('Remember me') ); ?>(Keep me logged in for 1 weeks unless I log out)? </li>
+        <?php echo  $this->Form->input('auto_login', array('type' => 'checkbox', 'label' => false,'div'=>false));?> <?php echo $this->Form->label('auto_login', __('USER_LOGIN_REMEMBER') ); ?> </li>
       <li class="buttons">
         <div>
           <?php  echo $this->Form->button('Login',array( 'class'=>'ui-state-default ui-corner-all float-right ui-button', 'id'=>'btn_user_login'));?>

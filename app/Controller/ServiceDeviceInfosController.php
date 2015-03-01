@@ -94,6 +94,22 @@ class ServiceDeviceInfosController extends AppController {
 		  
     
 		$this->ServiceDeviceInfo->recursive = 0;
+		 $this->ServiceDeviceInfo->bindModel(array('belongsTo'=>array('CreatedBy'=>array(
+										 'className' => 'User',
+										'foreignKey' => 'created_by',
+										'dependent' => true,
+										'type' => 'left', 
+										 
+ 						 ))), false);
+						 
+		 $this->ServiceDeviceInfo->bindModel(array('belongsTo'=>array('CheckTech'=>array(
+										 'className' => 'User',
+										'foreignKey' => 'check_tech_id',
+										'dependent' => true,
+										'type' => 'left', 
+										 
+ 						 ))), false);
+						 				  
 	
 	 	// pr($this->paginate());
 		$this->set('serviceDeviceInfos', $this->paginate());
@@ -1111,7 +1127,7 @@ class ServiceDeviceInfosController extends AppController {
 			$barcode->hideCodeType();
 			$barcode->setSize(40,120);
  
- 			$data_to_encode = "SPR-".sprintf('%05d', $invoice_id);
+ 			$data_to_encode = "SPR".sprintf('%05d', $invoice_id);
 			$device_name = explode("-",$device_name);
 			$barcode->setProductName($device_name[0]); 
 
@@ -1120,7 +1136,7 @@ class ServiceDeviceInfosController extends AppController {
 			// Generate filename    
 			$maxNumberIt = sprintf('%05d', $invoice_id); 
 			   
-			$file = 'img/serviceBarcode/SPR-'.$maxNumberIt.'.png';
+			$file = 'img/serviceBarcode/SPR'.$maxNumberIt.'.png';
 			//echo $file;
 			$br_data['ServiceDeviceInfo']['barcode_file'] = $file;
 		
@@ -1136,11 +1152,12 @@ class ServiceDeviceInfosController extends AppController {
 		
 	function recieve( $id = null ){
 			
-	  $this->ServiceDeviceInfo->User->unbindModelAll();
+	 $this->ServiceDeviceInfo->User->unbindModelAll();
 	  $this->ServiceDeviceInfo->ServiceDevice->unbindModelAll();
 	  $this->ServiceDeviceInfo->ServiceInvoice->unbindModelAll();
 	  $this->ServiceDeviceInfo->ServiceDeviceAcessory->unbindModel(array('belongsTo'=>array('ServiceDeviceInfo')));
 	  $this->ServiceDeviceInfo->ServiceDeviceDefect->unbindModel(array('belongsTo'=>array('ServiceDeviceInfo')));
+	  $this->ServiceDeviceInfo->Assesment->unbindModelAll();
 	  		
 	
 	  $this->ServiceDeviceInfo->ServiceDevice->bindModel(array(
@@ -1149,6 +1166,12 @@ class ServiceDeviceInfosController extends AppController {
 		'foreignKey' => 'pos_brand_id',
 		'dependent' => false,
 		))), false);  
+		 $this->ServiceDeviceInfo->bindModel(array(
+	  	'belongsTo'=>array('UserCreated'=>array(
+		'className' => 'User',
+		'foreignKey' => 'created_by',
+		'dependent' => false,
+	 	))), false);  
 			
 			$this->ServiceDeviceInfo->recursive = 2;
 		 	$deviceRecive=$this->ServiceDeviceInfo->find('first',array('conditions'=>array('ServiceDeviceInfo.id'=>$id)));

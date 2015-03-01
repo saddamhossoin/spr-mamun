@@ -7,12 +7,10 @@
  * @package       app.Controller
  user name : mayasoft
  
- http://mayasoftbd.com:2082/cpsess4983843583/3rdparty/phpMyAdmin/index.php#PMAURL:server=1&target=main.php&token=9c402b2497454273201b3ad9a7957c55
- mayasoft
- CENTOS 6.5
- https://p3plcpnl0344.prod.phx3.secureserver.net:2083/cpsess8741348065/3rdparty/phpMyAdmin/index.php#PMAURL-0:index.php?db=&table=&server=1&target=&lang=en&collation_connection=utf8_general_ci&token=134bd9f720f169d714a3b1f6f014fdd4
- solutionpoint
- mayasoftbd@1A
+ host : 62.149.150.230
+username : Sql829702
+password : rzom82m6dr (composta da dieci caratteri)
+nomedatabase : uno dei 5 già creati di default (Sql829702_1 , Sql829702_2 , Sql829702_3 , Sql829702_4 , Sql829702_5)
 
 
  */
@@ -54,9 +52,9 @@ class AppController extends Controller {
 	 		), 
 			'autoRedirect' => true,
         ),
-        'Session', 'RequestHandler','Filter');
+        'Session', 'RequestHandler','Filter','Cookie');
         
-	public $helpers = array('Html','Form','Session','Time','Menu','Js','Captcha');
+	public $helpers = array('Html','Form','Session','Time','Menu','Js','Captcha','MyHtml');
    
     public function beforeFilter() {
 	
@@ -105,8 +103,33 @@ class AppController extends Controller {
 	  $this->set('generalpermit',$this->request->params['controller'].":*");
 	  $this->set('actionpermit',$this->request->params['controller'].":".$this->request->params['action']);
 	  $this->LoadModel('Lookup');
+	 //  $this->_setLanguage();
+	
   
    }
+   private function _setLanguage() {
+	//if the cookie was previously set, and Config.language has not been set
+	//write the Config.language with the value from the Cookie
+	    if ($this->Cookie->read('lang') && !$this->Session->check('Config.language')) {
+	        $this->Session->write('Config.language', $this->Cookie->read('lang'));
+	    } 
+	    //if the user clicked the language URL 
+	    else if ( 	isset($this->params['language']) && 
+		($this->params['language'] !=  $this->Session->read('Config.language'))
+	    		) {
+	    	//then update the value in Session and the one in Cookie
+	        $this->Session->write('Config.language', $this->params['language']);
+	        $this->Cookie->write('lang', $this->params['language'], false, '20 days');
+	    }
+	}
+
+	//override redirect
+	/*public function redirect( $url, $status = NULL, $exit = true ) {
+		if (!isset($url['language']) && $this->Session->check('Config.language')) {
+			$url['language'] = $this->Session->read('Config.language');
+		}
+		parent::redirect($url,$status,$exit);
+	}*/
   
    protected function setLayout() {
 		
@@ -227,7 +250,7 @@ class AppController extends Controller {
 		$_SESSION['tax'] = 22;
 		$this->set('tax',$_SESSION['tax']);
 		//================ Set User lists ===============
-      	if(empty($_SESSION['userlists']))
+      	/*if(empty($_SESSION['userlists']))
       	{
       		$userlists = $this->User->find('list',array('fields'=>array('id','firstname')));
         	$_SESSION['userlists'] = $userlists;
@@ -236,7 +259,7 @@ class AppController extends Controller {
       	else
       	{
        		$this->set('userlists',$_SESSION['userlists']); 
-      	}
+      	}*/
        
      //  pr($_SESSION['Menulist']);
    		$this->loadModel('Menu');
