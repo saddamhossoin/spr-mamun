@@ -39,7 +39,7 @@
    <?php echo $this->element('filter/commonfilter',array('cache' => array('time'=> '-7 days','key'=>'header')));?>
     <div class="button_area_filter">
      
-      <?php echo $this->Form->button('Search',array( 'class'=>'submit', 'id'=>'btn_brand_search'));?>      <?php echo $this->Form->button('Reset',array('type'=>'reset','name'=>'reset','id'=>'Cancel', 'onClick'=>"parent.location='".$this->webroot."posProducts/index/yes'"));?>     
+      <?php echo $this->Form->button(__("Search"),array( 'class'=>'submit', 'id'=>'btn_brand_search'));?>      <?php echo $this->Form->button('Reset',array('type'=>'reset','name'=>'reset','id'=>'Cancel', 'onClick'=>"parent.location='".$this->webroot."posProducts/index/yes'"));?>     
     </div>
     </form>
   </div>
@@ -60,6 +60,7 @@
             <th align="left" width="7%"><?php echo $this->Paginator->sort('box_no','Box No');?></th>
             <th align="left" width="8%"><?php echo 'Barcode';?></th>
   			<th align="left" width="6%"><?php echo $this->Paginator->sort('PosStock.last_sales','Sale');?></th>
+            <th align="left" width="6%"><?php echo $this->Paginator->sort('PosProduct.online_price','Online');?></th>
 			<th align="left" width="6%"><?php echo $this->Paginator->sort('status','Status');?></th>
             <th align="left" width="9%"><?php echo $this->Paginator->sort('pos_type_id','Type');?></th>
             <th align="left" width="7%"><?php echo $this->Paginator->sort('PosStock.quantity','Quantity');?></th>
@@ -79,7 +80,7 @@
 if(!empty($posProducts)){
 	$i = 0;
 	foreach ($posProducts as $posProduct):
-	 // pr($posProduct);die();
+	  // pr($posProduct);die();
 		$class = null;
 		if ($i++ % 2 == 0) {
 			$class = ' class="altrow"';
@@ -98,7 +99,9 @@ if(!empty($posProducts)){
 		if($texthighlight ==''){
 		
 		  echo  $posProduct['PosProduct']['name'];  
-		}else{ echo String::highlight($posProduct['PosProduct']['name'],  $texthighlight , array('format' => '<span class="highlight">\1</span>'));
+		}else{
+            echo  $posProduct['PosProduct']['name'];
+            //echo String::highlight($posProduct['PosProduct']['name'],  $texthighlight , array("format" => "<div class='highlight'>\1</div>"));
 		 }		
 		// echo $posProduct['PosProduct']['name']; ?>&nbsp;</td>			  
 		<td align='left' class='alistname' width="11%"><?php echo  $posProduct['PosPcategory']['name']; ?>&nbsp;</td>			  
@@ -110,11 +113,13 @@ if(!empty($posProducts)){
 			?>&nbsp;</td>
   		
         <td align='left' class='alistname' width="6%"><?php echo $posProduct['PosStock']['last_sales']; ?>&nbsp;</td>
+        <td align='left' class='alistname' width="6%"><?php echo $posProduct['PosProduct']['online_price']; ?>&nbsp;</td>
 		<td align='left' class='alistname' width="6%"><?php echo $status[$posProduct['PosProduct']['status']]; ?>&nbsp;</td>
 		<td align='left' class='alistname' width="9%"><?php echo $posProduct['PosType']['name']; ?>&nbsp;</td>
          <td align='left' class='alistname' width="7%"><?php  echo $posProduct['PosStock']['quantity']; ?>&nbsp;</td>
  		<td class="actions" class='alistname link_link' width="12%">
         <?php echo $this->Html->link(__('View', true), array('action' => 'view', $posProduct['PosProduct']['id']),array('class'=>'link_view action_link')); ?>
+         <?php echo $this->Html->link(__('Print', true), array('action' => 'view', $posProduct['PosBarcode']['0']['barcode']),array('class'=>'link_view action_link PrintBarcode','id'=>$posProduct['PosBarcode']['0']['barcode'])); ?>
 			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $posProduct['PosProduct']['id']),array('class'=>'link_edit action_link')); ?>
 			<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $posProduct['PosProduct']['id']), array('class'=>'link_delete action_link'), sprintf(__('Are you sure you want to delete # %s?', true), $posProduct['PosProduct']['id'])); ?>
 		 </td>

@@ -9,15 +9,15 @@
     
     <div class="tDiv">
       <div class="tDiv2">
-       <?php echo $this->Form->create('User',array('action'=>'index' ));?>
+       <?php echo $this->Form->create('User',array('action'=>'online_user' ));?>
        <div id="WrapperBrandName" class="microcontroll">
-	 <?php echo $this->Form->label('Group.name', __('Group Name'.': <span class="star"></span>', true) ); ?>
-	  <?php echo $this->Form->input('Group.name',array('type'=>'text','div'=>false,'label'=>false, 'size'=>35 ));?>  
+	 <?php echo $this->Form->label('User.name', __('User Name'.': <span class="star"></span>', true) ); ?>
+	  <?php echo $this->Form->input('User.name',array('type'=>'text','div'=>false,'label'=>false, 'size'=>35 ));?>
  		</div>
        <?php echo $this->element('filter/commonfilter',array('cache' => array('time'=> '-7 days','key'=>'header')));?>
         <div class="button_area_filter">
          
-          <?php echo $this->Form->button('Search',array( 'class'=>'submit', 'id'=>'btn_brand_search'));?>      <?php echo $this->Form->button('Reset',array('type'=>'reset','name'=>'reset','id'=>'Cancel', 'onClick'=>"parent.location='users/index/yes'"));?>     
+          <?php echo $this->Form->button('Search',array( 'class'=>'submit', 'id'=>'btn_brand_search'));?>      <?php echo $this->Form->button('Reset',array('type'=>'reset','name'=>'reset','id'=>'Cancel', 'onClick'=>"parent.location='yes'"));?>
         </div>
         </form>
       </div>
@@ -31,15 +31,14 @@
                     <thead>
                     
                         <tr>
-                            <th align="center" class="sorted"><div  style="width: 40px;">
-                                <?php echo $this->Form->checkbox('checkbox',array( 'div'=>false,'label'=>false, 'size'=>25,'class'=>'commoncheckbox'));?> </div>
-                            </th>
+
                            <th align="left" ><div style=" width: 200px;"><?php echo $this->Paginator->sort('firstname','Full Name');?></div></th>
  
                 			<th align="left" ><div style=" width: 150px;"><?php echo $this->Paginator->sort('email_address');?></div></th>
  
-                             <th align="left" ><div style=" width: 60px;"><?php echo $this->Paginator->sort('active');?></div></th>
-                            <th align="left" ><div style=" width: 100px;"><?php echo $this->Paginator->sort('active','Last Activity');?></div></th>
+                            <th align="left" ><div style=" width: 60px;"><?php echo $this->Paginator->sort('active');?></div></th>
+                            <th align="left" ><div style=" width: 60px;"><?php echo $this->Paginator->sort('is_service_price',"Show Service Price");?></div></th>
+                            <th align="left" ><div style=" width: 100px;"><?php echo $this->Paginator->sort('modified','Last Activity');?></div></th>
                            <?php //if($this->Session->read('username')=='Admin' || $this->Session->read('username')=='SuperAdmin'){?>
                             <th align="left" ><div style=" width: 180px;" class="link_text"><?php echo 'Link';?></div></th>
                             <?php //} ?>
@@ -53,7 +52,10 @@
             <tbody>
             <?php
              	$i = 0;
-             	foreach ($users as $user){
+
+             	foreach ($users as $use){
+                     $use = $use['User'];
+                   //  print_r($use); die();
             		$class = null;
             		if ($i++ % 2 == 0) {
             			$class = ' class="altrow"';
@@ -62,13 +64,13 @@
                     <tr <?php echo $class;?>>
                    
                  </tr>
-                    <?php	foreach($user['User'] as $use){?>
-                    <?php if($use['type_of_user']==3) {?>
+                    <?php	//foreach($user['User'] as $use){?>
+                    <?php //if($use['type_of_user']==3) {?>
  	            <tr id="row_<?php echo $use['id'];?>"  <?php echo $class;?>>
                 
                         
                 
-                <td align='left'><div style='width:40px; text-align:center;'> <?php echo $this->Form->checkbox('User.checkbox',array( 'div'=>false,'label'=>false, 'size'=>35,'class'=>'','value'=>$use['id']));?> </div></td>
+
                     		
 					 <td align='left'><div style='width: 200px;' class='alistname'><?php  echo $use['firstname']; ?></div>
  		           <td align='left'><div style='width: 150px;' class='alistname'><?php  echo h($use['email_address']); ?></div>
@@ -83,6 +85,15 @@
                 <?php echo $this->Html->link(__('Inactive', true), array('action' => 'view',$use['id']),array('class'=>'statuslink action_link','id'=>$use['id']."_0_User_inactive")); ?> </span> 
 						
 			</td>
+                    <td class="status">
+
+                <span class="indexbutton" id="<?php echo $use['id'] ?>_2"  <?php if($use['is_service_price'] ==1){ ?>style="display:none"<?php }?>>
+				<?php echo $this->Html->link(__('Show Price', true), array('action' => 'service_price',$use['id']),array('class'=>'servicelink action_link','id'=>$use['id']."_1_User_active")); ?> </span>
+
+				  <span class="indexbutton" id="<?php echo $use['id'] ?>_1" <?php if($use['is_service_price'] !=1){ ?>style="display:none"<?php }?>>
+                <?php echo $this->Html->link(__('Dont Show Price', true), array('action' => 'service_price',$use['id']),array('class'=>'servicelink action_link','id'=>$use['id']."_2_User_inactive")); ?> </span>
+
+                    </td>
                     
                     
                     
@@ -90,8 +101,9 @@
                      
                     <td align='left'><div style='width: 100px;' class='alistname'><?php echo $this->time->niceshort(($use['modified'])); ?>&nbsp;</div></td>
             		<td class="actions">
-                        <div style='width: 180px;' class='alistname link_link'>			
+                        <div style='width: 180px;' class='alistname link_link'>
                             <?php
+                           // pr($permissions);
 							 if((in_array($generalpermit,$permissions) || in_array($this->params['controller'].":edit",$permissions) )&& $this->params['action']!='edit') {
 							 echo $this->Html->link(__('View'), array('action' => 'view', $user['User'][0]['id']),array('class'=>'link_view action_link'));} ?>
 			                <?php 
@@ -103,8 +115,7 @@
 		                </div>
 		            </td>
                 </tr>
-            <?php }
-			} ?>
+            <?php//}} ?>
             
             <?php }?>
             </tbody>
@@ -115,11 +126,11 @@
         <div class="pGroup">
          	<?php 
 			//pr($this->request->params['paging']);die();
-			if($this->request->params['paging']['Group']['prevPage']){?>
+			if($this->request->params['paging']['User']['prevPage']){?>
             <span class='paginate_link'><?php echo $this->Paginator->first();?></span> <span class='paginate_link'><?php echo $this->Paginator->prev('< ' . __('Previous'), array(), null, array('class'=>'disabled','id'=>'prev_id'));?></span>
             <?php }?>
             <?php echo $this->Paginator->numbers();?>
-            <?php if($this->request->params['paging']['Group']['nextPage']){?>
+            <?php if($this->request->params['paging']['User']['nextPage']){?>
                 <span class='paginate_link'> <?php echo $this->Paginator->next(__('Next') . ' >', array(), null, array('class' => 'disabled','id'=>'next_id', 'span'=>false));?> </span> <span class='paginate_link'><?php echo $this->Paginator->last();?></span>
             <?php }?>
         </div>

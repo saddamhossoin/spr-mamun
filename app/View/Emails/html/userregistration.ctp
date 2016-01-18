@@ -48,15 +48,10 @@
                                                               
                                                               <h4 class="h4">Registration  Details</h4>
                                                               <ul>
-                                                                <li><strong>User Name:</strong><?php echo $userinfo_array['User']['firstname'];?></li> 	 	<li><strong>Last Name:</strong><?php echo $userinfo_array['User']['lastname'];?></li>
+                                                                <li><strong>User Name:</strong><?php echo $userinfo_array['User']['firstname'];?></li> 	 	 
 				<li><strong>Email:</strong><?php echo $userinfo_array['User']['email_address'];?></li>
-				<li><strong>Password:</strong><?php echo $password;?></li>
+				 
 				</ul>
-
-
-
-
-
 <p><strong>Thanks again for your support! </strong></p>
 <p><em> The Solution Point Roma(SPR) </em><br />
   <br />
@@ -68,9 +63,9 @@
                                                     	<td align="center" valign="top" style="padding-top:0;">
                                                         	<table border="0" cellpadding="15" cellspacing="0" class="templateButton">
                                                             	<tr>
-                                                                	<td valign="middle" class="templateButtonContent" style=" background:#4A7296; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px;">
+                                                                	<td valign="middle" class="templateButtonContent" style=" background:#F8A51B; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px;">
                                                                     	<div mc:edit="std_content01">
-                                                                        	<a href=" <?php echo 'https://'.env('SERVER_NAME');?>" target="_blank" style="color:#ffffff; font-weight:bold;"> Solution Point Roma </a>
+                                                                        	<a href=" <?php echo 'http://'.env('SERVER_NAME');?>" target="_blank" style="color:#ffffff; font-weight:bold;"> Solution Point Roma </a>
                                                                         </div>
                                                                     </td>
                                                                 </tr>

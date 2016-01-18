@@ -1,96 +1,128 @@
-<?php $status=array(1=>"Receive",2=>"Assesment",3=>"Confirmation",4=>"Servicing",5=>"Complete Servicing/ Testing",6=>"Awaiting for Delivery",7=>"Delivered"); ?>
+<?php $status=array(1=>"Receive",2=>"Assesment",3=>"Re-Assessment",4=>"Confirmation",5=>"Servicing",6=>"Complete Servicing",7=>"Testing",8=>"Awaiting for Delivery",9=>"Delivered",10=>"Check List",11=>"Check List Complete",12=>"CUSTOMER COMMUNICATION" , 13=>"AWAITING CONFIRMATION QUOTE" , 14=>"WAITING FOR PARTS",16=>"Sent Samsung/Nokia warranty",17=>"Received from Samsung/Nokia warranty",18=> "Returned at Samsung/Nokia warranty" ); ?>
+ 
+<?php echo $this->set('title_for_layout', 'TRACKING'); ?>
+<?php echo $this->Html->css(array('module/ServiceDeviceInfos/check_status' )); ?>
+<?php echo $this->Html->css(array('module/Shop/cart' )); ?>
+<br />
+<div class="invoice_summary shopping_cart_right tracking"> 
+<div class="orderSummary">Tracking</div>
 <?php echo $this->Form->create('ServiceDeviceInfo',array('action'=>'checkStatus'));?>
 <div id="WrapperUserEmail" class="microcontroll">
- 		<?php echo $this->Form->label('ServiceDeviceInfo.serial_no', __('Enter Serial No'.': <span class="star">*</span>', true) ); ?>
-		<?php echo $this->Form->input('ServiceDeviceInfo.serial_no',array('type'=>'text','div'=>false,'label'=>false, 'size'=>35, 'class'=>'email '  ));?>
-		
-   </div>
-   <div class="button_area">
-		<?php echo $this->Form->button('Track your device',array( 'class'=>'submit', 'id'=>'btn_track_device_add'));?>
- 
-		<?php echo $this->Form->button('Cancel',array('type'=>'reset','name'=>'reset','id'=>'Cancel'));?>
-		<?php echo $this->Form->end();?>
+	<?php echo $this->Form->label('ServiceDeviceInfo.serial_no', __('Enter Serial No'.': ', true)); ?>
+	<?php echo $this->Form->input('ServiceDeviceInfo.serial_no',array('type'=>'text','div'=>false,'label'=>false, 'size'=>35, 'class'=>'email'));?> 
+	<?php echo $this->Form->button('Submit',array( 'class'=>'submit panel-warning', 'id'=>'btn_track_device_add'));?>
+ 	<?php echo $this->Form->button('Cancel',array('type'=>'reset','name'=>'reset','id'=>'Cancel','class'=>'panel-warning', 'onClick'=>"parent.location='".$this->webroot."ServiceDeviceInfos/checkStatus/yes'"));?>
+	<?php echo $this->Form->end();?>
+    <div class="clr"></div>
 </div>
+ 
+</div>
+<div class="clr"></div>
+<br />
+<?php if(!empty($serviceDeviceInfo)){  //pr($serviceDeviceInfo);?>
+<div class="row">
+	<div class="col col-sm-4 info_div">
+		<div class="panel panel-default">
+			<div class="panel-heading panel-warning">
+				<h3 class="panel-title">Customer Info</h3>
+ 			</div>
+			<div class="panel-body">
+				<span class="titlea">Name</span>: <?php echo $serviceDeviceInfo['User']['firstname'] .' '.$serviceDeviceInfo['User']['lastname'];?><br />
+				<span class="titlea">Email</span>: <?php echo $serviceDeviceInfo['User']['email_address'];?><br />
+				<span class="titlea">Phone</span>: <?php echo $serviceDeviceInfo['User']['phone'];?><br />
+                <span class="titlea">Address</span>: <?php echo $serviceDeviceInfo['User']['address'];?><br />
+                <span class="titlea">P.IVA</span>: <?php echo $serviceDeviceInfo['User']['piva'];?><br />
+ 			</div>
+		</div>
+	</div>
+	<div class="col col-sm-4 info_div">
+		<div class="panel panel-default">
+			<div class="panel-heading panel-warning">
+				<h3 class="panel-title">Device Information</h3>
+			</div>
+			<div class="panel-body">
+                <span class="titlea">Name</span>: <?php echo $serviceDeviceInfo['ServiceDevice']['name'];?> &nbsp; <br />
+                <span class="titlea">IMEI</span>: <?php echo $serviceDeviceInfo['ServiceDeviceInfo']['serial_no'];?> &nbsp;<br /> 
+ 			</div>
+		</div>
+	</div>
+	<div class="col col-sm-4 info_div">
+		<div class="panel panel-default">
+			<div class="panel-heading panel-warning">
+				<h3 class="panel-title">Device Status</h3>
+			</div>
+		<div class="panel-body">
+         <span class="titlea">Recive</span>: <?php echo $serviceDeviceInfo['ServiceDeviceInfo']['recive_date'];?> &nbsp; <br />
+         <span class="titlea">Estimated</span>: <?php echo $serviceDeviceInfo['ServiceDeviceInfo']['estimated_date'];?> &nbsp;<br />
+             <span class="titlea">State</span>: <?php
+				 switch($serviceDeviceInfo['ServiceDeviceInfo']['status']){
+					case 1:
+					 echo "<span class='statuss' id='Receive'>Working</div>"; 
+					break;
+					case 2:
+					 echo "<span class='statuss' id='wait_approve'>Working</div>"; 
+					break;
+					case 3:
+					 echo "<span class='statuss' id='reassessment'>Working</div>"; 
+					break;
+					case 4:
+					 echo "<span class='statuss' id='Approved'>Working</div>"; 
+					break;
+					case 5:
+					 echo "<span class='statuss'>Working</div>"; 
+					break;
+					case 6:
+					 echo "<span class='statuss'>Working</div>"; 
+					break;
+					case 7:
+					 echo "<span class='statuss'>Repairs Complete</div>"; 
+					break;
+					case 8:
+					 echo "<span class='statuss'>Repairs Complete</div>"; 
+					break;
+					case 9:
+					 echo "<span class='statuss'>Repairs Complete</div>"; 
+					break;
+					case 10:
+					 echo "<span class='statuss' id='check_list'>Working</div>"; 
+					break;
+					case 11:
+					 echo "<span class='statuss' id='check_complete'>Working</div>"; 
+					break;
+					case 12:
+					 echo "<span class='statuss' id='check_complete'>CUSTOMER COMMUNICATION</div>"; 
+					break;
+					case 13:
+					 echo "<span class='statuss' id='check_complete'>AWAITING CONFIRMATION QUOTE</div>"; 
+					break;
+					case 14:
+					 echo "<span class='statuss' id='check_complete'>WAITING FOR PARTS</div>"; 
+					break;
+					case 15:
+					 echo "<span class='statuss' id='check_complete'>Waiting for password/pin</div>"; 
+					break;
+					case 16:
+					 echo "<span class='statuss' id='check_complete'>Sent Samsung/Nokia warranty</div>"; 
+					break;
+					case 17:
+					 echo "<span class='statuss' id='check_complete'>Received from Samsung/Nokia warranty</div>"; 
+					break;
+					case 18:
+					 echo "<span class='statuss' id='check_complete'>Returned at Samsung/Nokia warranty</div>"; 
+					break;
+				}?> &nbsp;<br /> 
+			</div>
+		</div>
+	</div>
+</div>
+<hr>
+<hr>
+<?php }
+?>
+<div class="clr"></div>
+</div>
+<div class="clr"></div>
 
-<?php
-  if(!empty($serviceDeviceInfo)){
-			echo "<h1> Hi , ".$serviceDeviceInfo['PosCustomer']['contactname']." </h1>";
-			echo "<p> Your service status is bla bla bla bla bla</p>";
-			
-			?>
-            <div class="serviceDeviceInfos view">
-	<table cellpadding="0" cellspacing="0" class="view_table"><?php $i = 0; $class = ' class="altrow"';?>
-		<tr <?php if ($i % 2 == 0) echo $class;?>><td>Id</td><td> : </td>
-		<td >
-			<?php echo $serviceDeviceInfo['ServiceDeviceInfo']['id']; ?>
-			&nbsp;
-		</td></tr>
-<?php $i++;?>		<tr <?php if ($i % 2 == 0) echo $class;?>><td>Status</td><td>:</td>
-		<td style="color:#006600; font-weight:bold; text-transform:uppercase;">
-			<?php echo $status[$serviceDeviceInfo['ServiceDeviceInfo']['status']]; ?>
-			&nbsp;
-		</td></tr>
-<?php $i++;?><tr <?php if ($i % 2 == 0) echo $class;?>><td>User</td><td>:</td>
-		<td>
-			<?php echo $this->Html->link($serviceDeviceInfo['User']['email_address'], array('controller' => 'users', 'action' => 'view', $serviceDeviceInfo['User']['id'])); ?>
-			&nbsp;
-		</td></tr>
-<?php $i++;?>		<tr <?php if ($i % 2 == 0) echo $class;?>><td>Service Device</td><td>:</td>
-		<td>
-			<?php echo $this->Html->link($serviceDeviceInfo['ServiceDevice']['name'], array('controller' => 'service_devices', 'action' => 'view', $serviceDeviceInfo['ServiceDevice']['id'])); ?>
-			&nbsp;
-		</td></tr>
-<?php $i++;?>		<tr <?php if ($i % 2 == 0) echo $class;?>><td>Serial No</td><td>:</td>
-		<td >
-			<?php echo $serviceDeviceInfo['ServiceDeviceInfo']['serial_no']; ?>
-			&nbsp;
-		</td></tr>
-<?php $i++;?>		<tr <?php if ($i % 2 == 0) echo $class;?>><td>Description</td><td>:</td>
-		<td >
-			<?php echo $serviceDeviceInfo['ServiceDeviceInfo']['description']; ?>
-			&nbsp;
-		</td></tr>
-<?php $i++;?>		<tr <?php if ($i % 2 == 0) echo $class;?>><td>Defect State</td><td>:</td>
-		<td >
-			<?php //echo $serviceDeviceInfo['ServiceDeviceInfo']['defect_state']; ?>
-			&nbsp;
-		</td></tr>
-<?php $i++;?>		<tr <?php if ($i % 2 == 0) echo $class;?>><td>Acessories</td><td>:</td>
-		<td >
-			<?php echo $serviceDeviceInfo['ServiceDeviceInfo']['acessories']; ?>
-			&nbsp;
-		</td></tr>
-<?php $i++;?>		<tr <?php if ($i % 2 == 0) echo $class;?>><td>Recive Date</td><td>:</td>
-		<td >
-			<?php echo $serviceDeviceInfo['ServiceDeviceInfo']['recive_date']; ?>
-			&nbsp;
-		</td></tr>
-<?php $i++;?>		<tr <?php if ($i % 2 == 0) echo $class;?>><td>Estimated Date</td><td>:</td>
-		<td >
-			<?php echo $serviceDeviceInfo['ServiceDeviceInfo']['estimated_date']; ?>
-			&nbsp;
-		</td></tr>
-<?php $i++;?>		<tr <?php if ($i % 2 == 0) echo $class;?>><td>Created By</td><td> : </td>
-		<td >
-			<?php echo $serviceDeviceInfo['ServiceDeviceInfo']['created_by']; ?>
-			&nbsp;
-		</td></tr>
-<?php $i++;?>		<tr <?php if ($i % 2 == 0) echo $class;?>><td>Modified By</td><td> : </td>
-		<td >
-			<?php echo $serviceDeviceInfo['ServiceDeviceInfo']['modified_by']; ?>
-			&nbsp;
-		</td></tr>
-<?php $i++;?>		<tr <?php if ($i % 2 == 0) echo $class;?>><td>Created</td><td> : </td>
-		<td >
-			<?php echo $serviceDeviceInfo['ServiceDeviceInfo']['created']; ?>
-			&nbsp;
-		</td></tr>
-<?php $i++;?>		<tr <?php if ($i % 2 == 0) echo $class;?>><td>Modified</td><td> : </td>
-		<td >
-			<?php echo $serviceDeviceInfo['ServiceDeviceInfo']['modified']; ?>
-			&nbsp;
-		</td></tr>
-<?php $i++;?>	</table>
-</div><?php }else{
-	echo "<h1>Invalid Serial No.</h1>";
-}
+<br />
+<div class="invoice_details"> 
+<hr>

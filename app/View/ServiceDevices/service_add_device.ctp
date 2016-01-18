@@ -30,9 +30,9 @@
       <table cellpadding="0" cellspacing="0">
         <thead>
            <tr>
-            <th align="left" ><div style=" width: 240px;">Service</div></th>
- 			<th align="left" ><div style=" width: 50px;">Price</div></th>
-			<th align="left" ><div style=" width: 50px;">Action</div></th>
+            <th align="left" width="60%">Service</th>
+ 			<th align="left" width="20%">Price</th>
+			<th align="left" width="20%">Action</th>
            </tr>
         </thead>
       </table>

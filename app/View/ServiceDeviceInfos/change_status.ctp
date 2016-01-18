@@ -1,7 +1,5 @@
 <?php  echo $this->Html->script(array('common/form','common/jquery.validate'));   ?>
-
- 
-<div class="serviceDeviceInfos">
+ <div class="serviceDeviceInfos">
 <?php echo $this->Form->create('ServiceDeviceInfo',array('enctype' => 'multipart/form-data','type'=>'file'));?>
   		<div id="WrapperServiceDeviceInfoStatus" class="microcontroll">
          <?php echo $this->Form->label('ServiceDeviceInfo.status', __('Status'.': <span class="star">*</span>', true) ); ?>

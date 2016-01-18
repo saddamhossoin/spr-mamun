@@ -1,13 +1,25 @@
 <?php echo $this->Html->css(array('common/grid'));
+	echo $this->Html->script(array('common/form','common/jquery.validate' ));
+ echo $this->Html->script(array('module/Assesments/add'));
  //pr($serviceDeviceInfo);
  $urgent_class = '';
 		if($serviceDeviceInfo['ServiceDeviceInfo']['is_urgent'] == 1)
-		{$urgent_class = 'urgent_class';}else{$urgent_class = '';}
-?>
+		{$urgent_class = 'urgent_class';}else{$urgent_class = '';} 
+		?>
+         <span id="view_checklist12">View Checklist</span>
+		 
+   			
+  <?php  
+	 
+	if(!empty($serviceDeviceInfo['ServiceDeviceInfo']['screenimage'])){  ?>
+    <span id="view_Service_Image" class="btn_view_image_link" title="<?php echo $serviceDeviceInfo['ServiceDeviceInfo']['id'];?>">Image</span>
+     <?php } ?>
+     <span id="view_Service_Note" class="btn_view_image_link" title="<?php echo $serviceDeviceInfo['ServiceDeviceInfo']['id'];?>">Note</span>
  <div id="columns">   
      <div class="reciveDeviceContact reciveDevice">
     <div class="blocktitleinfo"> Service Information
 	<?php echo "<span class='serial_no'>".'Serial No : '.$serviceDeviceInfo['ServiceDeviceInfo']['serial_no']."</span>";?>
+     <span style=" display:none" id="ServiceDeviceInfo_id"><?php echo $serviceDeviceInfo['ServiceDeviceInfo']['id'];?></span>
 	</div>
     <div class="rdcontent_left">
       <table  class="assesmentSDIGrid">
@@ -230,6 +242,41 @@
 <?php echo $this->Form->end();?>
 </div>
 
+<script type="text/javascript">
+$(function() {
+	$(document).ready(function() {
+ 	var dialogOptstempleteGeneralListss = {
+		title:'Comparigm Check List',
+		autoOpen: false,
+		height: 420,
+		width: 635,
+		modal: true,
+		//draggable:true,
+		//close: CloseFunction,
+		dialogClass: 'objectdetailsdialog',
+	};
+	$("#invoice7").dialog(dialogOptstempleteGeneralListss);
+	
+	$("#view_checklist12").on('click',function(e){
+		e.preventDefault();
+  		
+		 var service_info_id = $("#ServiceDeviceInfo_id").html();
+		 	 
+		var ulrs =siteurl+"DeviceCheckLists/comparigm_checklist/"+service_info_id;
+			$("#invoice7").load(ulrs, [], function(){
+			$("#invoice7").dialog("open");
+			//add_inventory
+			
+			
+ 		});
+  
+	});
+	
+	});
+	});
+ 
+</script>
+
 <style type="text/css">
 .serial_no{
 	margin-left:275px;
@@ -258,4 +305,3 @@
 	}
 
 </style>
-

@@ -72,8 +72,7 @@
         <div class="welcome"> <span class="note">Welcome, <a href="<?php echo $this->request->webroot?>users/view/<?php echo $this->Session->read('Auth.User.id');?>" title="Welcome, <?php echo $this->Session->read('Auth.User.firstname');?> <?php echo $this->Session->read('Auth.User.lastname');?>"><?php echo $this->Session->read('Auth.User.email_address');?></a></span> <a class="btn ui-state-default ui-corner-all" href="#"> <span class="ui-icon ui-icon-wrench"></span> Settings </a> <a class="btn ui-state-default ui-corner-all" href="<?php echo $this->request->webroot?>users/dashboard"> <span class="ui-icon ui-icon-person"></span> My account </a> <a class="btn ui-state-default ui-corner-all" href="<?php echo $this->request->webroot?>users/logout"> <span class="ui-icon ui-icon-power"></span> Logout </a> </div>
       </div>
       <ul id="navigation">
-        <?php echo $this->element('layout/topmenulist'); 
-?>
+        <?php echo $this->element('layout/topmenulist'); ?>
       </ul>
     </div>
   </div>
@@ -82,7 +81,7 @@
       <div id="page-content-wrapper">
  	  <div class="ui-box-header ui-corner-all" style="margin-bottom:5px; height:36px;"> 
 	  	<div style="float:left; width:400px; margin-top:8px; margin-left:5px; font-size:14px;"><?php echo 	 $page_titles;?> </div>
-		<div class="ajax_status" style="display:none;">
+		<div class="ajax_status_1" style="display:none;">
 			<img src="<?php echo $this->request->webroot?>img/circle.gif" alt="Checking..." />
 		</div> 
 		<div class="ajax-save-message" style="display:none;"></div>

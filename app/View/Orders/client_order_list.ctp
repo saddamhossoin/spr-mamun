@@ -1,77 +1,38 @@
-<?php //pr($Orders);?> 
+<?php  //pr($Orders);?> 
 
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 <div class="row-fluid">
-								<h3 class="header smaller lighter blue">&nbsp;</h3>
-								<div class="table-header">
-									Orders
-								</div>
-
-								<table id="sample-table-2" class="table table-striped table-bordered table-hover">
-									<thead>
-										<tr>
-											<th class="center">
-												<label>
-													<input type="checkbox" />
-													<span class="lbl"></span>
-												</label>
-											</th>
-											<th>Product Name</th>
-											<th>Quantity</th>
-											<th class="hidden-480">Price</th>
-
-											<th class="hidden-phone">
-												<i class="icon-time bigger-110 hidden-phone"></i>
-												Total
-											</th>
-											 
-											<th>Link</th>
-										</tr>
-									</thead>
-
-									 <tbody>
-	
-	<?php foreach($Orders as $Order){
-	?>
-	
-	<tr>
-		<td class="center">
-			<label>
-				<input type="checkbox" />
-				<span class="lbl"></span>
-			</label>
-		</td>
-	
-		<td>
-			 <?php echo $Order['OrderItem']['0']['name'];?>
-		</td>
-		<td><?php echo $Order['OrderItem']['0']['quantity'];?></td>
-		<td class="hidden-480"><?php echo $Order['OrderItem']['0']['price'];?></td>
-		<td class="hidden-phone"><?php echo $Order['Order']['total'];?></td>
-		
+	<h3 class="header smaller lighter blue">&nbsp;</h3>
+		<div class="table-header">Orders</div>
+        	<table id="sample-table-2" class="table table-striped table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Status</th>
+                    <th>Order No</th>
+                    <th>Date</th>
+                    <th>Items</th>
+                    <th class="hidden-480">Total Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+	     <tbody>
+	<?php foreach($Orders as $Order){?>
+    <tr>
+    	<td><?php echo $Order['Order']['status'];?></td>
+		<td><?php echo $Order['Order']['id'];?></td>
+		<td><?php echo $Order['Order']['modified'];?></td>
+		<td class="hidden-480"><?php echo $Order['Order']['order_item_count'];?></td>
+		<td class="hidden-phone"><?php echo $Order['Order']['total'] +$Order['Order']['payment_charge'];?></td>
 		<td class="hidden-phone">
-		 <?php echo $this->Html->link(__('Print', true), array('action' => 'sales_invoice', $Order['Order']['id']),array('class'=>'receive_invoice action_link label label-large label-purple')); ?>
-		
+		 <?php echo $this->Html->link(__('Details', true), array('action' => 'client_order_details', $Order['Order']['id']),array('class'=>'receive_invoice action_link label label-large label-purple')); ?>
 		</td>
-		
-		
-	
-		 
-	
-		
 	</tr>
-										
-      
-    
 	<?php }?>
-    
     </tbody>
-								</table>
-							</div>
-							<?php echo $this->Html->script(array('client/jquery.dataTables.min','client/jquery.dataTables.bootstrap')); ?>
-
-							
-							<script type="text/javascript">
+</table>
+</div>
+<?php echo $this->Html->script(array('client/jquery.dataTables.min','client/jquery.dataTables.bootstrap')); ?>
+		<script type="text/javascript">
 			$(function() {
 				var oTable1 = $('#sample-table-2').dataTable( {
 				"aoColumns": [

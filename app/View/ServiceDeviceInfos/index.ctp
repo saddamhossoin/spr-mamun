@@ -1,4 +1,8 @@
-<?php $status=array(1=>"Receive",2=>"Assesment",3=>"Re-Assessment",4=>"Confirmation",5=>"Servicing",6=>"Complete Servicing",7=>"Testing",8=>"Awaiting for Delivery",9=>"Delivered",10=>"Check List",11=>"Check List Complete",12=>"CUSTOMER COMMUNICATION" , 13=>"AWAITING CONFIRMATION QUOTE" , 14=>"WAITING FOR PARTS"); ?>
+<?php $status=array(1=>"Receive",2=>"Assesment",3=>"Re-Assessment",4=>"Confirmation",5=>"Servicing",6=>"Complete Servicing",7=>"Testing",8=>"Awaiting for Delivery",9=>"Delivered",10=>"Check List",11=>"Check List Complete",12=>"CUSTOMER COMMUNICATION" , 13=>"AWAITING CONFIRMATION QUOTE" , 14=>"WAITING FOR PARTS",16=>"Sent Samsung/Nokia warranty",17=>"Received from Samsung/Nokia warranty",18=> "Returned at Samsung/Nokia warranty" ); ?>
+
+<?php //pr($assessment_lists);?>
+<?php echo $this->Html->css(array('common/grid'));?>
+
 <div class="flexigrid" style="width: 100%;">
  <div class="mDiv">
   <div class="ftitle">
@@ -9,36 +13,30 @@
 
 <div class="tDiv">
   <div class="tDiv2">
-   <?php echo $this->Form->create('ServiceDeviceInfo',array('controller' => 'serviceDeviceInfos','action'=>'index' ));?>
+   <?php echo $this->Form->create('ServiceDeviceInfo',array('controller' => 'ServiceDeviceInfos','action'=>'index' ));?>
    
-  	 <div id="WrapperTestName" class="microcontroll">
-		<?php echo $this->Form->label('ServiceDevice.name', __('Device'.': <span class="star"></span>', true) ); ?>
-        <?php echo $this->Form->input('ServiceDevice.name',array('type'=>'text','div'=>false,'label'=>false, 'size'=>25 ));?>
-       
-        <?php echo $this->Form->label('ServiceDeviceInfo.serial_no', __('Serial'.': <span class="star"></span>', true) ); ?>
-        <?php echo $this->Form->input('ServiceDeviceInfo.serial_no',array('type'=>'text','div'=>false,'label'=>false, 'size'=>25 ));?>
-         <?php echo $this->Form->label('User.email_address', __('Email Address'.': <span class="star"></span>', true) ); ?>
-        <?php echo $this->Form->input('User.email_address',array('type'=>'text','div'=>false,'label'=>false, 'size'=>25,'required'=>false ));?>
-      
- 		<?php echo $this->Form->label('ServiceDevice.name', __('Brand'.': <span class="star"></span>', true),array('id'=>'filtermodifyedby')  ); ?>
-        <?php  echo $this->Form->input('ServiceDevice.pos_brand_id',array('type'=>'select','options'=>$posBrands,'div'=>false,'label'=>false,'class'=>'required select2as','empty'=>'----Please select Brand----'));    ?>
+   <div id="WrapperTestName" class="microcontroll">
+	<?php echo $this->Form->label('ServiceDevice.name', __('Device'.': <span class="star"></span>', true) ); ?>
+    <?php echo $this->Form->input('ServiceDevice.name',array('type'=>'text','div'=>false,'label'=>false, 'size'=>25 ));?>
+    
+    <?php echo $this->Form->label('ServiceDeviceInfo.serial_no', __('Serial'.': <span class="star"></span>', true) ); ?>
+    <?php echo $this->Form->input('ServiceDeviceInfo.serial_no',array('type'=>'text','div'=>false,'label'=>false, 'size'=>25 ));?>
+   
+    <?php echo $this->Form->label('PosCustomer.name', __('Customer'.': <span class="star"></span>', true) ); ?>
+    <?php echo $this->Form->input('PosCustomer.name',array('type'=>'text','div'=>false,'label'=>false, 'size'=>25 ));?>
         
-        <?php  echo $this->Form->label('ServiceDevice.name', __('Category'.': <span class="star"></span>', true),array('id'=>'filtermodifyedby')  );   
-               echo $this->Form->input('ServiceDevice.pos_pcategory_id',array('type'=>'select','options'=>$posPcategories,'div'=>false,'label'=>false,'class'=>'required select2as','empty'=>'----Please select Category----'));  
-        ?>
-        
-       
-      
-      
-        
-          <?php   echo $this->Form->label('ServiceDeviceInfo.name', __('Status'.': <span class="star"></span>', true),array('id'=>'filtermodifyedby')  );   	 echo $this->Form->input('ServiceDeviceInfo.status',array('type'=>'select','options'=>$status,'div'=>false,'label'=>false,'class'=>'required select2as','empty'=>'-- Select Status --'));  
+        <?php   echo $this->Form->label('ServiceDeviceInfo.name', __('Status'.': <span class="star"></span>', true),array('id'=>'filtermodifyedby')  );   	echo $this->Form->input('ServiceDeviceInfo.status',array('type'=>'select','options'=>$status,'div'=>false,'label'=>false,'class'=>'required select2as','empty'=>'-- Select Status --'));  
 	  ?>
     </div>
-      
+   
+   
+   
+   
    <?php echo $this->element('filter/commonfilter',array('cache' => array('time'=> '-7 days','key'=>'header')));?>
     <div class="button_area_filter">
      
-      <?php echo $this->Form->button('Search',array( 'class'=>'submit', 'id'=>'btn_brand_search'));?>      <?php echo $this->Form->button('Reset',array('type'=>'reset','name'=>'reset','id'=>'Cancel','onClick'=>"parent.location='".$this->webroot."serviceDeviceInfos/index/yes'"));?>     
+      <?php echo $this->Form->button('Search',array( 'class'=>'submit', 'id'=>'btn_brand_search'));?>      
+	  <?php echo $this->Form->button('Reset',array('type'=>'reset','name'=>'reset','id'=>'Cancel', 'onClick'=>"parent.location='".$this->webroot."ServiceDeviceInfos/index/yes'"));?>     
     </div>
     </form>
   </div>
@@ -48,50 +46,59 @@
 <div class="bDiv" style="height: auto;">
 <div class="hDiv">
   <div class="hDivBox">
-    <table cellspacing="0" cellpadding="0" width="100%">
+    <table cellspacing="0" cellpadding="0">
       <thead>
         <tr>
-            <th align="left" style=" width: 10%;"> <?php echo $this->Paginator->sort('user_id');?> </th>
-			<th align="left" style=" width: 6%;"> <?php echo $this->Paginator->sort('status');?> </th>
- 			<th align="left" style=" width: 15%;"> <?php echo $this->Paginator->sort('service_device_id');?> </th>
-            <th align="left" style=" width: 10%;"> <?php echo $this->Paginator->sort('ServiceDevice.pos_brand_id', 'Brand');?> </th>
-             <th align="left" style=" width: 10%;"> <?php echo $this->Paginator->sort('tech_name');?> </th>
-			<th align="left" style=" width: 8%;"> <?php echo $this->Paginator->sort('serial_no');?> </th>
- 			<th align="left" style=" width: 8%;"> <?php echo $this->Paginator->sort('recive_date');?> </th>
-			<th align="left" style=" width: 8%;"> <?php echo $this->Paginator->sort('estimated_date');?> </th> 
-			 
-	           <th align="left" style=" width: 10%;"> <?php echo 'Link';?> </th>
+          
+         		
+			<th align="left" width="6%"> <?php echo $this->Paginator->sort('recive_date');?> </th>
+			<th align="left" width="6%"><?php echo $this->Paginator->sort('estimated_date','Estimated');?> </th>
+            <th align="left" width="10%"><?php echo $this->Paginator->sort('status');?> </th>
+			<th align="left" width="12%"><?php echo $this->Paginator->sort('pos_customer_id');?></th>
+			<th align="left" width="11%"><?php echo $this->Paginator->sort('service_device_id');?></th>
+            <th align="left" width="11%"><?php echo $this->Paginator->sort('serial_no');?></th>
+            <th align="left" width="12%"><?php echo $this->Paginator->sort('tech_name');?></th>
+            <th align="left" width="6%"><?php echo $this->Paginator->sort('inventory_total','Inventory');?></th>
+			<th align="left" width="6%"><?php echo $this->Paginator->sort('service_total','Service');?></th>
+            
+		
+	          <?php if($this->Session->read('username')=='Admin' || $this->Session->read('username')=='SuperAdmin'){?>          <th align="right"  > <?php echo $this->Paginator->sort('User','modifiedBy');?> </th>
+           <?php } ?> 
+              <th align="left" class="link_text" width="19%"> <?php echo 'Link';?> </th>
         </tr>
       </thead>
     </table>
   </div>
 </div>
  
-  <table cellspacing="0" cellpadding="0" border="0" width="100%" class="flexme3">
+  <table cellspacing="0" cellpadding="0" border="0" style="" class="flexme3">
       <tbody>
 <?php
- // pr($serviceDeviceInfos);die();
-	$purchaseDate = '';
+   // pr($assessment_lists);die();
+    $purchaseDate = '';
 	$i = 0;
+	foreach ($serviceDeviceInfos as $assessment_list):
 	
-	foreach ($serviceDeviceInfos as $serviceDeviceInfo):
-	  
+	 // pr($assessment_list);die();
 		$class = null;
 		if ($i++ % 2 == 0) {
 			$class = ' class="altrow"';
 		}
-		$dataDate = date('d / m / Y',strtotime($serviceDeviceInfo['ServiceDeviceInfo']['created']));
+		
+		$dataDate = date('d / m / Y',strtotime($assessment_list['ServiceDeviceInfo']['created']));
 			if($purchaseDate == "" ||  $dataDate!= $purchaseDate){
 				echo "<tr><td colspan = '10' class = 'listDateHeading'>".$dataDate."</td></tr>";
 				$purchaseDate = $dataDate;
 			}
 	?>
-    <?php  // pr($serviceDeviceInfo); die();?>
-	<tr id='<?php echo 'row_'.$serviceDeviceInfo['ServiceDeviceInfo']['id'];?>'  <?php echo $class;?> >
-        <td align='left' style='width: 10%;' class="<?php if($serviceDeviceInfo['ServiceDeviceInfo']['is_urgent'] == 1){echo 'is_urgent';}?>" ><?php echo  $serviceDeviceInfo['User']['firstname'] .' '.$serviceDeviceInfo['User']['lastname']; ?></td>
-        <td align='left' style='width: 6%;'><?php  
+	<tr id='<?php echo 'row_'.$assessment_list['ServiceDeviceInfo']['id'];?>'  <?php echo $class;?>>
 		
-		switch($serviceDeviceInfo['ServiceDeviceInfo']['status']){
+         
+		<td align='left' class='alistname <?php if($assessment_list['ServiceDeviceInfo']['is_urgent'] == 1){echo 'is_urgent';}?>' width="6%"  ><?php echo $assessment_list['ServiceDeviceInfo']['recive_date']; ?>&nbsp;</div></td>
+		<td align='left' class='alistname' width="6%"><?php echo $assessment_list['ServiceDeviceInfo']['estimated_date']; ?>&nbsp;</td>
+        <td align='left' class='alistname' width="10%"><?php 
+			
+			switch($assessment_list['ServiceDeviceInfo']['status']){
 				case 1:
 				echo "<div class='link_view' id='Receive'>Receive</div>"; 
 				break;
@@ -125,70 +132,129 @@
 				case 11:
 				 echo "<div class='link_view' id='check_complete'>Check List Complete</div>"; 
 				break;
- 				}
-		  ?>&nbsp;</td>
-         <td align='left' style='width: 15%;'><?php echo  $serviceDeviceInfo['ServiceDevice']['name'] ; ?></td>
-        <td align='left' style='width: 10%;'><?php echo  $posBrands[$serviceDeviceInfo['ServiceDevice']['pos_brand_id']] ; ?></td>
-        <td align='left' style='width: 10%;'><?php 
-		switch($serviceDeviceInfo['ServiceDeviceInfo']['status']){
-				case 1:
-				echo $serviceDeviceInfo['CreatedBy']['firstname'].' '.$serviceDeviceInfo['CreatedBy']['lastname']; 
+				case 12:
+				 echo "<div class='link_view' id='check_complete'>CUSTOMER COMMUNICATION</div>"; 
 				break;
+				case 13:
+				 echo "<div class='link_view' id='check_complete'>AWAITING CONFIRMATION QUOTE</div>"; 
+				break;
+				case 14:
+				 echo "<div class='link_view' id='check_complete'>WAITING FOR PARTS</div>"; 
+				break;
+				case 15:
+				 echo "<div class='link_view' id='check_complete'>Waiting for password/pin</div>"; 
+				break;
+				case 16:
+				 echo "<div class='link_view' id='check_complete'>Sent Samsung/Nokia warranty</div>"; 
+				break;
+				case 17:
+				 echo "<div class='link_view' id='check_complete'>Received from Samsung/Nokia warranty</div>"; 
+				break;
+				case 18:
+				 echo "<div class='link_view' id='check_complete'>Returned at Samsung/Nokia warranty</div>"; 
+				break;
+ 			}
+ 			?>&nbsp;
+        </td>
+		<td align='left' class='alistname' width="12%"> <?php echo $assessment_list['PosCustomer']['name']; ?>&nbsp; </td>
+		<td align='left' class='alistname' width="11%"> <?php echo $assessment_list['ServiceDevice']['name']; ?>&nbsp; </td>
+        <td align='left' class='alistname' width="11%"> <?php echo $assessment_list['ServiceDeviceInfo']['serial_no']; ?>&nbsp; </td>
+         <td align='left' class='alistname' width="12%"> <?php 
+		
+		 //echo $assessment_list['ServiceDeviceInfo']['status']; 
+		 
+		 	switch($assessment_list['ServiceDeviceInfo']['status']){
+				case 1:
+				 echo $assessment_list['UserModified']['firstname']." ".$assessment_list['UserModified']['lastname'];
+ 				break;
 				case 2:
-				 echo "<div class='link_view' id='wait_approve'>Assessment</div>"; 
+				  echo $assessment_list['AssesmentApproveNote'][0]['User']['firstname']." ".$assessment_list['AssesmentApproveNote'][0]['User']['lastname'];
 				break;
 				case 3:
-				 echo "<div class='link_view' id='reassessment'>Re-Assessment</div>"; 
+				  echo $assessment_list['AssesmentApproveNote'][0]['User']['firstname']." ".$assessment_list['AssesmentApproveNote'][0]['User']['lastname'];
 				break;
 				case 4:
-				 echo "<div class='link_view' id='Approved'>Confirmation</div>"; 
+				  echo $assessment_list['AssesmentApproveNote'][0]['User']['firstname']." ".$assessment_list['AssesmentApproveNote'][0]['User']['lastname'];
 				break;
 				case 5:
-				 echo "<div class='link_view'>Servicing</div>"; 
+				  echo $assessment_list['AssesmentApproveNote'][0]['User']['firstname']." ".$assessment_list['AssesmentApproveNote'][0]['User']['lastname'];
 				break;
 				case 6:
-				 echo "<div class='link_view'>Service Complete</div>"; 
+				 echo "Tester";
 				break;
 				case 7:
-				 echo "<div class='link_view'>Testing</div>"; 
+				  echo $assessment_list['AssesmentApproveNote'][0]['User']['firstname']." ".$assessment_list['AssesmentApproveNote'][0]['User']['lastname'];
 				break;
 				case 8:
-				 echo "<div class='link_view'>Service delivery</div>"; 
+				 echo "Service deliverd"; 
 				break;
 				case 9:
-				 echo "<div class='link_view'> Client Delivered</div>"; 
+				 echo "Client Delivered"; 
 				break;
 				case 10:
-					 echo $serviceDeviceInfo['CheckTech']['firstname'].' '.$serviceDeviceInfo['CheckTech']['lastname']; ; 
+					 echo $assessment_list['AssesmentApproveNote'][0]['User']['firstname']." ".$assessment_list['AssesmentApproveNote'][0]['User']['lastname'];
 				break;
 				case 11:
-				 echo "<div class='link_view' id='check_complete'>Check List Complete</div>"; 
+ 				 	echo $assessment_list['AssesmentApproveNote'][0]['User']['firstname']." ".$assessment_list['AssesmentApproveNote'][0]['User']['lastname'];
+ 				break;
+				case 12:
+				 echo "CUSTOMER COMMUNICATION"; 
 				break;
-				
-				
-				
-				}
-		
-		
-		echo $serviceDeviceInfo['Assesment']['tech_name']; ?>
+				case 13:
+				 echo "AWAITING CONFIRMATION QUOTE"; 
+				break;
+				case 14:
+				 echo "WAITING FOR PARTS"; 
+				break;
+				case 15:
+				 echo "Waiting for password/pin"; 
+				break;
+				case 16:
+				 echo "Sent Samsung/Nokia warranty"; 
+				break;
+				case 17:
+				 echo "Received from Samsung/Nokia warranty"; 
+				break;
+				case 18:
+				 echo "Returned at Samsung/Nokia warranty"; 
+				break;
+ 			}
+		 ?>&nbsp;
         </td>
-        <td align='left'  style='width: 8%;'><?php echo $serviceDeviceInfo['ServiceDeviceInfo']['serial_no']; ?>&nbsp;</td>
-        <td align='left'  style='width: 8%;'><?php echo date("d/m/Y H:i:s", strtotime($serviceDeviceInfo['ServiceDeviceInfo']['recive_date']));  ?>&nbsp;</td>
-        <td align='left' style='width: 8%;'><?php 
-        echo date("d/m/Y H:i:s", strtotime($serviceDeviceInfo['ServiceDeviceInfo']['estimated_date'])); ?>&nbsp;</td> 
-        <td class="actions"  style='width: 10%;'>
-        <div class='alistname link_link'>
-        <?php echo $this->Html->link(__('View', true), array('action' => 'view', $serviceDeviceInfo['ServiceDeviceInfo']['id']),array('class'=>'link_view action_link')); ?>
+        <td align='left' class='alistname' width="6%"> <?php echo $assessment_list['ServiceInvoice']['inventory_total']; ?>&nbsp; </td>
+        <td align='left' class='alistname' width="6%"> <?php echo $assessment_list['ServiceInvoice']['service_total']; ?>&nbsp; </td>
+         <td class="actions" width="19%" class='alistname link_link'> 
        
-        <?php echo $this->Html->link(__('Recive', true), array('action' => 'receive_invoice', $serviceDeviceInfo['ServiceDeviceInfo']['id']),array('class'=>'receive_invoice action_link')); ?>
-         
-        <?php echo $this->Html->link(__('Print', true), array('action' => 'recieve', $serviceDeviceInfo['ServiceDeviceInfo']['id']),array('class'=>'receive_invoice action_link')); ?>
+         <?php echo $this->Html->link(__('Print', true), array('action' => 'recieve', $assessment_list['ServiceDeviceInfo']['id']),array('class'=>'receive_invoice action_link printlink')); ?>
         
-         <?php if(!empty($serviceDeviceInfo['Assesment']['id'] )){echo $this->Html->link(__('Assesment', true), array('controller'=>'Assesments','action' => 'recieve', $serviceDeviceInfo['ServiceDeviceInfo']['id']),array('class'=>'receive_invoice action_link','id'=>'AssesmentPrint'));} ?>
-         
-			<?php //echo $this->Html->link(__('Edit', true), array('action' => 'edit', $serviceDeviceInfo['ServiceDeviceInfo']['id']),array('class'=>'link_edit action_link')); ?>
-			<?php //echo $this->Html->link(__('Delete', true), array('action' => 'delete', $serviceDeviceInfo['ServiceDeviceInfo']['id']), array('class'=>'link_delete action_link'), sprintf(__('Are you sure you want to delete # %s?', true), $serviceDeviceInfo['ServiceDeviceInfo']['id'])); ?>
-		</div></td>
+
+        <?php 
+		 
+		 
+		 
+		  echo $this->Html->link(__('History', true), array('controller'=>'ServiceDeviceInfos','action' => 'view', $assessment_list['ServiceDeviceInfo']['id']),array('class'=>'action_link' ));
+		  
+		  if(!empty($assessment_list['Assesment']['id'] )){
+           echo $this->Html->link(__('Assesment View', true), array('controller'=>'Assesments','action' => 'recieve', $assessment_list['ServiceDeviceInfo']['id']),array('class'=>'receive_invoice action_link AssesmentPrint' ));} ?>
+        
+		  
+		  
+        
+<?php  if($assessment_list['ServiceDeviceInfo']['status']==2 || $assessment_list['ServiceDeviceInfo']['status']==12  || $assessment_list['ServiceDeviceInfo']['status']==13 || $assessment_list['ServiceDeviceInfo']['status']==14){?>
+	   
+
+<?php echo $this->Html->link(__('Waiting for Approve', true), array('controller'=>'AssesmentApproveNotes','action' =>'add',$assessment_list['ServiceDeviceInfo']['id']),array('class'=>'link_view action_link wait_approve1' )); ?>
+<?php }
+
+
+ echo $this->Html->link(__('Status Change', true), array('controller'=>'ServiceDeviceInfos','action' => 'changeStatus', $assessment_list['ServiceDeviceInfo']['id']),array('class'=>'action_link StatusChange' ));
+ 
+// CUSTOMER COMMUNICATION.- AWAITING CONFIRMATION QUOTE- WAITING FOR PARTS 
+?>
+
+
+        </td>
+ 
 	</tr>
 <?php endforeach; ?>
     </table>
@@ -206,5 +272,3 @@
     </div>
   </div>     
 </div>
-
- 

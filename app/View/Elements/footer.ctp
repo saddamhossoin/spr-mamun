@@ -1,21 +1,53 @@
-<footer>
-    <div class="footer-toogle"><span class="icon-minus"></span></div>
-    <div class="container">
-      <div class="row footer-line">
-        <div class="col-lg-6 col-md-6 col-sm-6"  style="width:70%;">
-          <p class="copyrights">Copyright © 2013 
-		  <?php echo $this->Html->image("wpage/logo-footer.png", array("alt" => "",'style'=>"margin-top:-20px;"));?>
-	   . All rights reserved | <span><a href="terms_of_service.html" style="color:#F00;"> Terms of Service </a></span> | <span><a href="privacy_policy.html" style="color:#F00;"> Privacy Policy </a></span></p> 
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-6" style="width:30%;">
-          <ul class="social-fonts">
-            <li><a href="#"><span class="icon-facebook"></span></a></li>           
-            <li><a href="#"><span class="icon-skype"></span></a></li>
-            <li><a href="#"><span class="icon-twitter"></span></a></li>        
-            <li><a href="#"><span class="icon-linkedin"></span></a></li>           
-            <li><a href="#"><span class="icon-google-plus"></span></a></li>
-          </ul>
-        </div>
+<div id="main_footer_inner">
+      <div id="main_footer1">
+      <div id="footer1">
+      <div id="fotter_left">
+      SEDE: SOLUTION POINT ROMA<br />
+      Via Dei Fulvi 14<br />
+      Roma.00174<br />
+	  Tel: 0660672975  Mob: 3283205866<br />
+      Partita iva : 12134951008<br />
+      Email: solutionpointroma@yahoo.com
+
+      </div>
+        <div id="fotter_right">
+          <div id="footer1_left"> <span class="list2">
+            <ul>
+              <div class="navigation_bottom">
+                <ul>
+                  <li class="page_item page-item-31">
+                 	  <?php echo $this->Html->link(__('HOME'), array('controller'=>'Pages','action' => 'home'));?>&nbsp;&nbsp;/&nbsp;&nbsp;</li>
+                  <li class="page_item page-item-2"> <?php echo $this->Html->link(__('PAGAMENTO'), array('controller'=>'pages','action' => 'pagamento'));?>&nbsp;&nbsp;/&nbsp;&nbsp;</li>
+                  <li class="page_item page-item-2"> <?php echo $this->Html->link(__('IMIEI ORDINI'), array('controller'=>'ServiceDeviceInfos','action' => 'checkStatus'));?> 
+                   &nbsp;&nbsp;/&nbsp;&nbsp;</li>
+                  <li class="page_item page-item-2">
+                  <?php echo $this->Html->link(__('TERMINI CONDIZIONI'), array('controller'=>'pages','action' => 'term_conditions'));?>
+                   &nbsp;&nbsp;/&nbsp;&nbsp;</li>
+                  <li class="page_item page-item-2"> <?php echo $this->Html->link(__('CONTACT US'), array('controller'=>'pages','action' => 'contact_us'));?>
+                   </li>
+                </ul>
+              </div>
+            </ul>
+            </span> 
+            <span class="list2"> 
+            	<ul class="socialLink">
+                	<li><a href="#">Contact <?php echo $this->Html->image("wpage/contact.png", array("class"=>"","alt" => "Contact" ,"width"=>"33","height"=>"33"));?></a></li>
+                    <li><a href="https://www.facebook.com/solutionpointromajob">Facebook  <?php echo $this->Html->image("wpage/gb.png", array("class"=>"","alt" => "Contact" ,"width"=>"33","height"=>"33"));?></a></li>
+                    <li><a href="#">Twitter  <?php echo $this->Html->image("wpage/twitter.png", array("class"=>"","alt" => "Contact" ,"width"=>"33","height"=>"33"));?></a></li>
+                    <li><a href="#">Linkedin  <?php echo $this->Html->image("wpage/linkedin.png", array("class"=>"","alt" => "Contact" ,"width"=>"33","height"=>"33"));?></a></li>
+                 </ul>
+             </span>
+            <span class="privacy">
+              <div class="textwidget">
+              	<a href="#">Privacy Policy</a> - 
+                <a href="#">Terms of Use</a> <br />
+                All trademarks &copy; their respective owners &copy; Copyright 2015 Solutionpointroma - All Rights Reserved</div>
+            </span><br>
+            <span></span><br>
+                  <p style="color:#fff">  Developed by <a href="http://www.mayasoftbd.com" target="_blank">MayasoftBD.com</a></p>
+
+               </div>
+         </div>
       </div>
     </div>
-  </footer>
+    </div>

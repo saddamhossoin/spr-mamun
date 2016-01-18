@@ -44,6 +44,23 @@
                 <table cellspacing="0" cellpadding="0">
                     <thead>
                         <tr>
+							order_item_count
+							subtotal
+							tax
+							shippingCost
+							choice
+							payment_type
+							payment_charge
+							total
+							order_type
+							<th align="left" width="13%"><?php echo $this->Paginator->sort('created');?></td>
+							<th align="left" width="13%"><?php echo $this->Paginator->sort('first_name','Customer Name');?></th>
+							<th align="left" width="13%"><?php echo $this->Paginator->sort('order_item_count');?></th>
+							<th align="left" width="10%"><?php echo $this->Paginator->sort('subtotal');?> </th>
+							<th align="left" width="10%"><?php echo $this->Paginator->sort('tax');?></th>
+							<th align="left" width="10%"><?php echo $this->Paginator->sort('shippingCost');?></th>
+							<th align="left" width="10%"><?php echo $this->Paginator->sort('payment_charge');?></th>
+							<th align="left" width="10%"><?php echo $this->Paginator->sort('total');?></th>
                             
                             <th align="left" width="13%"><?php echo $this->Paginator->sort('created');?></td>
                             <th align="left" width="8%"><?php echo $this->Paginator->sort('status');?></td>

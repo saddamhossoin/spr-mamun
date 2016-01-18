@@ -1,4 +1,5 @@
-<?php $status=array(1=>"Receive",2=>"Assesment",3=>"Re-Assessment",4=>"Confirmation",5=>"Servicing",6=>"Complete Servicing",7=>"Testing",8=>"Awaiting for Delivery",9=>"Delivered",10=>"Check List",11=>"Check List Complete",12=>"CUSTOMER COMMUNICATION" , 13=>"AWAITING CONFIRMATION QUOTE" , 14=>"WAITING FOR PARTS"); ?>
+<?php $status=array(1=>"Receive",2=>"Assesment",3=>"Re-Assessment",4=>"Confirmation",5=>"Servicing",6=>"Complete Servicing",7=>"Testing",8=>"Awaiting for Delivery",9=>"Delivered",10=>"Check List",11=>"Check List Complete",12=>"CUSTOMER COMMUNICATION" , 13=>"AWAITING CONFIRMATION QUOTE" , 14=>"WAITING FOR PARTS",16=>"Sent Samsung/Nokia warranty",17=>"Received from Samsung/Nokia warranty",18=> "Returned at Samsung/Nokia warranty" ); ?>
+
 <?php //pr($assessment_lists);?>
 <?php echo $this->Html->css(array('common/grid'));?>
 
@@ -73,11 +74,12 @@
   <table cellspacing="0" cellpadding="0" border="0" style="" class="flexme3">
       <tbody>
 <?php
+   // pr($assessment_lists);die();
     $purchaseDate = '';
 	$i = 0;
 	foreach ($assessment_lists as $assessment_list):
 	
-	  // pr($assessment_list);
+	 // pr($assessment_list);die();
 		$class = null;
 		if ($i++ % 2 == 0) {
 			$class = ' class="altrow"';
@@ -157,17 +159,87 @@
 		<td align='left' class='alistname' width="12%"> <?php echo $assessment_list['PosCustomer']['name']; ?>&nbsp; </td>
 		<td align='left' class='alistname' width="11%"> <?php echo $assessment_list['ServiceDevice']['name']; ?>&nbsp; </td>
         <td align='left' class='alistname' width="11%"> <?php echo $assessment_list['ServiceDeviceInfo']['serial_no']; ?>&nbsp; </td>
-         <td align='left' class='alistname' width="12%"> <?php echo $assessment_list['Assesment']['tech_name']; ?>&nbsp; </td>
+         <td align='left' class='alistname' width="12%"> <?php 
+		
+		 //echo $assessment_list['ServiceDeviceInfo']['status']; 
+		 
+		 	switch($assessment_list['ServiceDeviceInfo']['status']){
+				case 1:
+				 echo $assessment_list['UserModified']['firstname']." ".$assessment_list['UserModified']['lastname'];
+ 				break;
+				case 2:
+				  echo $assessment_list['AssesmentApproveNote'][0]['User']['firstname']." ".$assessment_list['AssesmentApproveNote'][0]['User']['lastname'];
+				break;
+				case 3:
+				  echo $assessment_list['AssesmentApproveNote'][0]['User']['firstname']." ".$assessment_list['AssesmentApproveNote'][0]['User']['lastname'];
+				break;
+				case 4:
+				  echo $assessment_list['AssesmentApproveNote'][0]['User']['firstname']." ".$assessment_list['AssesmentApproveNote'][0]['User']['lastname'];
+				break;
+				case 5:
+				  echo $assessment_list['AssesmentApproveNote'][0]['User']['firstname']." ".$assessment_list['AssesmentApproveNote'][0]['User']['lastname'];
+				break;
+				case 6:
+				 echo "Tester";
+				break;
+				case 7:
+				  echo $assessment_list['AssesmentApproveNote'][0]['User']['firstname']." ".$assessment_list['AssesmentApproveNote'][0]['User']['lastname'];
+				break;
+				case 8:
+				 echo "Service deliverd"; 
+				break;
+				case 9:
+				 echo "Client Delivered"; 
+				break;
+				case 10:
+					 echo $assessment_list['AssesmentApproveNote'][0]['User']['firstname']." ".$assessment_list['AssesmentApproveNote'][0]['User']['lastname'];
+				break;
+				case 11:
+ 				 	echo $assessment_list['AssesmentApproveNote'][0]['User']['firstname']." ".$assessment_list['AssesmentApproveNote'][0]['User']['lastname'];
+ 				break;
+				case 12:
+				 echo "CUSTOMER COMMUNICATION"; 
+				break;
+				case 13:
+				 echo "AWAITING CONFIRMATION QUOTE"; 
+				break;
+				case 14:
+				 echo "WAITING FOR PARTS"; 
+				break;
+				case 15:
+				 echo "Waiting for password/pin"; 
+				break;
+				case 16:
+				 echo "Sent Samsung/Nokia warranty"; 
+				break;
+				case 17:
+				 echo "Received from Samsung/Nokia warranty"; 
+				break;
+				case 18:
+				 echo "Returned at Samsung/Nokia warranty"; 
+				break;
+ 			}
+		 ?>&nbsp;
+        </td>
         <td align='left' class='alistname' width="6%"> <?php echo $assessment_list['ServiceInvoice']['inventory_total']; ?>&nbsp; </td>
         <td align='left' class='alistname' width="6%"> <?php echo $assessment_list['ServiceInvoice']['service_total']; ?>&nbsp; </td>
-         <td class="actions" width="19%" class='alistname link_link'> 
+        
+        <td class="actions" width="19%" class='alistname link_link'> 
+       
          <?php echo $this->Html->link(__('Print', true), array('action' => 'recieve', $assessment_list['ServiceDeviceInfo']['id']),array('class'=>'receive_invoice action_link printlink')); ?>
         
 
-         <?php 
-		  if(!empty($assessment_list['Assesment']['id'] )){
+        <?php 
+		 
+		  echo $this->Html->link(__('Assesment', true), array('controller'=>'Assesments','action' => 'add', $assessment_list['ServiceDeviceInfo']['id']),array('class'=>'receive_invoice action_link AssesmentAdd' )); 
+		 
+		  echo $this->Html->link(__('History', true), array('controller'=>'ServiceDeviceInfos','action' => 'view', $assessment_list['ServiceDeviceInfo']['id']),array('class'=>'receive_invoice action_link' ));
 		  
-		 echo $this->Html->link(__('Assesment', true), array('controller'=>'Assesments','action' => 'recieve', $assessment_list['ServiceDeviceInfo']['id']),array('class'=>'receive_invoice action_link AssesmentPrint' ));} ?>
+		  if(!empty($assessment_list['Assesment']['id'] )){
+           echo $this->Html->link(__('Assesment View', true), array('controller'=>'Assesments','action' => 'recieve', $assessment_list['ServiceDeviceInfo']['id']),array('class'=>'receive_invoice action_link AssesmentPrint' ));} ?>
+        
+		  
+		  
         
 <?php  if($assessment_list['ServiceDeviceInfo']['status']==2 || $assessment_list['ServiceDeviceInfo']['status']==12  || $assessment_list['ServiceDeviceInfo']['status']==13 || $assessment_list['ServiceDeviceInfo']['status']==14){?>
 	   
@@ -192,7 +264,7 @@
     <div class="pDiv">
     <div class="pGroup">
      	 <?php if($this->params['paging']['ServiceDeviceInfo']['prevPage']){?>
-      <span class='paginate_link'><?php echo $paginator->first();?></span> <span class='paginate_link'><?php echo $this->Paginator->prev('< ' . __('Previous', true), array(), null, array('class'=>'disabled','id'=>'prev_id'));?></span>
+      <span class='paginate_link'><?php echo $this->Paginator->first();?></span> <span class='paginate_link'><?php echo $this->Paginator->prev('< ' . __('Previous', true), array(), null, array('class'=>'disabled','id'=>'prev_id'));?></span>
       <?php }?>
       <?php echo $this->Paginator->numbers();?>
       <?php if($this->params['paging']['ServiceDeviceInfo']['nextPage']){?>

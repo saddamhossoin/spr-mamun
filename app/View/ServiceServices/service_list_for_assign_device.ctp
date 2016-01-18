@@ -10,6 +10,7 @@ foreach($deviceservicelists as $key => $values){
   	$i = 0;
 	$is_edit = false;
 	$button = 'Add';
+	 
 	$price_bal = '0.00';
  	foreach ($serviceServices as $serviceService){
 		$class = null;
@@ -39,17 +40,20 @@ foreach($deviceservicelists as $key => $values){
 	  
 	  
 	  ?>               
-    <table cellspacing="0" cellpadding="0" border="0" style="" class="">
+    <table cellspacing="0" cellpadding="0" border="0" style=" width:95% !important;" >
       <tbody>
         <tr  class=<?php echo $class;?> >
-            <td align='left'><div style='width: 239px;' class='alistname'><?php echo $serviceService['ServiceService']['name']; ?>&nbsp;</div></td>
- 	<td align='left'><div style='width: 51px;' class='alistname'>
+            <td align='left'  class='alistname' width="60%"><?php echo $serviceService['ServiceService']['name']; ?>&nbsp;</td>
+ 	<td align='left'  class='alistname' width="20%">
 	<?php
 	 
-	echo $this->Form->input('ServiceDevicesService.price',array('type'=>'text','value'=>$price_bal,'div'=>false,'label'=>false, 'class'=>'new_assign_price' ));?>&nbsp;</div></td>
+	echo $this->Form->input('ServiceDevicesService.price',array('type'=>'text','value'=>$price_bal,'div'=>false,'label'=>false, 'class'=>'new_assign_price' ));?>&nbsp;</td>
  	<td class="actions">
- <div style='width: 50px;' class='alistname link_link'>	
+ <div class='alistname link_link'  >	
 		<?php echo $this->Html->link(__($button, true), array(),array('id' => 'service_add_device_'. $serviceService['ServiceService']['id'],'class'=>'link_view action_link assign_service_device')); ?>
+        <?php if($is_edit){
+			echo $this->Html->link(__('Remove', true), array(),array('id' => 'remove_service_device_'. $serviceService['ServiceService']['id'],'class'=>'link_view action_link remove_service_device'));
+		}?>
         </div>
          </td>  
 	   </tr>
@@ -60,7 +64,34 @@ foreach($deviceservicelists as $key => $values){
     
     <script type="text/javascript">
 	jQuery(function($){ 
- 
+	
+	//========================== Remove assign service device ================
+	$(".remove_service_device").on('click',function(e){
+	  	e.preventDefault();
+ 		var ids= $(this).attr('id');
+		var id= ids.split('_');
+		var remove_id  = $("#row_"+id[3]+" #ServiceDevicesServiceId").val();
+		 
+		
+ 		$('.overlaydiv').fadeIn();
+		$('.ajax-save-message').hide().fadeOut(); 
+		
+  		
+		$.ajax({
+				type: "GET",
+				url:siteurl+"ServiceDevices/remove_service_device/"+remove_id,
+				success: function(response){
+			//	alert(response);
+					 
+  					$('.overlaydiv').hide();
+					
+ 					$('#row_'+id[3]).remove();
+					//addClass('EditRowService');
+
+ 				   }
+				}); 
+				 
+  		});
 	//========================== Start Take Inventory ============================
 	  $(".assign_service_device").on('click',function(e){
 	  	e.preventDefault();

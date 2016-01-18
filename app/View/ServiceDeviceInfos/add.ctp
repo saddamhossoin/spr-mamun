@@ -177,6 +177,11 @@
 		<?php  	echo $this->Form->label('ServiceDeviceInfo.screenimage', __('Image'.' :<span class=star></span>', true) );?>
         <?php   echo $this->Form->input('ServiceDeviceInfo.screenimage',array('type'=>'file','div'=>false,'label'=>false,'class'=>'' ));   ?>     
        </div>
+        <div id="WrapperAssesmentApproveNote" class="microcontroll">
+			<?php echo $this->Form->label('AssesmentApproveNote.user_id', __('Technician Name'.':<span class=star></span>', true) );?>
+            <?php	 
+            echo $this->Form->select('AssesmentApproveNote.user_id',$tech_namelist,array('div'=>false,'label'=>false,'class'=>'','empty'=>'Chief Technician'));?>
+		</div>
       <div class="clr"></div> 
   
   </div>
@@ -230,7 +235,13 @@
  		</div>
  		</div>
  	<div class="clr"></div>
-   </div>
+         
+        <div id="WrapperAssesmentApproveNote" class="microcontroll">
+			<?php	echo $this->Form->label('AssesmentApproveNote.notes', __('Note'.':<span class=star></span>', true) );?>
+            <?php	 
+            echo $this->Form->textarea('AssesmentApproveNote.notes',array('div'=>false,'label'=>false,'class'=>''));?>
+		</div>
+         </div>
    
    <div class="clr"></div>
  </div>

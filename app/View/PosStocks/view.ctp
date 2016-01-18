@@ -1,32 +1,40 @@
 <?php echo $this->Html->css(array('module/PosSuppliers/invoice','module/PosStocks/view'));?>
-<?php  //pr($posStock);?>
+<?php  // pr($posStock);?>
 <div class="posStocks view">
 	<table cellpadding="0" cellspacing="0" class="view_table"><?php $i = 0; $class = ' class="altrow"';?>
 		
 		
-<?php $i++;?>		<tr <?php if ($i % 2 == 0) echo $class;?>><td><?php echo __('Pos Product'); ?></td><td> : </td>
+<?php $i++;?>		<tr <?php if ($i % 2 == 0) echo $class;?>><td><?php echo __('Product Name'); ?></td><td> : </td>
 		<td>
 			<?php echo $this->Html->link($posStock['PosProduct']['name'], array('controller' => 'pos_products', 'action' => 'view', $posStock['PosProduct']['id'])); ?>
 			&nbsp;
 		</td></tr>
-<?php $i++;?>		<tr <?php if ($i % 2 == 0) echo $class;?>><td><?php echo __('Quantity'); ?></td><td> : </td>
+
+<?php $i++;?>		<tr <?php if ($i % 2 == 0) echo $class;?>><td><?php echo __('Brand'); ?></td><td> : </td>
+		<td >
+			<?php echo $posStock['PosProduct']['PosBrand']['name']; ?>
+			&nbsp;
+		</td></tr>
+
+<?php $i++;?>		<tr <?php if ($i % 2 == 0) echo $class;?>><td><?php echo __('Type'); ?></td><td> : </td>
+		<td >
+			<?php echo $posStock['PosProduct']['PosType']['name']; ?>
+			&nbsp;
+		</td></tr>
+        
+        <?php $i++;?>		<tr <?php if ($i % 2 == 0) echo $class;?>><td><?php echo __('Category'); ?></td><td> : </td>
+		<td >
+			<?php echo $posStock['PosProduct']['PosPcategory']['name']; ?>
+			&nbsp;
+		</td></tr>
+        <?php $i++;?>		<tr <?php if ($i % 2 == 0) echo $class;?>><td><?php echo __('Quantity'); ?></td><td> : </td>
 		<td >
 			<?php echo $posStock['PosStock']['quantity']; ?>
 			&nbsp;
 		</td></tr>
 	
 		
-<?php $i++;?>		<tr <?php if ($i % 2 == 0) echo $class;?>><td><?php echo __('Created By'); ?></td><td> : </td>
-		<td >
-			<?php echo $userlists[$posStock['PosProduct']['created_by']]; ?>
-			&nbsp;
-		</td></tr>
-<?php $i++;?>		<tr <?php if ($i % 2 == 0) echo $class;?>><td><?php echo __('Modified By'); ?></td><td> : </td>
-		<td >
-			<?php echo $userlists[$posStock['PosProduct']['modified_by']]; ?>
-			&nbsp;
-		</td></tr>
-<?php $i++;?>	</table>
+ </table>
 
 
 </div>
@@ -64,7 +72,7 @@
                             
                              <?php }
                                 }else{
-				                echo "<tr><td colspan='7' style='text-align:center;height:30px;color:red;font-size:18px;font-weight:bold'>There is no data</td></tr>";
+				                echo "<tr><td colspan='7' style='text-align:center;height:30px;color:red;font-size:12px;font-weight:bold'>There is no data</td></tr>";
 			                     }?> 
 						</table>
                         
@@ -104,7 +112,7 @@
                             
                              <?php }
                                 }else{
-				                echo "<tr><td colspan='6' style='text-align:center;height:30px;color:red;font-size:18px;font-weight:bold'>There is no data</td></tr>";
+				                echo "<tr><td colspan='6' style='text-align:center;height:30px;color:red;font-size:12px;font-weight:bold'>There is no data</td></tr>";
 			                     }?> 
 						</table>
                         
@@ -153,7 +161,7 @@
                             
                              <?php }
                                 }else{
-				                echo "<tr><td colspan='6' style='text-align:center;height:30px;color:red;font-size:18px;font-weight:bold'>There is no data</td></tr>";
+				                echo "<tr><td colspan='6' style='text-align:center;height:30px;color:red;font-size:12px;font-weight:bold'>There is no data</td></tr>";
 			                     }?> 
 						</table>
                         
@@ -197,7 +205,7 @@
                             
                              <?php }
                                 }else{
-				                echo "<tr><td colspan='6' style='text-align:center;height:30px;color:red;font-size:18px;font-weight:bold'>There is no data</td></tr>";
+				                echo "<tr><td colspan='6' style='text-align:center;height:30px;color:red;font-size:12px;font-weight:bold;'>There is no data</td></tr>";
 			                     }?> 
 						</table>
                         

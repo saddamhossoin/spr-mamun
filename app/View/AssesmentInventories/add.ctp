@@ -19,7 +19,7 @@
            <?php  echo $this->Form->button('Reset',array('type'=>'reset','name'=>'reset','id'=>'btn_AssesmentInventory_reset'));?>     
    	  </div>
 	</div>	
-     <?php echo $this->Form->end();?>
+     <?php echo $this->Form->end(); ?>
      <div class="clr"></div>
   </div>
   <div style="clear: both;"></div>

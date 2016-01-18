@@ -9,10 +9,10 @@
 </ul>
 </div>
 
-<?php  	echo $this->Html->css(array('fullcalendar/fullcalendar' ));
+<?php 
+ 	echo $this->Html->css(array('fullcalendar/fullcalendar' ));
 		echo $this->Html->script(array('fullcalendar/fullcalendar.min')); ?>
-        <?php echo $this->Html->script(array('alert/alert')); ?>
-<?php echo $this->Html->css(array('alert/css/alert','alert/themes/default/theme')); ?>
+
 <div id="calendar"></div>
  </div>
 <script type="text/javascript">
@@ -126,15 +126,14 @@
 	   
    }
     else if(calEvent.statusid == 7 ){
-    $("#popupdiv").dialog(reciveDeviceInfo);
-	  				 
-		     		 var ulrs =siteurl+"assesments/deliveryview_assessment/"+calEvent.id+"/yes";
-			 
-					 $("#popupdiv").load(ulrs, [], function(){
-					 $("#popupdiv").dialog("open");
-					   $(".select2as").select2({ dropdownCssClass: 'ui-dialog' });
-				 });
-		}
+		$("#popupdiv").dialog(reciveDeviceInfo);
+		//	var ulrs =siteurl+"assesments/deliveryview_assessment/"+calEvent.id+"/yes";
+			var ulrs =siteurl+"assesments/add/"+calEvent.id;
+			$("#popupdiv").load(ulrs, [], function(){
+			$("#popupdiv").dialog("open");
+			$(".select2as").select2({ dropdownCssClass: 'ui-dialog' });
+		});
+	}
 	
 
 	

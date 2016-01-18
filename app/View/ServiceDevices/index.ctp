@@ -84,6 +84,7 @@
 <div style='width: 180px;' class='alistname link_link'>	
 	<?php echo $this->Html->link(__('Service', true), array('action' => 'service_add_device', $serviceDevice['ServiceDevice']['id']),array('class'=>'link_view action_link add_service_in_device','id'=>$serviceDevice['ServiceDevice']['id'])); ?>
     		<?php echo $this->Html->link(__('View', true), array('action' => 'view', $serviceDevice['ServiceDevice']['id']),array('class'=>'link_view action_link')); ?>
+            <?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $serviceDevice['ServiceDevice']['id']), array('class'=>'link_delete action_link'), sprintf(__('Are you sure you want to delete # %s?', true), $serviceDevice['ServiceDevice']['id'])); ?>
 			
 		</div></td>
 	</tr>

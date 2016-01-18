@@ -1,5 +1,3 @@
-     
-       
 <div class="serviceDeviceInfos form">
 <?php echo $this->Form->create('ServiceDeviceInfo');?>
 	<fieldset>

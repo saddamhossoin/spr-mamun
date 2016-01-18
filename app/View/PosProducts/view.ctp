@@ -51,6 +51,11 @@
 			<?php echo $posProduct['PosProduct']['salesprice']; ?>
 			&nbsp;
 		</td></tr>
+		<?php $i++;?>		<tr <?php if ($i % 2 == 0) echo $class;?>><td><?php echo('Online Price'); ?></td><td> : </td>
+			<td >
+				<?php echo $posProduct['PosProduct']['online_price']; ?>
+				&nbsp;
+			</td></tr>
  <?php $i++;?>		<tr <?php if ($i % 2 == 0) echo $class;?>><td><?php echo('Status'); ?></td><td> : </td>
 		<td >
 		<?php $status=array(1=>"In_Inventory",2=>"In_Service",3=>"Both");?>

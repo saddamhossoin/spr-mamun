@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>  MAYASOFTBD  </title>
+<title>  SPR  </title>
 <?php echo $this->Html->script(array('ui-10/jquery-1.10.2','ui-10/jquery-ui-1.10.4.custom.min', 'superfish', 'tooltip','cookie'   , 'custom','common/select2')); ?>
 <?php echo $this->Html->css(array('ui-10/ui.base','ui-10/ui.login' ,'themes/black_rose/ui', 'common/common')); ?>
 <!--[if IE 6]>

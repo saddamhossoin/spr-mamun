@@ -6,7 +6,7 @@
 
 
 		<!--basic styles-->
-         <?php echo $this->Html->css(array('client/bootstrap-responsive.min','client/bootstrap.min','client/font-awesome.min','client/ace.min','client/ace-responsive.min','client/ace-skins.min','client/client_layout')); ?>
+         <?php echo $this->Html->css(array('client/bootstrap-responsive.min','client/bootstrap.min','client/font-awesome.min','client/ace.min','client/ace-responsive.min','client/ace-skins.min','client/client_layout','wpage/css','wpage/reset','wpage/genericons','wpage/style' )); ?>
 
 
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" />
@@ -14,6 +14,17 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 
 	<body>
+     <div id="main_header">
+    <div id="main_header1">
+       <?php echo $this->element('header',array("cache" => array('time'=> "-7 days",'key'=>'header'))); ?>
+     <div style="clear:both;"></div>
+    </div>
+    <div id="main_header2">
+   
+       <?php  echo $this->element('hompage_header_2',array("cache" => array('time'=> "-7 days",'key'=>'header'))); ?>
+	 
+    </div>
+  </div>
 		<div class="navbar">
 			<div class="navbar-inner">
 				<div class="container-fluid">
@@ -224,7 +235,7 @@
 		<![endif]-->
 			
 
-		<?php echo $this->Html->script(array('client/jquery-ui-1.10.3.custom.min','client/bootstrap.min','client/jquery.ui.touch-punch.min','client/jquery.slimscroll.min','client/jquery.sparkline.min','client/jquery.flot.min','client/jquery.flot.pie.min','client/jquery.flot.resize.min','client/ace-elements.min','client/ace.min'));?>
+		<?php echo $this->Html->script(array('client/jquery-ui-1.10.3.custom.min','client/bootstrap.min','client/jquery.ui.touch-punch.min','client/jquery.slimscroll.min','client/jquery.sparkline.min','client/jquery.flot.min','client/jquery.flot.pie.min','client/jquery.flot.resize.min','client/ace-elements.min','client/ace.min',));?>
 		
 		
 		
@@ -247,7 +258,73 @@
 
 
 
+<style>
+#main_header{
+		float:none !important;
+}
+#SearchBox {
+    border: 1px solid #cccccc;
+    color: #337ab7;
+    font-size: 18px;
+    height: 34px;
+    padding: 6px 10px;
+    width: 375px;
+}
+#search {
+    float: left;
+}
+#search_btn, #siteserachreset {
+    border: 1px solid #ccc;
+    color: #0066ff;
+    font-weight: bold;
+    height: 34px;
+    padding: 7px;
+    width: 87px;
+}
+.check a {
+    display: block;
+    min-height: 54px;
+    min-width: 163px;
+}
+.check {
+    background: rgba(0, 0, 0, 0) url("../img/wpage/checkout.png") no-repeat scroll 0 0;
+    float: right;
+    height: 52px;
+    margin-right: 25px;
+    width: 163px;
+}
 
+#phone_inner {
+    float: none !important;
+
+	 padding-top: 1px !important;
+    width: 73% !important;
+}
+#header_right_language{
+	display:none;
+	height:30px;
+}
+#header_right_bottom{
+	margin-top:30px;
+}
+#menu-item-1 a {
+    background: rgba(0, 0, 0, 0) url("../img/wpage//home_icon.png") no-repeat scroll 0 0;
+    padding: 9px 42px 9px 39px;
+}
+.lighter {
+		display:none;
+}
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+  $("#search_btn").click(function(e){
+		if($('#SearchBox').val().length <5){
+			e.preventDefault();
+			alert('Please Enter Minimum 5 Word');
+		}
+	})
+});
+</script>
 		
 	</body>
 </html>

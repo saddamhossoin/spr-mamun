@@ -1,5 +1,6 @@
 <?php echo $this->Html->css(array('module/Users/forgetpwd'));?>
 <div id="forgetpass"> 
+<?php echo $this->Session->flash(); ?>
    <?php echo $this->Form->create('User',array('controller'=>'Users','action'=>'forgetpwd'));?>
      
 	 <div id="WrapperUserEmail" class="microcontroll">
@@ -16,4 +17,3 @@
 	 
     <?php echo $this->Form->end(); ?> 
 </div>
-

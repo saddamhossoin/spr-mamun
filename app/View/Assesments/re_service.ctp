@@ -27,6 +27,7 @@ jQuery(function($){
 			url:siteurl+"Assesments/re_service/",
 			data:  $("#AssesmentApproveNoteReServiceForm").serialize(),
 			success: function(response){
+			//alert(response);
 				if(response == 1){
 					location.reload();
 				}else{

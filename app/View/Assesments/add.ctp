@@ -1,4 +1,4 @@
-<?php //pr($serviceDeviceInfo);?>
+<?php  //pr($serviceDeviceInfo);?>
 <div class="assesments form assmentadd">
    <div class="reciveDeviceContact reciveDevice">
 <div class="blocktitleinfo"> Service Information
@@ -289,7 +289,13 @@
 
   <div class="blocktitleinfo"> Invoice </div>
   <div class="reciveDeviceAssesmentInvoice">
-   <?php echo $this->Form->create('ServiceInvoice');?>
+   <?php echo $this->Form->create('ServiceInvoice');
+	   
+	   if($serviceDeviceInfo['ServiceDeviceInfo']['status'] == 7 ){
+		 echo $this->Form->hidden('ServiceInvoice.is_front_desk_assgn_tech',array('value'=>'yes','type'=>'hidden','div'=>false,'label'=>false,'class'=>''));			
+	   }
+   
+   ?>
     <?php	
 			   if(!empty($serviceDeviceInfo['ServiceInvoice']['id'])){
 			   echo $this->Form->input('ServiceInvoice.id',array('value'=>$serviceDeviceInfo['ServiceInvoice']['id'],'type'=>'hidden','div'=>false,'label'=>false,'class'=>''));}
@@ -381,8 +387,14 @@
 
 <div class="button_area button_are_save" style=" <?php if(empty($assesmentInfo['id'])){ echo "display:none" ; }else{ echo "display:block";}?>"> 
 <p class="save_approve_btn_receive">
-	<?php echo $this->Form->button('Save',array( 'class'=>'submit save_btn_receive', 'id'=>'btn_full_Assesment_add'));?>
- 	<?php echo $this->Form->button('Save & Approve',array( 'class'=>'submit save_approve_btn', 'id'=>'btn_full_Assesment_add_approve'));?>
+	<?php 
+	if($serviceDeviceInfo['ServiceDeviceInfo']['status'] == 7 ){
+	
+		echo $this->Form->button('Save & Stock Out',array( 'class'=>'submit save_btn_receive', 'id'=>'btn_save_stock_out'));
+	}else{
+		echo $this->Form->button('Save',array( 'class'=>'submit save_btn_receive', 'id'=>'btn_full_Assesment_add'));
+ 		echo $this->Form->button('Save & Approve',array( 'class'=>'submit save_approve_btn', 'id'=>'btn_full_Assesment_add_approve')); 	}?>
+    
  	<?php echo $this->Form->button('Cancel',array('type'=>'reset','name'=>'reset','id'=>'Cancel'));?> 
     </p>
 

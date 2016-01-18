@@ -1,210 +1,122 @@
 <?php //pr($shop);?>
 <?php echo $this->set('title_for_layout', 'Order Review'); ?>
-<?php echo $this->Html->css(array('wpage/spr/wpage'));?>
-
+<?php echo $this->Html->css(array('module/Shop/cart')); ?>
 <?php echo $this->Html->script(array('module/Shop/shop_review.js')); ?>
 
-<style type="text/css">
-	#ccbox {
-		background: transparent url("<?php echo $this->webroot; ?>img/cards.png");
-		margin: 0 0 10px 0;
-		padding: 0 0 0 150px;
-		width: 0;
-		height: 23px;
-		overflow: hidden;
-	}
-	
-	hr {
-	-moz-border-bottom-colors: none;
-	-moz-border-left-colors: none;
-	-moz-border-right-colors: none;
-	-moz-border-top-colors: none;
-	border-color: #EEEEEE -moz-use-text-color -moz-use-text-color;
-	border-image: none;
-	border-right: 0 none;
-	border-style: solid none none;
-	border-width: 1px 0 0;
-	margin-bottom: 20px;
-	margin-top: 20px;
-}
-hr {
-	box-sizing: content-box;
-	height: 0;
-}
-
-#total_order_complete{
-	float: right;
-    width: 235px;
-	}
-</style>
-
-<h1>Order Review</h1>
-
+<div class="reviewtop"><h3>Order Review</h3>
+<div class="btnconfirm checkout_button">Order Confirm</div>
+</div>
+<div class="clr"></div>
 <hr>
-
+<?php echo $this->Form->create('Order'); ?>
+<?php echo $this->Form->end(); ?>
 <div class="row">
 	<div class="col col-sm-4 info_div">
 		<div class="panel panel-default">
-			<div class="panel-heading">
+			<div class="panel-heading panel-warning">
 				<h3 class="panel-title">Customer Info</h3>
-			</div>
+ 			</div>
 			<div class="panel-body">
-				Full Name: <?php echo $shop['Order']['first_name'];?><br />
-				<?php /*?>Last Name: <?php echo $shop['Order']['last_name'];?><br /><?php */?>
-				Email: <?php echo $shop['Order']['email'];?><br />
-				Phone: <?php echo $shop['Order']['phone'];?>
+				<span class="titlea"><?php echo __("Name");?></span> 	: <?php echo $shop['Order']['first_name'];?><br />
+				<span class="titlea"><?php echo __("Email");?></span> 	: <?php echo $shop['Order']['email'];?><br />
+				<span class="titlea"><?php echo __("Phone");?></span> 	: <?php echo $shop['Order']['phone'];?><br />
+                <span class="titlea"><?php echo __("Tax Code");?></span> 	: <?php echo $shop['Order']['billing_tex_code'];?><br />
 			</div>
 		</div>
 	</div>
 	<div class="col col-sm-4 info_div">
 		<div class="panel panel-default">
-			<div class="panel-heading">
+			<div class="panel-heading panel-warning">
 				<h3 class="panel-title">Billing Address</h3>
 			</div>
 			<div class="panel-body">
-				Billing Address: <?php echo $shop['Order']['billing_address'];?><br />
-				Billing Address 2: <?php echo $shop['Order']['billing_address2'];?><br />
-				Billing City: <?php echo $shop['Order']['billing_city'];?><br />
-				Billing State: <?php echo $shop['Order']['billing_state'];?><br />
-				Billing Zip: <?php echo $shop['Order']['billing_zip'];?><br />
-				Billing Country: <?php echo $shop['Order']['billing_country'];?>
+				  <span class="titlea"><?php echo __("Address");?></span>: <?php echo $shop['Order']['billing_address'];?><br />
+				 <span class="titlea"><?php echo __("City");?></span>: <?php echo $shop['Order']['billing_city'];?><br />
+				 <span class="titlea"><?php echo __("State");?></span>: <?php echo $shop['Order']['billing_state'];?><br />
+				 <span class="titlea"><?php echo __("Zip");?></span>: <?php echo $shop['Order']['billing_zip'];?><br />
+				 
 			</div>
 		</div>
 	</div>
 	<div class="col col-sm-4 info_div">
 		<div class="panel panel-default">
-			<div class="panel-heading">
+			<div class="panel-heading panel-warning">
 				<h3 class="panel-title">Shipping Address</h3>
 			</div>
 			<div class="panel-body">
-				Shipping Address: <?php echo $shop['Order']['shipping_address'];?><br />
-				Shipping Address 2: <?php echo $shop['Order']['shipping_address2'];?><br />
-				Shipping City: <?php echo $shop['Order']['shipping_city'];?><br />
-				Shipping State: <?php echo $shop['Order']['shipping_state'];?><br />
-				Shipping Zip: <?php echo $shop['Order']['shipping_zip'];?><br />
-				Shipping Country: <?php echo $shop['Order']['shipping_country'];?>
+				 <span class="titlea"><?php echo __("Address");?></span>: <?php echo $shop['Order']['shipping_address'];?> &nbsp;<br />
+				 <span class="titlea"><?php echo __("City");?></span>: <?php echo $shop['Order']['shipping_city'];?><br />
+				 <span class="titlea"><?php echo __("State");?></span>: <?php echo $shop['Order']['shipping_state'];?><br />
+				 <span class="titlea"><?php echo __("Zip");?></span>: <?php echo $shop['Order']['shipping_zip'];?><br />
 			</div>
 		</div>
 	</div>
 </div>
 <hr>
-
-
-<div class="row" id="order_div">
-	<div class="col col-sm-1">#</div>
-	<div class="col col-sm-6">ITEM</div>
-	<div class="col col-sm-1">WEIGHT</div>
-	<div class="col col-sm-1">PRICE</div>
-	<div class="col col-sm-1" style="text-align: right;">QUANTITY</div>
-	<div class="col col-sm-1" style="text-align: right;">SUBTOTAL</div>
-</div>
-
 <br />
-<br />
-
+<div class="invoice_details">
+<div class="shopping_cart_left">
+<table class="cart_grid ">
+    <thead>
+      <tr>
+        <th width="12%" align="left"><?php echo __("IMAGE");?></th>
+        <th width="48%" align="left"><?php echo __("PRODUCT");?></th>
+        <th width="10%" class="quantity"><?php echo __("PRICE");?></th>
+        <th width="20%" class="quantity"><?php echo __("QUANTITY");?></th>
+        <th width="10%" class="totalas"><?php echo __("TOTAL");?></th>
+       </tr>
+    </thead>
+<tbody> 
 <?php foreach ($shop['OrderItem'] as $item): ?>
-<div class="row" id="order_data">
-	<div class="col col-sm-1"><?php echo $this->Html->image('/images/small/' . $item['PosProduct']['image'], array('height' => 60, 'class' => 'px60')); ?></div>
-	<div class="col col-sm-6">
-	<?php echo $item['PosProduct']['name']; ?>
-	<?php if(isset($item['PosProduct']['productmod_name'])) : ?>
-	<br />
-	<small><?php echo $item['PosProduct']['productmod_name']; ?></small>
-	<?php endif; ?>
-	</div>
-	<div class="col col-sm-1"><?php echo $item['PosProduct']['weight']; ?></div>
-	<div class="col col-sm-1">$<?php echo $item['PosProduct']['salesprice']; ?></div>
-	<div class="col col-sm-1" style="text-align: right;"><?php echo $item['quantity']; ?></div>
-	<div class="col col-sm-1" style="text-align: right;">$<?php echo $item['subtotal']; ?></div>
-</div>
-<?php endforeach; ?>
+    <tr class="" id="row-<?php echo $item['PosProduct']['id']?>">
+        <td class="image v_top t_center">
+            <div class="leftItem"> 
+            <?php if(!empty($item['PosProduct']['image'])) {?>
+                <div class="zoom">
+                    <div class="small">
+                    <?php  echo $this->Html->image('../'.$item['PosProduct']['image'], array("alt" => "No Image","border"=>"0" ));?>
+                    </div>
+                <div class="large">
+                <?php  //echo $this->Html->image('../'.$item['PosProduct']['image'], array("alt" => "No Image","border"=>"0"  ));?>
+                </div>
+                </div>
+            <?php }else{?>
+            <?php  echo $this->Html->image('/img/wpage/noImage.jpg', array("alt" => "No Image","width"=>"78" ,"height"=>"58","border"=>"0"));  }?>
+            </div>
+        </td>
+    <td id="name-25-244-3-1-98" class="details v_middle text_size13 t_left">
+    <?php echo $item['PosProduct']['name'];?> 
+    </td>
+    <td class="quantity v_middle t_center" id="salesPrice_<?php echo $item['PosProduct']['id']?>">
 
+     <?php echo $realPrice = round($item ['price']) ;?>
+    </td>
+    <td class="v_middle t_center">
+		<?php echo $item['quantity'];?>
+    </td> 
+    <td id="itemtotal_<?php echo $item['PosProduct']['id']?>" class="itemtotalprice">
+    	<?php //echo $item['quantity'] *  $item['price']; ?>
+        <?php echo 	$item['quantity'] *  $realPrice; ?>
+    </td>
+  </tr>
+  <?php endforeach; ?>
+</tbody>
+</table>
+</div>
+<div class="invoice_summary shopping_cart_right">
+<div class="orderSummary"><?php echo __("ORDER SUMMARY");?></div>
+ <div class="totalItem summary"><?php echo __("Total Quantity");?>  <span>&#8364; &nbsp;</><span class="quantityTotal"><?php echo $shop['Order']['quantity'];?></span></div>
+        <div class="summary"><?php echo __("Subtotal");?>  <span>&#8364; &nbsp;</><span class="subTotal"><?php echo $shop['Order']['subtotal']  ;?><?php //echo $shop['Order']['subtotal'];?></span></div>
+        <div class="summary"><?php echo __("Vat");?>  <span>&#8364; &nbsp;</><span class="vat"><?php echo (($shop['Order']['subtotal']*22)/100);?></span></div>
+        <div class="summary"><?php echo __("Shipping");?>  <span>&#8364; &nbsp;</><span class="shippingamount"><?php echo $shop['Order']['shippingCost']; ?></span></div>
+       <?php $payment_type = array('1'=>'Recive From SPR','2'=>'Cash On Delivery','3'=>'Bank Transfer');?>
+        <div class="summary" ><?php echo __($payment_type[$shop['Order']['payment_type']]);?>  <span>&#8364; &nbsp;</><span class="cashondelivery"><?php  echo $shop['Order']['payment_charge']; ?></span></div>
+        <div class="summary"><?php echo __("Total");?>  <span>&#8364; &nbsp;</><span class="Total"><?php echo $shop['Order']['total']+$shop['Order']['shippingCost']+$shop['Order']['payment_charge'] + $shop['Order']['iva'];?></span></div>
+       <?php /*?> <div class="summary"><?php echo __("Total");?>  <span>&#8364; &nbsp;</><span class="Total"><?php echo $shop['Order']['total']+$shop['Order']['shippingCost']+$shop['Order']['payment_charge'];?></span></div><?php */?>
+        <br />
+        <br />
+     <div class="btnconfirm checkout_button">Order Confirm </div>
+     <br />
+</div>
+<div class="clr"></div>
 <hr>
-
-<div class="row" id="total_order_complete">
-	<div class="col col-sm-10">Products: <?php echo $shop['Order']['order_item_count']; ?></div>
-	<div class="col col-sm-1" style="text-align: right;">Items: <?php echo $shop['Order']['quantity']; ?></div>
-	<div class="col col-sm-1" style="text-align: right;">Total<br /><strong>$<?php echo $shop['Order']['total']; ?></strong></div>
-</div>
-
-<hr>
-
-<br />
-<br />
-
-<?php echo $this->Form->create('Order'); ?>
-
-<?php if($shop['Order']['order_type'] == 'creditcard'): ?>
-
-<div id="ccbox">
-	Credit Card Type.
-</div>
-
-<div class="row">
-	<div class="col col-sm-3">
-		<?php echo $this->Form->input('creditcard_number', array('class' => 'order_form ccinput', 'maxLength' => 16, 'autocomplete' => 'off')); ?>
-	</div>
-</div>
-
-<br />
-
-<div class="row">
-	<div class="col col-sm-2">
-		<?php echo $this->Form->input('creditcard_month', array(
-			'label' => 'Expiration Month',
-			'class' => 'order_form',
-			'options' => array(
-				'01' => '01 - January',
-				'02' => '02 - February',
-				'03' => '03 - March',
-				'04' => '04 - April',
-				'05' => '05 - May',
-				'06' => '06 - June',
-				'07' => '07 - July',
-				'08' => '08 - August',
-				'09' => '09 - September',
-				'10' => '10 - October',
-				'11' => '11 - November',
-				'12' => '12 - December'
-			)
-		)); ?>
-	</div>
-	<div class="col col-sm-2">
-		<?php echo $this->Form->input('creditcard_year', array(
-			'label' => 'Expiration Year',
-			'class' => 'order_form',
-			'options' => array(
-				'13' => '2013',
-				'14' => '2014',
-				'15' => '2015',
-				'16' => '2016',
-				'17' => '2017',
-				'18' => '2018',
-				'19' => '2019',
-				'20' => '2020',
-				'21' => '2021',
-				'22' => '2022',
-			)
-		));?>
-	</div>
-</div>
-
-<br />
-
-<div class="row">
-	<div class="col col-sm-2">
-		<?php echo $this->Form->input('creditcard_code', array('label' => 'Card Security Code', 'class' => 'order_form', 'maxLength' => 4)); ?>
-	</div>
-</div>
-
-<br />
-
-<?php endif; ?>
-
-<?php echo $this->Form->button('Submit Order', array('class' => 'btn btn-primary','id'=>'submit_order','ecape' => false)); ?>
-
-<?php echo $this->Form->end(); ?>
-
-<br />
-<br />
-

@@ -150,11 +150,10 @@
 		<?php echo $this->Form->input('PosSale.email_address',array('type'=>'text','div'=>false,'label'=>false, 'size'=>35, 'class'=>'email '  ));?>
 		
    </div>
- 
-     <div id="WrapperUserfirstname" class="microcontroll">
-        <?php echo $this->Form->label('PosSale.name', __('Name'.': <span class="star">*</span>', true) ); ?>
-        <?php echo $this->Form->input('PosSale.name',array('type'=>'text','div'=>false,'label'=>false, 'size'=>35, 'class'=>'required'  ));?>
-    </div>
+              <div id="WrapperUserfirstname" class="microcontroll">
+                   <?php echo $this->Form->label('PosSale.name', __('Name'.': <span class="star">*</span>', true) ); ?>
+                   <?php echo $this->Form->input('PosSale.name',array('type'=>'text','div'=>false,'label'=>false, 'size'=>35, 'class'=>'required'  ));?>
+              </div>
  <div id="WrapperUserEmail" class="microcontroll">
 		<?php echo $this->Form->label('PosSale.phone', __('Phone'.': <span class="star"></span>', true) ); ?>
 		<?php echo $this->Form->input('PosSale.phone',array('type'=>'text','div'=>false,'label'=>false, 'size'=>35, 'class'=>''  ));?>

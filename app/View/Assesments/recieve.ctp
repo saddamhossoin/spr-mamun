@@ -1,4 +1,3 @@
- 
 <div id="is_email"><?php echo $this->Html->link(__('Send Email', true), array('action' => 'is_email', $serviceDeviceInfo['Assesment']['id']),array('class'=>' action_link_email','id'=> $serviceDeviceInfo['Assesment']['id'])); ?></div>
 <div id="is_sms"><?php echo $this->Html->link(__('Send SMS', true), array('action' => 'is_email', $serviceDeviceInfo['Assesment']['id']),array('class'=>' action_link_sms')); ?></div>
  <br />

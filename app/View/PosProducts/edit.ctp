@@ -1,5 +1,7 @@
 <?php echo $this->Html->script(array('jquery.form','common/jquery.validate'));
 echo $this->Html->css(array('common/grid','module/AssesmentInventories/add'));
+//pr($this->request->data);
+///die('jewel');
 ?>
 <div class="posProducts">
 <?php echo $this->Form->create('PosProduct',array('enctype' => 'multipart/form-data','type'=>'file'));?>
@@ -43,12 +45,17 @@ echo $this->Html->css(array('common/grid','module/AssesmentInventories/add'));
 		</div>
 	 	<div id="WrapperPosProductPurchaseprice" class="microcontroll">
 		<?php	echo $this->Form->label('PosProduct.purchaseprice', __('Purchase Price'.':<span class=star>*&nbsp;</span>', true) );?>
-		<?php	echo $this->Form->input('PosProduct.purchaseprice',array('div'=>false,'label'=>false,'class'=>'number required two_digit'));?>
+		<?php	echo $this->Form->input('PosProduct.purchaseprice',array('value'=>$this->request->data['PosStock']['last_purchase'],'div'=>false,'label'=>false,'class'=>'number required two_digit'));?>
 		</div>
 
 		<div id="WrapperPosProductSalesprice" class="microcontroll">
 		<?php	echo $this->Form->label('PosProduct.salesprice', __('Sales Price'.':<span class=star>*&nbsp;</span>', true) );?>
-		<?php	echo $this->Form->input('PosProduct.salesprice',array('div'=>false,'label'=>false,'class'=>'number required two_digit'));?>
+		<?php	echo $this->Form->input('PosProduct.salesprice',array('value'=>$this->request->data['PosStock']['last_sales'],'div'=>false,'label'=>false,'class'=>'number required two_digit'));?>
+		</div>
+
+		<div id="WrapperPosProductSalesprice" class="microcontroll">
+			<?php	echo $this->Form->label('PosProduct.online_price', __('Online Price'.':<span class=star>*&nbsp;</span>', true) );?>
+			<?php	echo $this->Form->input('PosProduct.online_price',array('div'=>false,'label'=>false,'class'=>'number required two_digit'));?>
 		</div>
 		
 		<div id="WrapperPosProductreorder" class="microcontroll">

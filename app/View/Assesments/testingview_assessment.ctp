@@ -9,9 +9,9 @@
 		if($serviceDeviceInfo['ServiceDeviceInfo']['is_urgent'] == 1)
 		{$urgent_class = 'urgent_class';}else{$urgent_class = '';}
  
-  if(!empty($serviceDeviceInfo['ServiceDeviceInfo']['checklist'])){?>
+  //if(!empty($serviceDeviceInfo['ServiceDeviceInfo']['checklist'])){?>
     <span id="test_checklist">Test Checklist</span>
-  <?php }
+  <?php // }
 	 
 	if(!empty($serviceDeviceInfo['ServiceDeviceInfo']['screenimage'])){  ?>
     <span id="view_Service_Image" class="btn_view_image_link" title="<?php echo $serviceDeviceInfo['ServiceDeviceInfo']['id'];?>">Image</span>
@@ -114,7 +114,7 @@
  	<div class="clr"></div>
  </div>
  <span id="ServiceDeviceInfo_id" style=" display:none"><?php echo $serviceDeviceInfo['ServiceDeviceInfo']['id'];?></span>
-  
+   <?php if(!empty($serviceDeviceInfo['Assesment']['id'])){?>
  	<div class="reciveDeviceAssesment reciveDevice">
     
 	<div class="blocktitleinfo"> Assesment</div>
@@ -174,6 +174,7 @@
   <?php }?>
 	</div>
   </div>
+     <?php } ?>
   <div class="clr"></div>
  
  	<div class="reciveDeviceAssementInventory reciveDevice" style=" <?php if(empty($assesmentInfo)){ echo "display:none" ; }else{ echo "display:block";}?>">

@@ -5,64 +5,96 @@
 <?php echo $this->Form->create('User');?>
 
         
-<div class="row">
-
-<div class="col col-sm-4">
-<?php echo $this->Form->input('firstname', array('label'=>'Full Name','class' => 'form-control')); ?>
-
-<br />
-<?php echo $this->Form->input('email_address', array('class' => 'form-control','id'=>'EmailAddressBody')); ?>
-<span id="username_feedback"></span>
-<br />
-<?php echo $this->Form->input('password', array('class' => 'form-control','id'=>'userpasswordreg')); ?>
-<span id="newpasswordId"></span>
-<br />
-<?php echo $this->Form->input('confirmpassword', array('class' => 'form-control','type'=>'password')); ?>
-<?php	echo $this->Form->input('Group.group_id',array('type'=>'hidden','value'=>3,'div'=>false,'label'=>false,'class'=>'required'));?>
-<br />
-<br />
-
-</div>
-</div>
-        
-<div id="WrapperUsersolve" class="microcontroll">
-	  	<div class="captchaimage">
-        
-        <?php echo $this->Html->image($this->Html->url(array('controller'=>'users', 'action'=>'captcha'), true),array('id'=>'img-captcha','vspace'=>2));
-        echo '<p><a href="#" id="a-reload">Can\'t read? Reload</a></p>';?>
-       </div> 
-       <br />
-       <br />
-       <br />
-       <br />
-       <br />
-       <?php 
-		 echo $this->Form->input('User.captcha', array('autocomplete'=>'off','label'=>false,'class' => 'form-control'));
-		
-        /*if($settings['jquerylib'])  {
-          echo '<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>';
-        }
-        */
-?>
-        <script>
-        jQuery('#a-reload').click(function() {
-          var $captcha = jQuery("#img-captcha");
-            $captcha.attr('src', $captcha.attr('src')+'?'+Math.random());
-          return false;
-        });
-        </script>
-         
-</div>
-       <?php  //echo $this->Form->input('User.captcha',array('autocomplete'=>'off','label'=>false,'div'=>false,'class'=>''));?>
- 		
-			
- 	</fieldset>
-<div class="button_area">
-		<?php echo $this->Form->button('Save',array( 'class'=>'btn btn-default btn-primary', 'id'=>'btn_user_add'));?>
-		<?php echo $this->Form->button('Cancel',array('class' => 'btn btn-default btn-primary','type'=>'reset','name'=>'reset','id'=>'Cancel'));?>
-		<?php echo $this->Form->end();?>
-</div>
-</div>
+	<div class="row registration_popup">
+        <div class="col col-sm-4">
+            <?php echo $this->Form->input('firstname', array('label'=>'Full Name','class' => 'form-control')); ?>
+            <?php echo $this->Form->hidden('track', array('label'=>false,'div'=>false,'value'=>$track)); ?>
+            <?php echo $this->Form->input('phone', array('label'=>'Mobile','class' => 'required form-control')); ?>
+            <?php echo $this->Form->input('email_address', array('class' => 'form-control','id'=>'EmailAddressBody')); ?>
+        <span id="username_feedback"></span>
+        <div class="input text required">
+            <?php echo $this->Form->label('language', __('Language'.': ', true) ); ?>
+            <?php echo $this->Form->select('language',  array('eng'=>'ENGLISH','ita'=>'ITALIANO'), array('class' => 'form-control', 'empty'=>'-- Please Select Language --', 'class'=>'required'));?>
+        </div>
+            <?php echo $this->Form->input('password', array('class' => 'form-control','id'=>'userpasswordreg')); ?>
+            <span id="newpasswordId"></span>
+            <?php echo $this->Form->input('confirmpassword', array('class' => 'form-control','type'=>'password')); ?>
+            <?php echo $this->Form->input('Group.group_id',array('type'=>'hidden','value'=>3,'div'=>false,'label'=>false,'class'=>'required'));?> 
+        <br />
+        </div>
+        </div>
+            
+        <div id="WrapperUsersolve" class="microcontroll">
+            <div class="captchaimage">
+               <?php echo $this->Html->image($this->Html->url(array('controller'=>'users', 'action'=>'captcha'), true),array('id'=>'img-captcha','vspace'=>2));
+                echo '<p><a href="#" id="a-reload">Can\'t read? Reload</a></p>';?>
+           </div> 
+           <?php echo $this->Form->input('User.captcha', array('autocomplete'=>'off','label'=>false,'class' => 'form-control'));		
+            /*if($settings['jquerylib']){
+              echo '<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>';
+            }*/?>
+            <script>
+            jQuery('#a-reload').click(function() {
+              var $captcha = jQuery("#img-captcha");
+                $captcha.attr('src', $captcha.attr('src')+'?'+Math.random());
+              return false;
+            });
+            </script>
+        </div>
+           <?php  //echo $this->Form->input('User.captcha',array('autocomplete'=>'off','label'=>false,'div'=>false,'class'=>''));?>
+        </fieldset>
+        <div style="clear:both"></div>
+        <div class="button_area">
+            <?php echo $this->Form->button('Save',array( 'class'=>'btn btn-default btn-warning', 'id'=>'btn_user_add'));?>
+            <?php echo $this->Form->button('Cancel',array('class' => 'btn btn-default btn-warning','type'=>'reset','name'=>'reset','id'=>'Cancel'));?>
+            <?php echo $this->Form->end();?>
+        </div>
+	</div>
+<style type="text/css">
+	.registration_popup label{
+		float: left;
+		width: 131px;
+		font-weight:normal;
+	}
+	.registration_popup div div{
+		margin-bottom:5px;
+	}
+	.registration_popup input{
+		width:200px !important;
+		height:29px !important;
+	}
+	.captchaimage p{
+		font-size: 14px;
+	}
+	.captchaimage {
+		float: left;
+		width: 150px;
+	}
+	#UserCaptcha{
+		display: inline;
+		margin-left: 11px;
+		height:29px !important;
+		width: 171px !important;
+	}
+	#UserUserRegistrationForm .button_area {
+		width:100% !important;
+		text-align:center;
+		margin:0px !important;
+	}
+	#UserLanguage{
+		width:202px;
+	}
+	label.error {
+		color: #f00;
+		float: none !important;
+		width: 100% !important;
+		font-size:12px !important;
+		display:none !important;
+	}
+	.error {
+		border:1px solid #f00;
+	}
+</style>
  
 <script type="text/javascript">
  jQuery(function($){ 
@@ -84,15 +116,17 @@
 			url:siteurl+"Users/user_registration",
 			data:  data, 
 			success: function(response){
-  			 if(response ==1 ){
-				   $.alert.open('warning', 'Welcome, '+fullname+'. </br> Your registration is waiting for admin approval. ');
-				   window.location.reload(true);
+   			 if(response == 1 ){
+ 				  window.location.href = siteurl+"shop/cart";
+ 			 }
+			 else if(response == 2 ){
+ 				  window.location.href = siteurl+"ServiceServices/brand";
  			 }
 			 else{
  					 $.alert.open('warning', response);
  			 	}
  				 
-			 	}
+			 }
 			
 			});
  		}

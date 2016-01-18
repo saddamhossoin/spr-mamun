@@ -1,3 +1,10 @@
+<?php
+
+/**
+ * @var $this view
+ */
+
+?>
 <div class="flexigrid" style="width: 100%;">
  <div class="mDiv">
   <div class="ftitle">

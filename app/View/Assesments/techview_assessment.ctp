@@ -1,4 +1,4 @@
-<?php      //pr($serviceDeviceInfo);?>
+<?php    // pr($serviceDeviceInfo);?>
 <div class="assesments form assmentadd">
 
 	 <div class="reciveDeviceContact reciveDevice">
@@ -117,13 +117,12 @@
  
  <span id="ServiceDeviceInfo_id" style=" display:none"><?php echo $serviceDeviceInfo['ServiceDeviceInfo']['id'];?></span>
   
- 	<div class="reciveDeviceAssesment reciveDevice">
+  <?php if(!empty($serviceDeviceInfo['Assesment']['id'])){?>
+  <div class="reciveDeviceAssesment reciveDevice">
     
 	<div class="blocktitleinfo"> Assesment</div>
 		<div class="reciveDeviceAssesmentContent">	
-		<?php 
-		
-		$assesmentInfo = $serviceDeviceInfo['Assesment'];
+		<?php $assesmentInfo = $serviceDeviceInfo['Assesment'];
  		if(empty($assesmentInfo)){
 			echo $this->Form->create('Assesment',array('action'=>'add'));?>
 		<?php echo $this->Form->input('Assesment.service_device_info_id',array('value'=>$serviceDeviceInfo['ServiceDeviceInfo']['id'],'type'=>'hidden','div'=>false  ));?>
@@ -178,24 +177,21 @@
   <?php }?>
 	</div>
   </div>
+  
   <div class="clr"></div>
- 
- 	<div class="reciveDeviceAssementInventory reciveDevice" style=" <?php if(empty($assesmentInfo)){ echo "display:none" ; }else{ echo "display:block";}?>">
- 		<div class="blocktitleinfo"> Inventory  </div>
-		
-        
-   <div class="bDiv" style="height: auto;">
+  <div class="reciveDeviceAssementInventory reciveDevice" style=" <?php if(empty($assesmentInfo)){ echo "display:none" ; }else{ echo "display:block";}?>">
+ 	<div class="blocktitleinfo"> Inventory  </div>
+    <div class="bDiv" style="height: auto;">
  
    <table cellspacing="0" cellpadding="0" border="0" style="" class=" view_table">
    <thead>
         <tr>
-        <th>Product</th>
-        <th>Brand</th>
-        <th>Category</th>
-        <th>Quantity</th>
-        <th>Price</th>
-        <th>Item Total</th>
-         
+            <th>Product</th>
+            <th>Brand</th>
+            <th>Category</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Item Total</th>
         </tr>
    </thead>
     <tbody>
@@ -255,9 +251,9 @@
 			if ($i++ % 2 == 0) {
 				$class = ' class="altrow"';
 			}
- 			// pr($assesmentService);
+ 			 
 			 $serviceInfo =  $this->requestAction(array('controller' => 'ServiceServices', 'action' => 'getServiceInfo', $assesmentService['service_service_id'], 'return'));
-			/// pr($serviceInfo );
+		 
   	?>
 		<tr <?php echo $class;?> id="AssesmentServiceTr_<?php echo $assesmentService['id']?>">
             <td> <?php echo $serviceInfo['ServiceService']['name'] ?></td>
@@ -273,6 +269,7 @@
      </div>
       	<div class="clr"></div> 
     </div>
+    <?php } ?>
     <div class="clr"></div>  
  </div>
   
@@ -280,18 +277,17 @@
 <?php echo $this->Html->script(array('module/Assesments/techview_assessment')); ?>
  	
 	<div class="button_area">
-		<?php echo $this->Form->button('Re-Assessment',array( 'class'=>'submit tec_view', 'id'=>$serviceDeviceInfo['ServiceDeviceInfo']['id']));?>
+		<?php
+		if(!empty($serviceDeviceInfo['Assesment']['id'])){
+		 echo $this->Form->button('Re-Assessment',array( 'class'=>'submit tec_view', 'id'=>$serviceDeviceInfo['ServiceDeviceInfo']['id']));
+		 }?>
+        
         <?php if($serviceDeviceInfo['ServiceDeviceInfo']['status']==5){?>
-        
-        <div style="display:none"><?php echo $this->Form->button('Working',array( 'class'=>'submit working complete', 'id'=>$serviceDeviceInfo['ServiceDeviceInfo']['id']));?></div>
-        
-		<?php }else {?>
-        
-	<?php echo $this->Form->button('Working',array( 'class'=>'submit working complete', 'id'=>$serviceDeviceInfo['ServiceDeviceInfo']['id']));?>
-			
-	<?php }?>
-		
-		<?php if($serviceDeviceInfo['ServiceDeviceInfo']['status']==5){?>
+         <div style="display:none"><?php echo $this->Form->button('Working',array( 'class'=>'submit working complete', 'id'=>$serviceDeviceInfo['ServiceDeviceInfo']['id']));?></div>
+ 		<?php }else {?>
+ 	<?php echo $this->Form->button('Working',array( 'class'=>'submit working complete', 'id'=>$serviceDeviceInfo['ServiceDeviceInfo']['id']));?>
+ 	<?php }?>
+ 		<?php if($serviceDeviceInfo['ServiceDeviceInfo']['status']==5){?>
         <?php echo $this->Form->button('Complete',array( 'class'=>'ass_complete final_complete', 'id'=>$serviceDeviceInfo['ServiceDeviceInfo']['id']));?>
         <?php }	?>
 		<?php echo $this->Form->button('Cancel',array('type'=>'reset tec_view','name'=>'reset','id'=>'Cancel'));?>

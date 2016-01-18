@@ -46,6 +46,10 @@ echo $this->Html->css(array('common/grid'));
             <?php	echo $this->Form->label('PosProduct.salesprice', __('Sales Price'.':<span class=star>*&nbsp;</span>', true) );?>
             <?php	echo $this->Form->input('PosProduct.salesprice',array('div'=>false,'label'=>false,'class'=>'number required two_digit'));?>
             </div>
+            <div id="WrapperPosProductSalesprice" class="microcontroll">
+                <?php	echo $this->Form->label('PosProduct.online_price', __('Online Price'.':<span class=star>*&nbsp;</span>', true) );?>
+                <?php	echo $this->Form->input('PosProduct.online_price',array('div'=>false,'label'=>false,'class'=>'number required two_digit'));?>
+            </div>
             
             <div id="WrapperPosProductreorder" class="microcontroll">
             <?php	echo $this->Form->label('PosProduct.reorder', __('Reorder'.':<span class=star>*&nbsp;</span>', true) );?>
